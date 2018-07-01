@@ -43,6 +43,16 @@ Talk/workshop on the idea of outside in multi layered behaviour driven layered t
     - https://www.infoq.com/articles/layered-test-automatation
     - https://www.gartner.com/doc/2645817/produce-better-software-using-layered
     - Idea from Nick at Rails Camp North Pine around domain object modelling with adapters for testing the domain directly or via ui?
+  - [ ] presentation format? slides https://revealjs.com/
+  - [ ] current layers
+    * Process flow
+    * Mechanics of a page
+    * Frontend component tests
+    * API integration tests
+    * controller unit tests
+    * model db integration tests
+    * model unit tests
+    * ... and what ever I have missed
   - ...
 
 ## Credibility 
