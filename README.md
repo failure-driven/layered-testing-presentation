@@ -97,3 +97,7 @@ Talk/workshop on the idea of outside in multi layered behaviour driven layered t
 - any other https://www.papercall.io/events
 - or how do you got onto https://www.codercruise.com/speakers/
 
+## Demo Blog
+
+1. `rails new blog_demo`
+
