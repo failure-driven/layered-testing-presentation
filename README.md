@@ -70,3 +70,26 @@ Talk/workshop on the idea of outside in multi layered behaviour driven layered t
 ## Glory
 
   :)
+  
+## Conference options
+
+- [Ruby Conf AU](https://www.rubyconf.org.au/2019)
+  - CFP ?
+- https://rubyconferences.org/
+  
+- [Ruby Conf Malaysia](https://rubyconf.my/) 25-26 October
+  - missed it?
+- [Ruby Russia](https://rubyrussia.club/en) 6 October
+  - CFP 15 September
+- [Ruby Conf India](https://www.rubyconfindia.org/)
+  - 20-21 Jan 2019
+  - [CFP](https://www.papercall.io/rci19) - Nov 30
+  
+- [Rails Conf](http://railsconf.com/) - April 17-19 2018 - 2019 dates?
+  - is there a CFP - https://eventil.com/events/railsconf-2019/cfp ?
+  - https://cfp.rubycentral.org/events
+- [Ruby Conf](https://rubyconf.org/) - 13-15 Nov 2018
+  - CFP closed Jul 31
+- any other https://www.papercall.io/events
+- or how do you got onto https://www.codercruise.com/speakers/
+
