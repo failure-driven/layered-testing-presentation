@@ -73,6 +73,10 @@ Talk/workshop on the idea of outside in multi layered behaviour driven layered t
   
 ## Conference options
 
+- [Ruby meetup Melboure](https://www.meetup.com/Ruby-On-Rails-Oceania-Melbourne/)
+  - plan for November 2018
+  - https://github.com/rails-oceania/melbourne-ruby/issues/111
+  
 - [Ruby Conf AU](https://www.rubyconf.org.au/2019)
   - CFP ends 15 October https://www.papercall.io/rubyconf-au-2019
 - https://rubyconferences.org/
