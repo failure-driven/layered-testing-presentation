@@ -101,3 +101,14 @@ Talk/workshop on the idea of outside in multi layered behaviour driven layered t
 
 1. `rails new blog_demo`
 
+## Slides
+
+```
+git clone https://github.com/hakimel/reveal.js.git
+cp index.html reveal.js/index.html
+cd reveal.js
+npm install
+npm start
+open http://localhost:8000/
+```
+
