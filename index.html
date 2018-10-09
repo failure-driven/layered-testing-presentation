@@ -7,7 +7,7 @@
 		<title>reveal.js</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/white.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -24,8 +24,68 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+          <h1>Multi Layered Outside In Behaviour Driven Design</h1>
+          <h3>Selena Small & Michael Milewski</h3>
+          <aside class="notes">
+            Should introduce something
+          </aside>
+        </section>
+        <section>
+          <h1>An idea for an app</h1>
+        </section>
+        <section>
+          <h1>Why testing matters</h1>
+        </section>
+        <section>
+          <h1>The biggest Unit</h1>
+        </section>
+        <section>
+          <h1>Flow spec</h1>
+          <section>
+<pre><code data-trim data-noescape>
+feature 'Michael plays a game of images 2 text', js: true do
+  scenario 'Michael plays a perfect game' do
+    When 'Michael starts a new game' do
+      visit root_path
+      focus_on(:welcome).start_new_game
+    end
+    ...
+</code></pre>
+          </section>
+        </section>
+        <section>
+          <h1>Down a level - mechanics</h1>
+        </section>
+        <section>
+          <h1>Front End components</h1>
+        </section>
+        <section>
+          <h1>API acceptance specs</h1>
+        </section>
+        <section>
+          <h1>Controller specs</h1>
+        </section>
+        <section>
+          <h1>Model - unit and DB integration specs</h1>
+        </section>
+        <section>
+          <h1>External integration specs</h1>
+        </section>
+        <section>
+          <section>
+            <h1>Summary</h1>
+          </section>
+          <section>
+            <h1>Test Drive DESIGN</h1>
+          </section>
+          <section>
+            <h1>How to decide what to test</h1>
+          </section>
+          <section>
+            <h1>Everything is a unit</h1>
+          </section>
+        </section>
 			</div>
 		</div>
 
