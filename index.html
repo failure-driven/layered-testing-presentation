@@ -25,23 +25,62 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
-          <h1>Multi Layered Outside In Behaviour Driven Design</h1>
+          <h1>Multi Layered Outside In Behaviour Driven Design (BDD)</h1>
           <h3>Selena Small & Michael Milewski</h3>
           <aside class="notes">
-            Should introduce something
+            A quick introduction of us and why this
           </aside>
         </section>
         <section>
           <h1>An idea for an app</h1>
+          <aside class="notes">
+            Michael:
+              explain the app as we page through some images of the user flow
+            Selena:
+              seet bro let's build it
+            Michael:
+              OK, I think I have an idea on how the DB schema might fit
+              togehter to organise a Game into Rounds and tally a scoreboard of
+              players, I presume I will need an image display react component,
+              a timer and an input form, lets write some code ...
+            Selena:
+              NOOOOO don't do that, start with a test first!
+            Michael:
+              What at the beginning? before I write any code? before I have a design?
+          </aside>
         </section>
         <section>
           <h1>Why testing matters</h1>
+          <aside class="notes">
+            Analogy? If you could stop time and know the acceleration and mass
+            of every particle in space you could predict the future.
+
+            So with software, time does not stop and you are dreaming to have
+            this amazing control of predicting the need of users, the browsers
+            they will have, the various bugs that will bump various library
+            versions, how users abuse the features you have and how priorities
+            will change and features maybe even whole company strategies may
+            pivot.
+
+            And that is why you need testing, to know at any point in time that
+            what you wanted to work a particular way, still works that way. And
+            the easiest way to make sure your tests are relatively simple to
+            write and your code is easy to reason about is to write the tests
+            first, have them drive out the code reqruied, have them "Design"
+            the code you need Test Driven Design.
+          </aside>
         </section>
         <section>
           <h1>The biggest Unit</h1>
+          <aside class="notes">
+            What's a unit anyway?
+            TDD vs BDD?
+            RSpec
+            the stack? or is that part of emergent architecture?
+          </aside>
         </section>
         <section>
-          <h1>Flow spec</h1>
+          <h1>Lifecycle Flow Spec</h1>
           <section>
 <pre><code data-trim data-noescape>
 feature 'Michael plays a game of images 2 text', js: true do
@@ -52,22 +91,71 @@ feature 'Michael plays a game of images 2 text', js: true do
     end
     ...
 </code></pre>
+          <aside class="notes">
+            Michael:
+              Oh cool let me add this spec for a guess with a typo ...
+            Selena:
+              STOP flow specs have the following resonsiblities ... and your
+              idea of another spec is a layer down
+
+              Explain step by step how it is like a flow, follow along with
+              code snippets and slides showing the action in the game.
+          </aside>
           </section>
         </section>
         <section>
+          <h3>Lifecycle Flow Spec - Summary</h3>
+          <ul>
+            <li>what is the unit</li>
+            <li>what are we testing and not testing</li>
+            <li>Examples of testing and not testing</li>
+          </ul>
+        </section>
+        <section>
           <h1>Down a level - mechanics</h1>
+          <aside class="notes">
+            Selena:
+              So you wanted to do a spec of a typo, move over let me pair and show you how ...
+              STOP! actually junior at the keyboard, you type
+            Michael:
+              cool so I type ...
+          </aside>
         </section>
         <section>
           <h1>Front End components</h1>
+          <aside class="notes">
+            How to decide what to test in mechanic vs FE component
+            Michael:
+              Cool it looks good on the page, back up to the mechanic - ahh but the test still does not pass!???
+            Selena:
+              Keep your cool, it is layered and iterative, for each layer we go
+              down to the next layer. Only when we get to the bottom of the
+              onion of layers can we walk back up the tests and see everything
+              pass.
+          </aside>
         </section>
         <section>
           <h1>API acceptance specs</h1>
+          <aside class="notes">
+            * Integration
+            * Controller
+            * Serializer
+          </aside>
         </section>
         <section>
           <h1>Controller specs</h1>
+          <aside class="notes">
+            Fresho vs the RSpec rails way
+          </aside>
         </section>
         <section>
           <h1>Model - unit and DB integration specs</h1>
+          <aside class="notes">
+            * group of models that represent a domain concpet
+            * Dan what does he hate at this level? call backs?
+            * Testing active record or not?
+            * Ryan Bigg exploding rails? any input
+          </aside>
         </section>
         <section>
           <h1>External integration specs</h1>
@@ -78,12 +166,24 @@ feature 'Michael plays a game of images 2 text', js: true do
           </section>
           <section>
             <h1>Test Drive DESIGN</h1>
+            <aside class="notes">
+              * example of what is Driven and what is Designed
+              * How to decide what to test and at what level?
+              * where to expect things to fail and where not to?
+            </aside>
           </section>
           <section>
             <h1>How to decide what to test</h1>
+            <aside class="notes">
+              * How to decide what to test and at what level?
+              * where to expect things to fail and where not to?
+            </aside>
           </section>
           <section>
             <h1>Everything is a unit</h1>
+            <aside class="notes">
+              ¯\_(ツ)_/¯
+            </aside>
           </section>
         </section>
 			</div>
