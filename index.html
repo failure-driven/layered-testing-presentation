@@ -24,34 +24,50 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>
-          <h1>Multi Layered Outside In Behaviour Driven Design (BDD)</h1>
+        <section>
+          <h1>Failing for the right reason</h1>
           <h3>Selena Small & Michael Milewski</h3>
           <aside class="notes">
-            A quick introduction of us and why this
+            Selena: Hi everyone, thanks for joining us today. I'm Selena and this Michael, we're going to
+              talk you about...
+
+            Michael: "Failing for the right reason!" - how to write tests that fail and drive out a perfect design
+              for your software
+
+            Selena: and it's going to be a great time. Are you guys excited? I'm excited! Where do we start?!
+
+              Michael: Well... I've been thinking about it and I've come up with this great idea for an app!! People are gonna love it
+
+              Selena: Oh yeah...? That only took you what? 20 years?
+
+              Michael: haha fuck off
           </aside>
         </section>
+
         <section>
-          <h1>An idea for an app</h1>
+          <h3>An idea for an app</h3>
+
           <aside class="notes">
-            Michael:
-              explain the app as we page through some images of the user flow
-            Selena:
-              seet bro let's build it
-            Michael:
-              OK, I think I have an idea on how the DB schema might fit
-              togehter to organise a Game into Rounds and tally a scoreboard of
-              players, I presume I will need an image display react component,
-              a timer and an input form, lets write some code ...
-            Selena:
-              NOOOOO don't do that, start with a test first!
-            Michael:
-              What at the beginning? before I write any code? before I have a design?
+            Michael: So, the idea is a guessing game! (michael run through rough diagram/explanation while Selena questions it)
+
+            Selena: Alright cool, let's build it!
+
+            Michael: OK sweet, I think I have an idea on how the DB schema might fit together. There's going
+              to be a Game object and Rounds and some sort of Score for the players, I presume I will need
+              an image display react component, a timer and an input form, so I'll just start smashing that
+              together and see where we get to...
+
+            Selena: Wait, what? aren't we TDDing this? You need to start with a test.
+
+            Michael: What at the beginning? before I write any code? but I don't know where I'm going.
+              Why the fuck would I do that?
           </aside>
         </section>
+
         <section>
           <h1>Why testing matters</h1>
           <aside class="notes">
+              (Selena explains to the Junior dev why TDD matters & why you would start with a test)
             Analogy? If you could stop time and know the acceleration and mass
             of every particle in space you could predict the future.
 
@@ -66,13 +82,27 @@
             what you wanted to work a particular way, still works that way. And
             the easiest way to make sure your tests are relatively simple to
             write and your code is easy to reason about is to write the tests
-            first, have them drive out the code reqruied, have them "Design"
+            first, have them drive out the code required, have them "Design"
             the code you need Test Driven Design.
           </aside>
         </section>
+
         <section>
           <h1>The biggest Unit</h1>
           <aside class="notes">
+              Michael: Ohhhh so I need to start by testing the biggest unit. Well, that's obviously the Game object...
+
+              Selena: Obviously not. No, let's go back to your drawing and take a closer look. See here, you've already
+              drawn it out. This thing interacts with that thing and another thing through an API. And you're probably
+              going to display it all using some sort of front end - have you thought about the tech stack?
+
+              Michael: Yes. This part will be react, the API will be exposed from a Rails backend which talks to a
+              Postgres database. OHHH I get it now! This whole thing is a unit! Because this thing interacts with that
+              thing and another thing through an API. And that will all be displayed in a SPA
+
+              Selena: Now you're getting it!
+
+
             What's a unit anyway?
             TDD vs BDD?
             RSpec
@@ -95,7 +125,7 @@ feature 'Michael plays a game of images 2 text', js: true do
             Michael:
               Oh cool let me add this spec for a guess with a typo ...
             Selena:
-              STOP flow specs have the following resonsiblities ... and your
+              STOP flow specs have the following responsibilities ... and your
               idea of another spec is a layer down
 
               Explain step by step how it is like a flow, follow along with

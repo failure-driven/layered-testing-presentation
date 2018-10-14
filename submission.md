@@ -4,9 +4,14 @@
 
 ### Title
 
-Layered outside in BDD testing
+Failing for the right reason - a fresh look on TDD
 
 ### Elevator Pitch
+
+- layered testing
+- actual test driven
+- techniques for organising your tests
+- selena's secret sauce "a good time"  
 
 _300 characters as exciting and enticing as possible_
 
