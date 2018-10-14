@@ -111,6 +111,64 @@
         </section>
         <section>
           <h1>Lifecycle Flow Spec</h1>
+            <pre>
+            step by step:
+                Scenario "Casper plays to win, and have a good time"
+                - When Casper starts the game
+                - Then round 1 begins
+                    - display 9 images of "ghosts"
+                    - start timer with 10 seconds left
+                    - text box for answers
+                - When Casper types in the correct answer of "ghosts"
+                - Then the timer stops
+                    - You get notified ghosts is correct answer
+                    - score of 10 seconds - time to type is presented
+                    - alert showing 3 seconds till next round pops up
+                - When the next round timer expires
+                - Then the next round is displayed
+                    - with 9 new images (of "gremlins")
+                - When Casper guesses wrongly
+                    - typing "furby monster cat"
+                - Then a wrong guess message appears
+                - When the time runs out
+                - Then Casper gets 0 points
+                    - redirected to next round
+                - When Casper is presented with round 3
+                    - images of haunted houses
+                    - guessing "pizza wine beer"
+                    - typing "haunted house"
+                - Then upon writing the correct guess
+                    - the timer stops
+                    - the guess is highlighted as correct
+                    - a score is shown
+                - When the round finished
+                - Then Casper is taken to result page
+                    - showing final score
+                    - and run down of rounds
+                    - and he can tweet it to his followers cause he's popular as fuck
+                RUN it in reality
+
+                NEW SLIDE
+                    - When do we fall into Mechanic
+                        - page reload?
+                    - continue with mechanic
+                NEW SLIDE
+                    - When do we fall into FE component test
+                    - continue
+                NEW SLIDE
+                    - Api - brief overview of what why? etc?
+                NEW SLIDE
+                    - contoller
+                        - unit not standard RSpec
+                        - touch on no idiotmatic RSpec
+                NEW SLIDE
+                    - model
+                    - external integration
+
+                OVERVIEW
+                    start outside in
+
+            </pre>
           <section>
 <pre><code data-trim data-noescape>
 feature 'Michael plays a game of images 2 text', js: true do

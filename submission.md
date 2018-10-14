@@ -7,18 +7,12 @@
 Failing for the right reason - a fresh look on TDD
 
 ### Elevator Pitch
-
-- layered testing
-- actual test driven
-- techniques for organising your tests
-- selena's secret sauce "a good time"  
-
 _300 characters as exciting and enticing as possible_
 
-  You'll walk out of this talk flipping all your testing practices on their
-  head, find purpose in designing software through tests first and learn a
-  framework of testing your complete stack that delivers value to the client
-  and piece of mind in test driven working software.
+  Real code, live demo. Get into the nitty-gritty of using tests to drive out code!
+  Ever had difficulty writing tests? Don't know how to identify the unit under test? 
+  Find it hard to write tests BEFORE implementation? Join us as we take you on a journey 
+  through multilayer outside-in BDD
 
 ### Talk Format
 
@@ -31,56 +25,60 @@ _300 characters as exciting and enticing as possible_
 ### Description
 
 _contemporary experience, beyond single application, diversity, novel experiences or developments_
-
-  The talk is a hands on style tutorial in a style of layered Behaviour Driven
-  Design for modern web applications often with a SPA (Single Page Application)
-  on the front end written in a framework like ReactJS and backed by Rails for
-  the API as well as admin like functionality.
-
-  This multi layer, outside in BDD stle is based on many years and companies
-  worth of refinement to the techniques and described now as is used in
-  Melbourne startup to build quality software.
-
-  To make the code available and shareable the presnetation follows along an
-  open source demo project implementation of the same style of testing
-  approach.
+  
+  You have a great idea for a web app but you have no idea how it's all going to fit together. Learn how to 
+  drive your design from the business level interactions that a user might make, right through to the smallest
+  units of the domain with multi-layer outside-in behavioural driven design (BDD).
+  
+  This talk is a hands on style tutorial which will enable developers to get started on their projects or
+  improve the testing strategies within their own organisations. We're going to run through building a simple
+  web app written with a Rails API and React frontend, and tested using Rspec, Capybara, Selenium webdriver and Jest.
+  
+  The multi layer, outside in BDD development style is based on many years and companies worth of refinement to the 
+  techniques from the perspectives of two developers who came from polar opposite backgrounds - One with over 20 
+  years of commercial experience and a vast background in TDD, and one relatively new to software.
 
   Participants will be taken though the various layers:
 
-  **"Lifecycle Flow"** is the outer most layer of this BDD approach and follows
-  along a flow of activity between 1 or more actors, usually driving a browser
-  along many screens of a web style applications leading to one of a number of
-  possible flow on effects. These flows usually represent a business process.
+  * **"Lifecycle Flow"** is the outer most layer of this BDD approach and follows
+    along a flow of activity between 1 or more actors, usually driving a browser
+    along many screens of a web style applications leading to one of a number of
+    possible flow on effects. These flows usually represent a business process.
 
-  **"Page/Component Mechanics"** are tests still run from a browser but
-  focusing on a particular page or component on a number of places within the
-  app and exercise specific behaviours that may come about from various states
-  the application may find itself in.
+  * **"Page/Component Mechanics"** are tests still run from a browser but
+    focusing on a particular page or component on a number of places within the
+    app and exercise specific behaviours that may come about from various states
+    the application may find itself in.
 
-  **"Frontend Compment Tests"** are used to test the usually javascript
-  frontend framework implementation of the web page implementation. They allow
-  for faster unit level teting of the various states the frontend can be in.
+  * **"Frontend Component Tests"** are used to test the usually javascript
+    frontend framework implementation of the web page implementation. They allow
+    for faster unit level testing of the various states the frontend can be in.
 
-  **"External Integration Tests"** are a boundary that is fulfilled with a mock
-  at most other layers of testing. This layer is performed separately to better
-  control the effect of third party services.
+  * **"External Integration Tests"** are a boundary that is fulfilled with a mock
+    at most other layers of testing. This layer is performed separately to better
+    control the effect of third party services.
 
-  **"API Acceptance Tests"** define a boundary of the backend system and are an
-  integration test of the backend unit as a whole. This allows for TODO ....
+  * **"API Acceptance Tests"** define a boundary of the backend system and are an
+    integration test of the backend unit as a whole.
 
-  **"Controller Unit Tests"** are written as unit tests as opposed to more
-  standard RSpec integration tests. This is due to the API accpectance being a
-  beter place to drive out the integration and means tests at this layer would
-  only change with API changes.
+  * **"Controller Unit Tests"** are written as unit tests as opposed to more
+    standard RSpec integration tests. This is due to the API acceptance being a
+    better place to drive out the integration and means tests at this layer would
+    only change with API changes.
 
-  **"Domain Concpet Tests"** often a number of model classes in rails represent
-  a join domain concept and it is worth testing their interaction.
+  * **"Domain Concept Tests"** often a number of model classes in rails represent
+    a join domain concept and it is worth testing their interaction.
 
-  **"Domain Unit Tests"** are mostly done against the grain of RSpec and are
-  unit tests and not integrated with the DB for variuos reasons TODO ...
+  * **"Domain Unit Tests"** are mostly done against the grain of RSpec and are
+    unit tests and not integrated with the DB.
 
+  Attendees of the talk will walk away with a practical framework knowing
+  * What Unit is under test
+  * What to test at which level
+  * Which failures are expected to happen where
+  * A code repository with all these concepts
+  
   For each of these layers a summary will be given of:
-
   * how to define the unit under test and why
   * the kind of things that should and should not be tested and could break
     under this level
@@ -89,8 +87,8 @@ _contemporary experience, beyond single application, diversity, novel experience
 ### Notes
 
 Technical requirements:
-  The talk is to be presented by 2 persenters, Selena Small and Michael
-  Milewski. Both prsenters would prefer lapel microphones to allow easy
+  The talk is to be presented by 2 presenters, Selena Small and Michael
+  Milewski. Both presenters would prefer lapel microphones to allow easy
   movement on stage.
 
 Best people for this subject:
@@ -100,22 +98,18 @@ Best people for this subject:
   Milewski picked up BDD from Perryn about 10 years ago and brings a wide
   variety of experience to the topic. Selena on the other hand is a new
   developer that specifically sought out Perryn to learn BDD and test driven
-  development and brings a perspective of someone who has just freshly learnt
-  the concpets.
+  development and brings a perspective of someone who has just freshly learned
+  the concepts.
 
   Together they present in accessible way from beginner through intermediate to
   experienced. Also basing the presentation on an open source demo of the style
-  of testing gives participants of the talk a valuable resrouce to find out in
+  of testing gives participants of the talk a valuable resource to find out in
   more depth about this style of writing software.
 
 2 people:
   Although either of us could present the subject we thought that it would be
   more approachable and lively if both of us were on stage. We also both
   encouraged each other to get this topic to a level at which we can present.
-  That said Selena has applied to do another talk. As we understand it each
-  presenter can only do 1 talk. If it happens that both her individual talk and
-  this talk were to be selected to presnt, we would hope that there would be
-  leniency to that ruling.
 
 ### Tags
 
