@@ -9,10 +9,10 @@ Failing for the right reason - a fresh look on TDD
 ### Elevator Pitch
 _300 characters as exciting and enticing as possible_
 
-  Real code, live demo. Get into the nitty-gritty of using tests to drive out code!
-  Ever had difficulty writing tests? Don't know how to identify the unit under test? 
-  Find it hard to write tests BEFORE implementation? Join us as we take you on a journey 
-  through multilayer outside-in BDD
+  Real code, live demo. Get into the nitty-gritty of using tests to drive out
+  code! Ever had difficulty writing tests? Don’t know how to identify the unit
+  under test? Find it hard to write tests BEFORE implementation? Join us as we
+  take you on a journey through multilayer outside-in BDD
 
 ### Talk Format
 
@@ -20,23 +20,28 @@ _300 characters as exciting and enticing as possible_
 
 ### Audience Level
 
-  Intermediate
+  All
 
 ### Description
 
 _contemporary experience, beyond single application, diversity, novel experiences or developments_
   
-  You have a great idea for a web app but you have no idea how it's all going to fit together. Learn how to 
-  drive your design from the business level interactions that a user might make, right through to the smallest
-  units of the domain with multi-layer outside-in behavioural driven design (BDD).
-  
-  This talk is a hands on style tutorial which will enable developers to get started on their projects or
-  improve the testing strategies within their own organisations. We're going to run through building a simple
-  web app written with a Rails API and React frontend, and tested using Rspec, Capybara, Selenium webdriver and Jest.
-  
-  The multi layer, outside in BDD development style is based on many years and companies worth of refinement to the 
-  techniques from the perspectives of two developers who came from polar opposite backgrounds - One with over 20 
-  years of commercial experience and a vast background in TDD, and one relatively new to software.
+  You have a great idea for a web app but you have no idea how it’s all going
+  to fit together. Learn how to drive your design from the business level
+  interactions that a user might make, right through to the smallest units of
+  the domain with multi-layer outside-in behavioural driven design (BDD).
+
+  This talk is a hands on style tutorial which will enable developers to get
+  started on their projects or improve the testing strategies within their own
+  organisations. We’re going to run through building a simple web app written
+  with a Rails API and React frontend, and tested using RSpec, Capybara,
+  Selenium webdriver and Jest.
+
+  The multi layer, outside in BDD development style is based on many years and
+  companies worth of refinement to the techniques from the perspectives of two
+  developers who came from polar opposite backgrounds - One with over 20 years
+  of commercial experience and a vast background in TDD, and one relatively new
+  to software.
 
   Participants will be taken though the various layers:
 
@@ -73,43 +78,41 @@ _contemporary experience, beyond single application, diversity, novel experience
     unit tests and not integrated with the DB.
 
   Attendees of the talk will walk away with a practical framework knowing
+
   * What Unit is under test
   * What to test at which level
   * Which failures are expected to happen where
   * A code repository with all these concepts
-  
-  For each of these layers a summary will be given of:
-  * how to define the unit under test and why
-  * the kind of things that should and should not be tested and could break
-    under this level
-  * example test code
-
+ 
 ### Notes
 
-Technical requirements:
-  The talk is to be presented by 2 presenters, Selena Small and Michael
-  Milewski. Both presenters would prefer lapel microphones to allow easy
-  movement on stage.
+  Technical requirements:
 
-Best people for this subject:
-  The style of Behaviour Driven Development (BDD) used at Fresho has been
-  refined by it's core practitioner Perryn Fowler over the last 15+ years
-  across his time at Thoughtworks and later in numerous companies. Michael
-  Milewski picked up BDD from Perryn about 10 years ago and brings a wide
-  variety of experience to the topic. Selena on the other hand is a new
-  developer that specifically sought out Perryn to learn BDD and test driven
-  development and brings a perspective of someone who has just freshly learned
-  the concepts.
+    The talk is aimed at beginners who may have heard about TDD, through to
+    intermediate developers who just don’t know how to test all parts of their
+    applications right through to advanced developers looking at how tests can
+    scale in a large ruby/rails codebase.
 
-  Together they present in accessible way from beginner through intermediate to
-  experienced. Also basing the presentation on an open source demo of the style
-  of testing gives participants of the talk a valuable resource to find out in
-  more depth about this style of writing software.
+    The talk is to be presented by 2 presenters. Both presenters would prefer
+    lapel microphones to allow easy movement on stage and as there will be a
+    small amount of live coding.
 
-2 people:
-  Although either of us could present the subject we thought that it would be
-  more approachable and lively if both of us were on stage. We also both
-  encouraged each other to get this topic to a level at which we can present.
+  Best people for this subject:
+
+    The style of Behaviour Driven Development (BDD) used at the workplace of
+    the presenters has been refined by the CTO and core testing practice lead
+    at the company over the last 15+ years across his time at Thoughtworks and
+    later in numerous companies. The presenters have diverse experience of BDD
+    with 1 presenter 10 years and 20 years in software while the other
+    presenter has less then 3 years in software development and recently
+    learning BDD. This gives them a unique opportunity to address both
+    experienced developers and up and comers just learning by bringing a
+    perspective of someone who has just freshly learned the concepts.
+
+    Together they present in accessible way from beginner through intermediate
+    to experienced. Also basing the presentation on an open source demo of the
+    style of testing gives participants of the talk a valuable resource to find
+    out in more depth about this style of writing software.
 
 ### Tags
 
