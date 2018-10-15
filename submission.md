@@ -26,13 +26,26 @@ _300 characters as exciting and enticing as possible_
 
 _contemporary experience, beyond single application, diversity, novel experiences or developments_
 
-You have a great idea for a web app but you have no idea how it’s all going to fit together and you may have heard that writing tests might be a good idea but are not sure where to start? Learn how to drive your design from the customer level interactions, right through to the smallest units of the domain with multi-layer outside-in behavioural driven design (BDD).
+  You have a great idea for a web app but you have no idea how it’s all going
+  to fit together and you may have heard that writing tests might be a good
+  idea but are not sure where to start? Learn how to drive your design from the
+  customer level interactions, right through to the smallest units of the
+  domain with multi-layer outside-in behavioural driven design (BDD).
 
-So come and join a software developer with 20 years experience along side a developer having only learnt to BDD in the last 12 months build a fun game live on stage. This talk will make testing fun, accessible to everyone from novice to experienced and introduce participants to a framework for writing tests that has been developed and refined across many years, companies and codebases over the last 15 years. The app is built as a modern web app written with a Rails API and ReactJS frontend using RSpec, Capybara, Selenium webdriver and Jest for testing.
+  So come and join a software developer with 20 years experience along side a
+  developer having only learnt to BDD in the last 12 months build a fun game
+  live on stage. This talk will make testing fun, accessible to everyone from
+  novice to experienced and introduce participants to a framework for writing
+  tests that has been developed and refined across many years, companies and
+  codebases over the last 15 years. The app is built as a modern web app
+  written with a Rails API and ReactJS frontend using RSpec, Capybara, Selenium
+  webdriver and Jest for testing.
 
-Participants will be taken through the core outer layer of BDD, "lifecycle flows", to drive out a customer driven user interaction. This will inculde:
+  Participants will be taken through the core outer layer of BDD, "lifecycle
+  flows", to drive out a customer driven user interaction. This will inculde:
 
-  * words matter, how to write descriptive tests that will make sense 6 months down the track
+  * words matter, how to write descriptive tests that will make sense 6 months
+    down the track
   * using a real non trivial example app
   * explaining how to get started from the very beginning
   * explain how to keep the right level of focus at this outer layer
@@ -42,7 +55,9 @@ Participants will be taken through the core outer layer of BDD, "lifecycle flows
   * what failures to expect to happen and where
   * idiomatic RSpec shortcuts don't always lead to good tests
 
-Summing up will include how ultimately "lifecycle flows" are just the tip of the iceberg of a more comprehensive layered approach, the details of which are beyond the scope of this talk:
+  Summing up will include how ultimately "lifecycle flows" are just the tip of
+  the iceberg of a more comprehensive layered approach, the details of which
+  are beyond the scope of this talk:
 
   * **"Lifecycle Flow"**
   * **"Page/Component Mechanics"**
@@ -53,7 +68,13 @@ Summing up will include how ultimately "lifecycle flows" are just the tip of the
   * **"Domain Concept Tests"**
   * **"Domain Unit Tests"**
 
-We hope that attendees will walk away from this talk reaching for tests as the first tool in building out a new feature in their current project. The overview of lifecycle flows is a valuable tool in both breaking out user and system interactions in relation to a new or existing feature as well as ensuring the design is robust and long lived through the assurance of tests. If we whet their appetite enought they can also go through our sample code app to get an idea about the other layers of this technique.
+  We hope that attendees will walk away from this talk reaching for tests as
+  the first tool in building out a new feature in their current project. The
+  overview of lifecycle flows is a valuable tool in both breaking out user and
+  system interactions in relation to a new or existing feature as well as
+  ensuring the design is robust and long lived through the assurance of tests.
+  If we whet their appetite enought they can also go through our sample code
+  app to get an idea about the other layers of this technique.
 
 ### Notes
 
