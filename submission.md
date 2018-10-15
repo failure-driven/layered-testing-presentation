@@ -32,8 +32,8 @@ _contemporary experience, beyond single application, diversity, novel experience
   customer level interactions, right through to the smallest units of the
   domain with multi-layer outside-in behavioural driven design (BDD).
 
-  Join one software developer with over 20 years experience along side another
-  having only learnt to BDD in the last 12 months as we build a fun game,
+  Join one software developer with over 20 years experience, along side another
+  having only learnt to BDD in the last 12 months, as we build a fun game
   live on stage. This talk will make testing fun, accessible to everyone from
   novice to experienced and introduce participants to a framework for writing
   tests that has been refined through 15 years worth of experience, companies and
