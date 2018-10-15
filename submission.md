@@ -42,7 +42,7 @@ _contemporary experience, beyond single application, diversity, novel experience
   webdriver and Jest for testing.
 
   Participants will be taken through the core outer layer of BDD, "lifecycle
-  flows", to drive out a customer driven user interaction. This will inculde:
+  flows", to drive out a customer driven user interaction. This will include:
 
   * words matter, how to write descriptive tests that will make sense 6 months
     down the track
@@ -73,7 +73,7 @@ _contemporary experience, beyond single application, diversity, novel experience
   overview of lifecycle flows is a valuable tool in both breaking out user and
   system interactions in relation to a new or existing feature as well as
   ensuring the design is robust and long lived through the assurance of tests.
-  If we whet their appetite enought they can also go through our sample code
+  If we whet their appetite enough they can also go through our sample code
   app to get an idea about the other layers of this technique.
 
 ### Notes
