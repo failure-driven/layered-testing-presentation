@@ -9,10 +9,10 @@ Failing for the right reason - a fresh look on TDD
 ### Elevator Pitch
 _300 characters as exciting and enticing as possible_
 
-  Real code, live demo. Get into the nitty-gritty of using tests to drive out
-  code! Ever had difficulty writing tests? Don’t know how to identify the unit
-  under test? Find it hard to write tests BEFORE implementation? Join us as we
-  take you on a journey through multilayer outside-in BDD
+  Real code, live demo, learn to write tests to drive out code from the very
+  beginning! Ever had difficulty writing tests? Don't know how to identify the
+  unit under test? Find it hard to write tests BEFORE implementation? Join us
+  as we take you on a journey through multilayer outside-in BDD.
 
 ### Talk Format
 
