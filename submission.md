@@ -103,13 +103,14 @@ _contemporary experience, beyond single application, diversity, novel experience
     the presenters has been refined by the CTO and core testing practice lead
     at the company over the last 15+ years across his time at Thoughtworks and
     later in numerous companies. The presenters have diverse experience of BDD
-    with 1 presenter 10 years and 20 years in software while the other
-    presenter has less then 3 years in software development and recently
-    learning BDD. This gives them a unique opportunity to address both
-    experienced developers and up and comers just learning by bringing a
-    perspective of someone who has just freshly learned the concepts.
+    with 1 presenter 10 years BDD and 20 years in software development
+    experience, while the other presenter has less then 3 years in software
+    development and recently learning BDD. This gives them a unique opportunity
+    to address both experienced developers and up and comers just learning, by
+    bringing a perspective of someone who has just freshly learned the
+    concepts.
 
-    Together they present in accessible way from beginner through intermediate
+    Together they present in an accessible way from beginner through intermediate
     to experienced. Also basing the presentation on an open source demo of the
     style of testing gives participants of the talk a valuable resource to find
     out in more depth about this style of writing software.
@@ -140,7 +141,7 @@ Selena Small & Michael Milewski
   Selena Small from New Zealand and Polish born folk dancing Michael Milewski
   joining forces in building quality software and taking pairing, testing and
   developer practices to a new level at a small Melbourne based B2B startup in
-  the fresho food industry, Fresho!
+  the fresh food industry, Fresho!
 
 _notes: could focus more on other aims in development, hackathons, rails camps,
 running, put coding ahead of partying_
