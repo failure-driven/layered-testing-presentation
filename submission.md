@@ -25,65 +25,39 @@ _300 characters as exciting and enticing as possible_
 ### Description
 
 _contemporary experience, beyond single application, diversity, novel experiences or developments_
-  
-  You have a great idea for a web app but you have no idea how it’s all going
-  to fit together. Learn how to drive your design from the business level
-  interactions that a user might make, right through to the smallest units of
-  the domain with multi-layer outside-in behavioural driven design (BDD).
 
-  This talk is a hands on style tutorial which will enable developers to get
-  started on their projects or improve the testing strategies within their own
-  organisations. We’re going to run through building a simple web app written
-  with a Rails API and React frontend, and tested using RSpec, Capybara,
-  Selenium webdriver and Jest.
+You have a great idea for a web app but you have no idea how it’s all going to fit together. Learn how to drive your design from the business level interactions that a user might make, right through to the smallest units of the domain with multi-layer outside-in behavioural driven design (BDD).
 
-  The multi layer, outside in BDD development style is based on many years and
-  companies worth of refinement to the techniques from the perspectives of two
-  developers who came from polar opposite backgrounds - One with over 20 years
-  of commercial experience and a vast background in TDD, and one relatively new
-  to software.
+This talk is a hands on style tutorial which will enable developers to get started on their projects or improve the testing strategies within their own organisations. We’re going to run through building a simple web app written with a Rails API and React frontend, and tested using RSpec, Capybara, Selenium webdriver and Jest.
 
-  Participants will be taken though the various layers:
+The multi layer, outside in BDD development style is based on many years and companies worth of refinement to the techniques from the perspectives of two developers who came from polar opposite backgrounds - One with over 20 years of commercial experience and a vast background in TDD, and one relatively new to software.
 
-  * **"Lifecycle Flow"** is the outer most layer of this BDD approach and follows
-    along a flow of activity between 1 or more actors, usually driving a browser
-    along many screens of a web style applications leading to one of a number of
-    possible flow on effects. These flows usually represent a business process.
+Participants will be taken though the various layers:
 
-  * **"Page/Component Mechanics"** are tests still run from a browser but
-    focusing on a particular page or component on a number of places within the
-    app and exercise specific behaviours that may come about from various states
-    the application may find itself in.
+* **"Lifecycle Flow"** is the outer most layer of this BDD approach and follows along a flow of activity between 1 or more actors, usually driving a browser along many screens of a web style applications leading to one of a number of possible flow on effects. These flows usually represent a business process.
 
-  * **"Frontend Component Tests"** are used to test the usually javascript
-    frontend framework implementation of the web page implementation. They allow
-    for faster unit level testing of the various states the frontend can be in.
+* **"Page/Component Mechanics"** are tests still run from a browser but focusing on a particular page or component on a number of places within the app and exercise specific behaviours that may come about from various states the application may find itself in.
 
-  * **"External Integration Tests"** are a boundary that is fulfilled with a mock
-    at most other layers of testing. This layer is performed separately to better
-    control the effect of third party services.
+* **"Frontend Component Tests"** are used to test the usually javascript frontend framework implementation of the web page implementation. They allow for faster unit level testing of the various states the frontend can be in.
 
-  * **"API Acceptance Tests"** define a boundary of the backend system and are an
-    integration test of the backend unit as a whole.
+* **"External Integration Tests"** are a boundary that is fulfilled with a mock at most other layers of testing. This layer is performed separately to better control the effect of third party services.
 
-  * **"Controller Unit Tests"** are written as unit tests as opposed to more
-    standard RSpec integration tests. This is due to the API acceptance being a
-    better place to drive out the integration and means tests at this layer would
-    only change with API changes.
+* **"API Acceptance Tests"** define a boundary of the backend system and are an integration test of the backend unit as a whole.
 
-  * **"Domain Concept Tests"** often a number of model classes in rails represent
-    a join domain concept and it is worth testing their interaction.
+* **"Controller Unit Tests"** are written as unit tests as opposed to more standard RSpec integration tests. This is due to the API acceptance being a better place to drive out the integration and means tests at this layer would only change with API changes.
 
-  * **"Domain Unit Tests"** are mostly done against the grain of RSpec and are
-    unit tests and not integrated with the DB.
+* **"Domain Concept Tests"** often a number of model classes in rails represent
+  a join domain concept and it is worth testing their interaction.
 
-  Attendees of the talk will walk away with a practical framework knowing
+* **"Domain Unit Tests"** are mostly done against the grain of RSpec and are unit tests and not integrated with the DB.
 
-  * What Unit is under test
-  * What to test at which level
-  * Which failures are expected to happen where
-  * A code repository with all these concepts
- 
+Attendees of the talk will walk away with a practical framework knowing
+
+* What Unit is under test
+* What to test at which level
+* Which failures are expected to happen where
+* A code repository with all these concepts
+
 ### Notes
 
   Technical requirements:
