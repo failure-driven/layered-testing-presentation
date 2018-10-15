@@ -32,28 +32,26 @@ _contemporary experience, beyond single application, diversity, novel experience
   customer level interactions, right through to the smallest units of the
   domain with multi-layer outside-in behavioural driven design (BDD).
 
-  So come and join a software developer with 20 years experience along side a
-  developer having only learnt to BDD in the last 12 months build a fun game
+  Join one software developer with over 20 years experience along side another
+  having only learnt to BDD in the last 12 months as we build a fun game,
   live on stage. This talk will make testing fun, accessible to everyone from
   novice to experienced and introduce participants to a framework for writing
-  tests that has been developed and refined across many years, companies and
-  codebases over the last 15 years. The app is built as a modern web app
-  written with a Rails API and ReactJS frontend using RSpec, Capybara, Selenium
-  webdriver and Jest for testing.
+  tests that has been refined through 15 years worth of experience, companies and
+  codebases. The game will be built as a modern web app written with a Rails API 
+  and ReactJS frontend using RSpec, Capybara, Selenium webdriver and Jest for testing.
 
   Participants will be taken through the core outer layer of BDD, "lifecycle
-  flows", to drive out a customer driven user interaction. This will include:
+  flows", and experience testing out a customer driven user interaction. 
+  This will include:
 
-  * words matter, how to write descriptive tests that will make sense 6 months
-    down the track
+  * writing descriptive tests make sense 6 months down the track
   * using a real non trivial example app
-  * explaining how to get started from the very beginning
-  * explain how to keep the right level of focus at this outer layer
-  * showing how these types of tests can scale in a real size application
-  * highlighting what does not have to be tested at this level
-  * everything is a Unit, just depending on the boundary you put around it
-  * what failures to expect to happen and where
-  * idiomatic RSpec shortcuts don't always lead to good tests
+  * getting started from the very beginning
+  * how this style of testing can scale
+  * what does not have to be tested at this level
+  * understanding the unit under test
+  * where and when to expect failures
+  * idiomatic RSpec shortcuts don't always mean good tests
 
   Summing up will include how ultimately "lifecycle flows" are just the tip of
   the iceberg of a more comprehensive layered approach, the details of which
