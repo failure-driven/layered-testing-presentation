@@ -26,37 +26,34 @@ _300 characters as exciting and enticing as possible_
 
 _contemporary experience, beyond single application, diversity, novel experiences or developments_
 
-You have a great idea for a web app but you have no idea how it’s all going to fit together. Learn how to drive your design from the business level interactions that a user might make, right through to the smallest units of the domain with multi-layer outside-in behavioural driven design (BDD).
+You have a great idea for a web app but you have no idea how it’s all going to fit together and you may have heard that writing tests might be a good idea but are not sure where to start? Learn how to drive your design from the customer level interactions, right through to the smallest units of the domain with multi-layer outside-in behavioural driven design (BDD).
 
-This talk is a hands on style tutorial which will enable developers to get started on their projects or improve the testing strategies within their own organisations. We’re going to run through building a simple web app written with a Rails API and React frontend, and tested using RSpec, Capybara, Selenium webdriver and Jest.
+So come and join a software developer with 20 years experience along side a developer having only learnt to BDD in the last 12 months build a fun game live on stage. This talk will make testing fun, accessible to everyone from novice to experienced and introduce participants to a framework for writing tests that has been developed and refined across many years, companies and codebases over the last 15 years. The app is built as a modern web app written with a Rails API and ReactJS frontend using RSpec, Capybara, Selenium webdriver and Jest for testing.
 
-The multi layer, outside in BDD development style is based on many years and companies worth of refinement to the techniques from the perspectives of two developers who came from polar opposite backgrounds - One with over 20 years of commercial experience and a vast background in TDD, and one relatively new to software.
+Participants will be taken through the core outer layer of BDD, "lifecycle flows", to drive out a customer driven user interaction. This will inculde:
 
-Participants will be taken though the various layers:
+  * words matter, how to write descriptive tests that will make sense 6 months down the track
+  * using a real non trivial example app
+  * explaining how to get started from the very beginning
+  * explain how to keep the right level of focus at this outer layer
+  * showing how these types of tests can scale in a real size application
+  * highlighting what does not have to be tested at this level
+  * everything is a Unit, just depending on the boundary you put around it
+  * what failures to expect to happen and where
+  * idiomatic RSpec shortcuts don't always lead to good tests
 
-* **"Lifecycle Flow"** is the outer most layer of this BDD approach and follows along a flow of activity between 1 or more actors, usually driving a browser along many screens of a web style applications leading to one of a number of possible flow on effects. These flows usually represent a business process.
+Summing up will include how ultimately "lifecycle flows" are just the tip of the iceberg of a more comprehensive layered approach, the details of which are beyond the scope of this talk:
 
-* **"Page/Component Mechanics"** are tests still run from a browser but focusing on a particular page or component on a number of places within the app and exercise specific behaviours that may come about from various states the application may find itself in.
+  * **"Lifecycle Flow"**
+  * **"Page/Component Mechanics"**
+  * **"Frontend Component Tests"**
+  * **"External Integration Tests"**
+  * **"API Acceptance Tests"**
+  * **"Controller Unit Tests"**
+  * **"Domain Concept Tests"**
+  * **"Domain Unit Tests"**
 
-* **"Frontend Component Tests"** are used to test the usually javascript frontend framework implementation of the web page implementation. They allow for faster unit level testing of the various states the frontend can be in.
-
-* **"External Integration Tests"** are a boundary that is fulfilled with a mock at most other layers of testing. This layer is performed separately to better control the effect of third party services.
-
-* **"API Acceptance Tests"** define a boundary of the backend system and are an integration test of the backend unit as a whole.
-
-* **"Controller Unit Tests"** are written as unit tests as opposed to more standard RSpec integration tests. This is due to the API acceptance being a better place to drive out the integration and means tests at this layer would only change with API changes.
-
-* **"Domain Concept Tests"** often a number of model classes in rails represent
-  a join domain concept and it is worth testing their interaction.
-
-* **"Domain Unit Tests"** are mostly done against the grain of RSpec and are unit tests and not integrated with the DB.
-
-Attendees of the talk will walk away with a practical framework knowing
-
-* What Unit is under test
-* What to test at which level
-* Which failures are expected to happen where
-* A code repository with all these concepts
+We hope that attendees will walk away from this talk reaching for tests as the first tool in building out a new feature in their current project. The overview of lifecycle flows is a valuable tool in both breaking out user and system interactions in relation to a new or existing feature as well as ensuring the design is robust and long lived through the assurance of tests. If we whet their appetite enought they can also go through our sample code app to get an idea about the other layers of this technique.
 
 ### Notes
 
