@@ -13,10 +13,57 @@
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
     <style>
-.fake-game {
-  background-color: grey;
+.reveal .fake-game {
+  background-color: #ddd;
   width: 90%;
   margin: 20px auto;
+}
+
+.reveal .fake-game-nav {
+  background-color: #1b91ff;
+}
+
+.reveal .fake-game-status {
+  text-align: left;
+  width: 90%;
+  margin: 20px auto;
+}
+
+.reveal .fake-game-main {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  margin: 20px auto;
+}
+
+.reveal .fake-game-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.reveal .fake-game-image {
+  background-color: #ccc;
+  width: 2em;
+  height: 2em;
+  border: none;
+  margin: 5px 5px 0 0;
+}
+
+.reveal .fake-game-guess-container {
+  width: 50%;
+}
+
+.reveal .fake-game-guess-container textarea {
+  font-size: 1em;
+}
+
+.reveal .fake-game-guess {
+  width: 100%;
+  height: 100%;
+}
+
+.reveal .fake-game ul {
+  list-style: none;
 }
 
 h4.code-snippet-title {
@@ -98,6 +145,10 @@ h4.code-snippet-title {
             write and your code is easy to reason about is to write the tests
             first, have them drive out the code required, have them "Design"
             the code you need Test Driven Design.
+
+            IDEA: catapult calculations vs someone throwing a ball, or many
+            balls, or many objects while walking over terrain, how do you know
+            that their feature still works
           </aside>
         </section>
 
@@ -129,30 +180,38 @@ h4.code-snippet-title {
         <section>
           <h3>Lifecycle Flow Spec</h3>
           <div class="fake-game">
-            <h3>Game</h3>
-            <div>Round 2</div>
-            <div>10 seconds remaining</div>
-            <div>
-              <ul>
-                <li>
-                <li>
-                <li>
-              </ul>
-              <ul>
-                <li>
-                <li>
-                <li>
-              </ul>
-              <ul>
-                <li>
-                <li>
-                <li>
-              </ul>
+            <div class="fake-game-nav">
+              <h3>Phrase the images</h3>
             </div>
-            <div>
-              <textarea></textarea>
+            <div class="fake-game-status">
+              <div>Round 2</div>
+              <div>10 seconds remaining</div>
             </div>
-            <button type="submit" value="submit"/>
+            <div class="fake-game-main">
+              <div>
+                <div class="fake-game-row">
+                  <img class="fake-game-image"/></li>
+                  <img class="fake-game-image"/></li>
+                  <img class="fake-game-image"/></li>
+                </div>
+                <div class="fake-game-row">
+                  <img class="fake-game-image"/></li>
+                  <img class="fake-game-image"/></li>
+                  <img class="fake-game-image"/></li>
+                </div>
+                <div class="fake-game-row">
+                  <img class="fake-game-image"/></li>
+                  <img class="fake-game-image"/></li>
+                  <img class="fake-game-image"/></li>
+                </div>
+              </div>
+              <div class="fake-game-guess-container">
+                <textarea class="fake-game-guess" placeholder="guess the phrase that describes these images"></textarea>
+              </div>
+            </div>
+            <div class="fake-game-footer">
+              <button disabled>NEXT ROUND</button>
+            </div>
           </div>
           <aside class="notes">
             Michael:
@@ -285,7 +344,7 @@ h4.code-snippet-title {
         </section>
         <section>
           <pre><code data-trim data-noescape>
-          describe 'The game' js: true do
+          describe 'The game' <mark>js: true</mark> do
             it 'Will let me play' do
               visit '/'
               click_button 'Start Game'
@@ -299,8 +358,8 @@ h4.code-snippet-title {
         </section>
         <section>
           <pre><code data-trim data-noescape>
-          feature 'The game' js: true do
-            scenario 'Will let me play' do
+          <mark>feature</mark> 'The game' js: true do
+            <mark>scenario</mark> 'Will let me play' do
               visit '/'
               click_button 'Start Game'
               ...
@@ -317,8 +376,9 @@ h4.code-snippet-title {
         </section>
         <section>
           <pre><code data-trim data-noescape>
-          feature 'The basic guess the phrase for images game' js: true do
-            scenario 'General internet user Michael will play a perfect game winning each round' do
+          feature <mark>'The basic guess the phrase for images game'</mark> js: true do
+            scenario <mark>'''General internet user Michael will play
+                        a perfect game winning each round'''</mark> do
               TODO create terms
               visit '/'
               click_button 'Start Game'
@@ -340,16 +400,16 @@ h4.code-snippet-title {
           <pre><code data-trim data-noescape>
           feature 'The basic guess the phrase for images game' js: true do
             scenario 'Casper the ghost plays a perfect game winning each round' do
-              Given 'There are spooky phrases to be guessed' do
+              <mark>Given</mark> 'There are spooky phrases to be guessed' do
                 %w[ghost gremlin pumpkin].each{|phrase| Term.create(phrase: phrase) }
               end
 
-              When 'Casper chooses to play the game' do
+              <mark>When</mark> 'Casper chooses to play the game' do
                 visit '/'
                 click_button 'Start Game'
               end
 
-              Then 'Casper is taken to the first round of the game' do
+              <mark>Then</mark> 'Casper is taken to the first round of the game' do
                 TODO assertions here
 
           </code></pre>
@@ -668,7 +728,8 @@ feature 'Michael plays a game of images 2 text', js: true do
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
+				],
+        transition: 'none',
 			});
 		</script>
 	</body>
