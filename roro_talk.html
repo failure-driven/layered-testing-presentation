@@ -292,6 +292,197 @@
         <section>
             <h3>Iteration - small frequent changes</h3>
         </section>
+
+        <section>
+            <h3>1 - Render images</h3>
+            <h4>Failing test</h4>
+            <div>Img: empty browser page</div>
+            <pre><code data-trim data-noescape>
+                feature 'Game play lifecycle', js: true do
+                  scenario 'WINNING a game' do
+                    When 'user starts the game' do
+                      visit('/')
+                      wait_for { focus_on(:welcome).text }.to eq('Welcome to the Game')
+                    end
+                  end
+                end
+            </code></pre>
+            <aside class="notes">
+                When user starts the game - failing because no code has been implemented!
+            </aside>
+        </section>
+        <section>
+            <h3>1 - Render images</h3>
+            <h4>Make it pass</h4>
+            <div>Img: Welcome to the game text</div>
+            <pre><code data-trim data-noescape>
+                code to make it pass
+            </code></pre>
+            <aside class="notes">
+            </aside>
+        </section>
+
+        <section>
+            <h3>1 - Render images</h3>
+            <h4>Failing test</h4>
+            <div>Img: Welcome to the game text</div>
+            <pre><code data-trim data-noescape>
+                feature 'Game play lifecycle', js: true do
+                  scenario 'WINNING a game' do
+                    When 'user starts the game' do
+                      visit('/')
+                      wait_for { focus_on(:welcome).text }.to eq('Welcome to the Game')
+
+                      focus_on(:welcome).start_game
+                    end
+
+                    Then 'the game commences' do
+                      pending 'start game button doesnt start a game!'
+                      wait_for { focus_on(:game).round }.to eq('1')
+                    end
+                  end
+                end
+            </code></pre>
+            <aside class="notes">
+                Start game button not implemented
+            </aside>
+        </section>
+        <section>
+            <h3>1 - Render images</h3>
+            <h4>Make it pass</h4>
+            <div>Img: Gif clickable start button</div>
+            <pre><code data-trim data-noescape>
+                code to make it pass
+            </code></pre>
+            <aside class="notes">
+            </aside>
+        </section>
+
+        <section>
+            <h3>1 - Render images</h3>
+            <h4>Failing test</h4>
+            <div>Img: Rounds 1 is a blank screen</div>
+            <pre><code data-trim data-noescape>
+                feature 'Game play lifecycle', js: true do
+                  scenario 'WINNING a game' do
+                    When 'user starts the game' do
+                      visit('/')
+                      wait_for { focus_on(:welcome).text }.to eq('Welcome to the Game')
+
+                      focus_on(:welcome).start_game
+                    end
+
+                    Then 'the game commences' do
+                      wait_for { focus_on(:game).round }.to eq('1')
+                    end
+                  end
+                end
+            </code></pre>
+            <aside class="notes">
+                routing works, there's nothing on the first round
+            </aside>
+        </section>
+        <section>
+            <h3>1 - Render images</h3>
+            <h4>Make it pass</h4>
+            <div>Img: Gif click start game navigates to round 1 with text round 1</div>
+            <pre><code data-trim data-noescape>
+                code to make it pass
+            </code></pre>
+            <aside class="notes">
+            </aside>
+        </section>
+
+        <section>
+            <h3>1 - Render images</h3>
+            <h4>Failing test</h4>
+            <div>Img: Round 1 has no images</div>
+            <pre><code data-trim data-noescape>
+                feature 'Game play lifecycle', js: true do
+                  scenario 'WINNING a game' do
+                    When 'user starts the game' do
+                      visit('/')
+                      wait_for { focus_on(:welcome).text }.to eq('Welcome to the Game')
+
+                      focus_on(:welcome).start_game
+                    end
+
+                    Then 'the game commences' do
+                      wait_for { focus_on(:game).round }.to eq('1')
+                      pending 'There are no images!'
+                      wait_for { focus_on(:game).images.count }.to eq(9)
+                    end
+                  end
+                end
+            </code></pre>
+            <aside class="notes">
+                Image search service not yet implemented
+            </aside>
+        </section>
+        <section>
+            <h3>1 - Render images</h3>
+            <h4>Make it pass</h4>
+            <div>Img: Gif click start game navigates to round 1 with text round 1 and images appear</div>
+            <pre><code data-trim data-noescape>
+                code to make it pass
+            </code></pre>
+            <aside class="notes">
+            </aside>
+        </section>
+
+        <section>
+            <h3>1 - Render images</h3>
+            <h4>First iteration</h4>
+            <pre><code data-trim data-noescape>
+                feature 'Game play lifecycle', js: true do
+                  scenario 'WINNING a game' do
+                    When 'user starts the game' do
+                      visit('/')
+                      wait_for { focus_on(:welcome).text }.to eq('Welcome to the Game')
+
+                      focus_on(:welcome).start_game
+                    end
+
+                    Then 'the game commences' do
+                      wait_for { focus_on(:game).round }.to eq('1')
+                      wait_for { focus_on(:game).images.count }.to eq('9')
+                    end
+                  end
+                end
+            </code></pre>
+            <aside class="notes">
+                First basic iteration of creating the game
+            </aside>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <section>
+            <h3>2 - Win by submitting a guess</h3>
+            <pre><code data-trim data-noescape>
+            </code></pre>
+            <aside class="notes">
+            </aside>
+        </section>
+
+        <section>
+            <h3>3 - Multi-round game</h3>
+            <pre><code data-trim data-noescape>
+            </code></pre>
+            <aside class="notes">
+            </aside>
+        </section>
         <!-- 3 basic iterations building out the code -->
 
         <section>
