@@ -108,7 +108,7 @@
             <div>Img: enter url in browser</div>
 
             <pre><code data-trim data-noescape>
-                <mark>When Casper visits SearchTerm</mark>
+                When Casper visits SearchTerm
             </code></pre>
             <aside class="notes">
             </aside>
@@ -142,7 +142,7 @@
             <div>Img: mouse over start button</div>
 
             <pre><code data-trim data-noescape>
-                <mark>When Casper starts the game</mark>
+                When Casper starts the game
             </code></pre>
             <aside class="notes">
             </aside>
@@ -203,7 +203,7 @@
             <div>Img: round 1 page with images, a text area and a countdown timer and state in-progress</div>
 
             <pre><code data-trim data-noescape>
-                <mark>When the game is In-progress</mark>
+                When the game is In-progress
             </code></pre>
             <aside class="notes">
             </aside>
@@ -225,7 +225,7 @@
             <div>Img: guess in text box</div>
 
             <pre><code data-trim data-noescape>
-                <mark>When Casper guesses the search term used to find these images</mark>
+                When Casper guesses the search term used to find these images
             </code></pre>
             <aside class="notes">
             </aside>
@@ -282,15 +282,27 @@
 
         <section>
             <h3>Flows - testing behaviour</h3>
+            Set up context, invoke the thing, make an assertion
+
+            Early on in the development cycle, there is no context but the thing is a component rendering images
+            We want to assert that the images will be rendered at the right time
+
         </section>
 
         <section>
             <h3>Flows - documenting behaviour</h3>
+            Language matters
+            Test is largely documenting how to use that thing
+
+            What is the behaviour we want to document here? When the game starts, images are rendered
+
         </section>
 
         <!-- # TODO 3 basic iterations building out the code -->
         <section>
             <h3>Iteration - small frequent changes</h3>
+            Good software design = small isolated change, loosely coupled design
+
         </section>
 
         <section>
@@ -456,21 +468,159 @@
         </section>
 
 
+        <section>
+            <h3>2 - Win by submitting a guess</h3>
+            <h4>Failing test</h4>
+            <pre><code data-trim data-noescape>
+                feature 'Game play lifecycle', js: true do
+                  scenario 'WINNING a game' do
+                    When 'user starts the game' do
+                      visit('/')
+                      wait_for { focus_on(:welcome).text }.to eq('Welcome to the Game')
 
+                      focus_on(:welcome).start_game
+                    end
 
-
-
-
-
-
-
-
-
-
+                    Then 'the game commences' do
+                      wait_for { focus_on(:game).round }.to eq('1')
+                <mark>wait_for { focus_on(:game).status }.to eq('IN-PROGRESS')</mark>
+                      wait_for { focus_on(:game).images.count }.to eq(9)
+                    end
+                  end
+                end
+            </code></pre>
+            <aside class="notes">
+                loading -> in progress
+            </aside>
+        </section>
+        <section>
+            <h3>2 - Win by submitting a guess</h3>
+            <h4>Make it pass</h4>
+            <div>Img: Gif game status changes from loading to in-progress</div>
+            <pre><code data-trim data-noescape>
+                code to make it pass
+            </code></pre>
+            <aside class="notes">
+            </aside>
+        </section>
 
         <section>
             <h3>2 - Win by submitting a guess</h3>
+            <h4>Failing test</h4>
             <pre><code data-trim data-noescape>
+                feature 'Game play lifecycle', js: true do
+                  context 'the game terms are configured' do
+                    before do
+                      Term.create(phrase: 'tequila')
+                    end
+
+                    scenario 'WINNING a game' do
+                      When 'user starts the game' do
+                        visit('/')
+                        wait_for { focus_on(:welcome).text }.to eq('Welcome to the Game')
+
+                        focus_on(:welcome).start_game
+                      end
+
+                      Then 'the game commences' do
+                        wait_for { focus_on(:game).round }.to eq('1')
+                        wait_for { focus_on(:game).status }.to eq('IN-PROGRESS')
+                        wait_for { focus_on(:game).images.count }.to eq(9)
+                      end
+
+                      When 'the user submits an answer' do
+                        focus_on(:game).fill_guess('tequila')
+                      end
+
+                      Then 'the user wins' do
+                        pending
+                        wait_for { focus_on(:game).status }.to eq('WINNER')
+                      end
+                    end
+                  end
+                end
+            </code></pre>
+            <aside class="notes">
+                new context, create term in the database so we can assert a winner
+            </aside>
+        </section>
+        <section>
+            <h3>2 - Win by submitting a guess</h3>
+            <h4>Make it pass</h4>
+            <div>Img: Gif fill in text tequila and see WINNER appear</div>
+            <pre><code data-trim data-noescape>
+                code to make it pass
+            </code></pre>
+            <aside class="notes">
+            </aside>
+        </section>
+
+        <section>
+            <h3>2 - Win by submitting a guess</h3>
+            <h4>Second iteration</h4>
+            <pre><code data-trim data-noescape>
+                feature 'Game play lifecycle', js: true do
+                  context 'the game terms are configured' do
+                    before do
+                      Term.create(phrase: 'tequila')
+                    end
+
+                    scenario 'WINNING a game' do
+                      When 'user starts the game' do
+                        visit('/')
+                        wait_for { focus_on(:welcome).text }.to eq('Welcome to the Game')
+
+                        focus_on(:welcome).start_game
+                      end
+
+                      Then 'the game commences' do
+                        wait_for { focus_on(:game).round }.to eq('1')
+                        wait_for { focus_on(:game).status }.to eq('IN-PROGRESS')
+                        wait_for { focus_on(:game).images.count }.to eq(9)
+                      end
+
+                      When 'the user submits an answer' do
+                        focus_on(:game).fill_guess('tequila')
+                      end
+
+                      Then 'the user wins' do
+                        wait_for { focus_on(:game).status }.to eq('WINNER')
+                      end
+                    end
+                  end
+                end
+            </code></pre>
+            <aside class="notes">
+                Second basic iteration of creating the game
+            </aside>
+        </section>
+
+
+        <section>
+            <h3>3 - Multi-round game</h3>
+            <h4>Failing test</h4>
+            <pre><code data-trim data-noescape>
+                When 'the user starts the next round' do
+                  focus_on(:game).next_round
+                end
+
+                Then 'round two starts' do
+                  pending
+                  wait_for { focus_on(:game).round }.to eq('2')
+                end
+            </code></pre>
+            <aside class="notes">
+                In a slightly more built out version, we can now easily develop this into a mutli-round game
+                Round 2 is very similar to round 1
+                And we expect a game to play out very similarly to what plays in round 1
+            </aside>
+        </section>
+        <section>
+            <h3>3 - Multi-round game</h3>
+            <h4>Make it pass</h4>
+            <div>Img: Gif playing through 2 rounds</div>
+            <pre><code data-trim data-noescape>
+                code to make it pass
             </code></pre>
             <aside class="notes">
             </aside>
@@ -478,12 +628,86 @@
 
         <section>
             <h3>3 - Multi-round game</h3>
+            <h4>Third iteration</h4>
             <pre><code data-trim data-noescape>
+                feature 'Game play lifecycle', js: true do
+                  context 'the game terms are configured' do
+                    before do
+                      Term.create(phrase: 'tequila')
+                    end
+
+                    scenario 'WINNING a game' do
+                      When 'user starts the game' do
+                        visit('/')
+                        wait_for { focus_on(:welcome).text }.to eq('Welcome to the Game')
+
+                        focus_on(:welcome).start_game
+                      end
+
+                      Then 'the game commences' do
+                        wait_for { focus_on(:game).round }.to eq('1')
+                        wait_for { focus_on(:game).status }.to eq('IN-PROGRESS')
+                        wait_for { focus_on(:game).timer }.to match(/[0-9]/)
+                        wait_for { focus_on(:game).images.count }.to eq(9)
+                      end
+
+                      When 'the user submits an answer' do
+                        focus_on(:game).fill_guess('tequila')
+                      end
+
+                      Then 'the user wins the round' do
+                        wait_for { focus_on(:game).status }.to eq('WINNER')
+                        wait_for { focus_on(:game).score }.to match(/[0-9]/)
+                      end
+
+                      When 'the user starts the next round' do
+                        focus_on(:game).next_round
+                      end
+
+                      Then 'round two starts' do
+                        wait_for { focus_on(:game).round }.to eq('2')
+                        wait_for { focus_on(:game).status }.to eq('IN-PROGRESS')
+                        wait_for { focus_on(:game).timer }.to match(/[0-9]/)
+                        wait_for { focus_on(:game).images.count }.to eq(9)
+                      end
+
+                      When 'the user submits an answer' do
+                        focus_on(:game).fill_guess('tequila')
+                      end
+
+                      Then 'the user wins the round' do
+                        wait_for { focus_on(:game).status }.to eq('WINNER')
+                        wait_for { focus_on(:game).score }.to match(/[0-9]/)
+                      end
+                    end
+                  end
+                end
             </code></pre>
             <aside class="notes">
+                Third basic iteration of creating the game
+
+                So there you have 3 very basic iterations of tdd-ing a flow.
+                By stepping out the sequence of events that take place in this style of test, it's very easy to make
+                additions and adjustments to the way the app works.
+                We've only shown you a snippet of one flow that will take place in this app, which happens to go down a
+                happy path. There will in fact be a number of flows that emerge before this game is complete
+                These might include...
+
+
+                Since getting to this point, we've actually managed to get the app in a more complete state so we
+                could play a game with you - do you guys want to play??
             </aside>
         </section>
         <!-- 3 basic iterations building out the code -->
+
+        <section>
+            <h3>Let's play!</h3>
+            <div>Just cause we built it, lets play a game!</div>
+
+            <aside class="notes">
+                probably exit and play the live game with the audience now...
+            </aside>
+        </section>
 
         <section>
             <h3>Summary</h3>
