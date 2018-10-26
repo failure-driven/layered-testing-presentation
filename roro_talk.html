@@ -1,0 +1,347 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/white.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <style>
+        .reveal .fake-game {
+            background-color: #ddd;
+            width: 90%;
+            margin: 20px auto;
+        }
+
+        .reveal .fake-game-nav {
+            background-color: #1b91ff;
+        }
+
+        .reveal .fake-game-status {
+            text-align: left;
+            width: 90%;
+            margin: 20px auto;
+        }
+
+        .reveal .fake-game-main {
+            display: flex;
+            flex-direction: row;
+            width: 90%;
+            margin: 20px auto;
+        }
+
+        .reveal .fake-game-row {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .reveal .fake-game-image {
+            background-color: #ccc;
+            width: 2em;
+            height: 2em;
+            border: none;
+            margin: 5px 5px 0 0;
+        }
+
+        .reveal .fake-game-guess-container {
+            width: 50%;
+        }
+
+        .reveal .fake-game-guess-container textarea {
+            font-size: 1em;
+        }
+
+        .reveal .fake-game-guess {
+            width: 100%;
+            height: 100%;
+        }
+
+        .reveal .fake-game ul {
+            list-style: none;
+        }
+
+        h4.code-snippet-title {
+            text-align: left;
+            width: 90%;
+            margin: 20px auto;
+        }
+    </style>
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h1>Failing for the right reason</h1>
+            <h3>Selena Small & Michael Milewski</h3>
+            <aside class="notes">
+                Hi everyone, I’m Selena and this is Michael and we have an awesome idea for an app!
+                It’s gonna be big, like, the next Facebook
+
+                But how are we going to failsafe the software? When our empire starts growing and we’re adding
+                features left, right and centre to keep our consumers happy, how will we ensure that a new piece
+                of code doesn’t break one of the original features?
+
+                The answer is simple. We are talking to you today about "Failing for the right reason!" - how to
+                write tests that fail and drive out a perfect design for your software
+
+                So, here's the idea for the app!
+            </aside>
+        </section>
+
+        <section>
+            <h3>What is the app?</h3>
+            <div>Img: enter url in browser</div>
+
+            <pre><code data-trim data-noescape>
+                <mark>When Casper visits SearchTerm</mark>
+            </code></pre>
+            <aside class="notes">
+            </aside>
+        </section>
+        <section>
+            <h3>What is the app?</h3>
+            <div>Img: App shows welcome message</div>
+
+            <pre><code data-trim data-noescape>
+                When Casper visits SearchTerm
+                <mark>Then a welcome message is shown</mark>
+            </code></pre>
+            <aside class="notes">
+            </aside>
+        </section>
+        <section>
+            <h3>What is the app?</h3>
+            <div>Img: App shows start game button</div>
+
+            <pre><code data-trim data-noescape>
+                When Casper visits SearchTerm
+                Then a welcome message is rendered
+                <mark>And a start game button is rendered</mark>
+            </code></pre>
+            <aside class="notes">
+            </aside>
+        </section>
+
+        <section>
+            <h3>What is the app?</h3>
+            <div>Img: mouse over start button</div>
+
+            <pre><code data-trim data-noescape>
+                <mark>When Casper starts the game</mark>
+            </code></pre>
+            <aside class="notes">
+            </aside>
+        </section>
+        <section>
+            <h3>What is the app?</h3>
+            <div>Img: round 1 page with round 1 text</div>
+
+            <pre><code data-trim data-noescape>
+                When Casper starts the game
+                <mark>Then round 1 begins</mark>
+            </code></pre>
+            <aside class="notes">
+            </aside>
+        </section>
+        <section>
+            <h3>What is the app?</h3>
+            <div>Img: round 1 page with images</div>
+
+            <pre><code data-trim data-noescape>
+                When Casper starts the game
+                Then round 1 begins
+                <mark>And 9 images are displayed</mark>
+            </code></pre>
+            <aside class="notes">
+            </aside>
+        </section>
+        <section>
+            <h3>What is the app?</h3>
+            <div>Img: round 1 page with images and a text area</div>
+
+            <pre><code data-trim data-noescape>
+                When Casper starts the game
+                Then round 1 begins
+                And 9 images are displayed
+                <mark>And a text area is rendered</mark>
+            </code></pre>
+            <aside class="notes">
+            </aside>
+        </section>
+        <section>
+            <h3>What is the app?</h3>
+            <div>Img: round 1 page with images, a text area and a countdown timer</div>
+
+            <pre><code data-trim data-noescape>
+                When Casper starts the game
+                Then round 1 begins
+                And 9 images are displayed
+                And a text area is rendered
+                <mark>And a countdown timer is rendered</mark>
+            </code></pre>
+            <aside class="notes">
+            </aside>
+        </section>
+
+        <section>
+            <h3>What is the app?</h3>
+            <div>Img: round 1 page with images, a text area and a countdown timer and state in-progress</div>
+
+            <pre><code data-trim data-noescape>
+                <mark>When the game is In-progress</mark>
+            </code></pre>
+            <aside class="notes">
+            </aside>
+        </section>
+        <section>
+            <h3>What is the app?</h3>
+            <div>Img: round 1 page with images, a text area and a countdown timer and state in-progress (can we implement a timer counting down?)</div>
+
+            <pre><code data-trim data-noescape>
+                When the game is In-progress
+                <mark>Then the countdown timer starts counting down</mark>
+            </code></pre>
+            <aside class="notes">
+            </aside>
+        </section>
+
+        <section>
+            <h3>What is the app?</h3>
+            <div>Img: guess in text box</div>
+
+            <pre><code data-trim data-noescape>
+                <mark>When Casper guesses the search term used to find these images</mark>
+            </code></pre>
+            <aside class="notes">
+            </aside>
+        </section>
+        <section>
+            <h3>What is the app?</h3>
+            <div>Img: guess in text box, timer stops</div>
+
+            <pre><code data-trim data-noescape>
+                When Casper guesses the search term used to find these images
+                <mark>Then the countdown timer stops</mark>
+            </code></pre>
+            <aside class="notes">
+            </aside>
+        </section>
+        <section>
+            <h3>What is the app?</h3>
+            <div>Img: guess in text box, timer stops, score is rendered</div>
+
+            <pre><code data-trim data-noescape>
+                When Casper types the correct guess into the text box
+                Then the countdown timer stops
+                <mark>And a score is rendered for the round</mark>
+            </code></pre>
+            <aside class="notes">
+            </aside>
+        </section>
+        <section>
+            <h3>What is the app?</h3>
+            <div>Img: guess in text box, timer stops, score is rendered, winner text</div>
+
+            <pre><code data-trim data-noescape>
+                When Casper types the correct guess into the text box
+                Then the countdown timer stops
+                And a score is rendered for the round
+                <mark>And a winner message is rendered</mark>
+            </code></pre>
+            <aside class="notes">
+            </aside>
+        </section>
+
+
+        <!-- # TODO Michael analogy of why testing matters -->
+        <section>
+            <h3>Why testing matters</h3>
+            <aside>
+                Cool app! Seems pretty straight forward, do we really need to write tests though? We could just build it
+            </aside>
+        </section>
+
+        <section>
+            <h3>Flows - the Unit under test</h3>
+        </section>
+
+        <section>
+            <h3>Flows - testing behaviour</h3>
+        </section>
+
+        <section>
+            <h3>Flows - documenting behaviour</h3>
+        </section>
+
+        <!-- # TODO 3 basic iterations building out the code -->
+        <section>
+            <h3>Iteration - small frequent changes</h3>
+        </section>
+        <!-- 3 basic iterations building out the code -->
+
+        <section>
+            <h3>Summary</h3>
+            <ul>
+                <li>Testing matters</li>
+                <li>The unit under test</li>
+                <li>Testing behaviour</li>
+                <li>Documenting behaviour (Given, When, Then)</li>
+                <li>Iteration - small frequent changes</li>
+            </ul>
+
+            <aside class="notes">
+                note: although this talk focused on flows, these points all apply to testing any unit at any level
+                <!-- # TODO example: maybe talk over an isolated unit test of the round controller? -->
+            </aside>
+        </section>
+
+        <section>
+            <h3>Resources</h3>
+            <ul>
+                <li>Github</li>
+                <li>Heroku</li>
+            </ul>
+            <div>
+                Selena twitter, linkedin, github
+            </div>
+            <div>
+                Michael twitter, linkedin, github
+            </div>
+        </section>
+    </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+  // More info about config & dependencies:
+  // - https://github.com/hakimel/reveal.js#configuration
+  // - https://github.com/hakimel/reveal.js#dependencies
+  Reveal.initialize({
+    dependencies: [
+      { src: 'plugin/markdown/marked.js' },
+      { src: 'plugin/markdown/markdown.js' },
+      { src: 'plugin/notes/notes.js', async: true },
+      { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+    ],
+    transition: 'none',
+  });
+</script>
+</body>
+</html>
