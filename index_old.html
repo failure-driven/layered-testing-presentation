@@ -1,0 +1,736 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <style>
+.reveal .fake-game {
+  background-color: #ddd;
+  width: 90%;
+  margin: 20px auto;
+}
+
+.reveal .fake-game-nav {
+  background-color: #1b91ff;
+}
+
+.reveal .fake-game-status {
+  text-align: left;
+  width: 90%;
+  margin: 20px auto;
+}
+
+.reveal .fake-game-main {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  margin: 20px auto;
+}
+
+.reveal .fake-game-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.reveal .fake-game-image {
+  background-color: #ccc;
+  width: 2em;
+  height: 2em;
+  border: none;
+  margin: 5px 5px 0 0;
+}
+
+.reveal .fake-game-guess-container {
+  width: 50%;
+}
+
+.reveal .fake-game-guess-container textarea {
+  font-size: 1em;
+}
+
+.reveal .fake-game-guess {
+  width: 100%;
+  height: 100%;
+}
+
+.reveal .fake-game ul {
+  list-style: none;
+}
+
+h4.code-snippet-title {
+  text-align: left;
+  width: 90%;
+  margin: 20px auto;
+}
+    </style>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+        <section>
+          <h1>Failing for the right reason</h1>
+          <h3>Selena Small & Michael Milewski</h3>
+          <aside class="notes">
+            Selena: Hi everyone, thanks for joining us today. I'm Selena and this Michael, we're going to
+              talk you about...
+
+            Michael: "Failing for the right reason!" - how to write tests that fail and drive out a perfect design
+              for your software
+
+            Selena: and it's going to be a great time. Are you guys excited? I'm excited! Where do we start?!
+
+              Michael: Well... I've been thinking about it and I've come up with this great idea for an app!! People are gonna love it
+
+              Selena: Oh yeah...? That only took you what? 20 years?
+
+              Michael: haha fuck off
+          </aside>
+        </section>
+
+        <section>
+          <h3>An idea for an app</h3>
+
+          <aside class="notes">
+            Michael: So, the idea is a guessing game! (michael run through rough diagram/explanation while Selena questions it)
+
+            Selena: Alright cool, let's build it!
+
+            Michael: OK sweet, I think I have an idea on how the DB schema might fit together. There's going
+              to be a Game object and Rounds and some sort of Score for the players, I presume I will need
+              an image display react component, a timer and an input form, so I'll just start smashing that
+              together and see where we get to...
+
+            Selena: Wait, what? aren't we TDDing this? You need to start with a test.
+
+            Michael: What at the beginning? before I write any code? but I don't know where I'm going.
+              Why the fuck would I do that?
+          </aside>
+        </section>
+
+        <section>
+          <h1>Why testing matters</h1>
+          <aside class="notes">
+              (Selena explains to the Junior dev why TDD matters & why you would start with a test)
+            Analogy? If you could stop time and know the acceleration and mass
+            of every particle in space you could predict the future.
+
+            So with software, time does not stop and you are dreaming to have
+            this amazing control of predicting the need of users, the browsers
+            they will have, the various bugs that will bump various library
+            versions, how users abuse the features you have and how priorities
+            will change and features maybe even whole company strategies may
+            pivot.
+
+            And that is why you need testing, to know at any point in time that
+            what you wanted to work a particular way, still works that way. And
+            the easiest way to make sure your tests are relatively simple to
+            write and your code is easy to reason about is to write the tests
+            first, have them drive out the code required, have them "Design"
+            the code you need Test Driven Design.
+
+            IDEA: catapult calculations vs someone throwing a ball, or many
+            balls, or many objects while walking over terrain, how do you know
+            that their feature still works
+          </aside>
+        </section>
+
+        <section>
+          <h1>The biggest Unit</h1>
+          <aside class="notes">
+              Michael: Ohhhh so I need to start by testing the biggest unit. Well, that's obviously the Game object...
+
+              Selena: Obviously not. No, let's go back to your drawing and take a closer look. See here, you've already
+              drawn it out. This thing interacts with that thing and another thing through an API. And you're probably
+              going to display it all using some sort of front end - have you thought about the tech stack?
+
+              Michael: Yes. This part will be react, the API will be exposed from a Rails backend which talks to a
+              Postgres database. OHHH I get it now! This whole thing is a unit! Because this thing interacts with that
+              thing and another thing through an API. And that will all be displayed in a SPA
+
+              Selena: Now you're getting it!
+
+
+            What's a unit anyway?
+            TDD vs BDD?
+            RSpec
+            the stack? or is that part of emergent architecture?
+          </aside>
+        </section>
+        <section>
+          <h3>Lifecycle Flow Spec</h3>
+        </section>
+        <section>
+          <h3>Lifecycle Flow Spec</h3>
+          <div class="fake-game">
+            <div class="fake-game-nav">
+              <h3>Phrase the images</h3>
+            </div>
+            <div class="fake-game-status">
+              <div>Round 2</div>
+              <div>10 seconds remaining</div>
+            </div>
+            <div class="fake-game-main">
+              <div>
+                <div class="fake-game-row">
+                  <img class="fake-game-image"/></li>
+                  <img class="fake-game-image"/></li>
+                  <img class="fake-game-image"/></li>
+                </div>
+                <div class="fake-game-row">
+                  <img class="fake-game-image"/></li>
+                  <img class="fake-game-image"/></li>
+                  <img class="fake-game-image"/></li>
+                </div>
+                <div class="fake-game-row">
+                  <img class="fake-game-image"/></li>
+                  <img class="fake-game-image"/></li>
+                  <img class="fake-game-image"/></li>
+                </div>
+              </div>
+              <div class="fake-game-guess-container">
+                <textarea class="fake-game-guess" placeholder="guess the phrase that describes these images"></textarea>
+              </div>
+            </div>
+            <div class="fake-game-footer">
+              <button disabled>NEXT ROUND</button>
+            </div>
+          </div>
+          <aside class="notes">
+            Michael:
+              So here is my game, I have a round, a timer counting down the
+              time remaining, 9 images on the right and a text area to guess
+              the phrase on the right, maybe a submit button at the bottom, how
+              do I get started testing this?
+            Selena:
+              You have to think in flows, where things start how they flow
+              through what steps and ultimately where they end up. Where do you
+              think your game starts?
+          </aside>
+        </section>
+        <section>
+          <div class="fake-game">
+            <h3>Game</h3>
+            <button type="button">Start Game</button>
+          </div>
+          <aside class="notes">
+            Michael:
+              Well probably I would have my game title, maybe a logo and a big
+              "start game" button.
+            Selena:
+              Cool, so using some tools you can test that as a user using the
+              browser.
+              "You will probably want to use these" --next-slide--
+          </aside>
+        </section>
+        <section>
+          <h3>Test tooling</h3>
+          <ul>
+            <li>RSpec</li>
+            <li>Capybara</li>
+            <li>Selenium</li>
+          </ul>
+
+          <h4 class="code-snippet-title">Gemfile snippet</h4>
+          <pre><code data-trim data-noescape>
+          group :development, :test do
+            gem 'rspec-rails'         # unit testing
+            gem 'rspec-wait'          # wait for conditions
+            gem 'rspec-example_steps' # Given/When/Then steps
+            gem 'capybara'            # acceptance testing
+            gem 'selenium-webdriver'  # browser automation
+          end
+          </code></pre>
+          <aside class="notes">
+            Michael:
+              Ree-spec?
+            Selena:
+              actually pronouced RSpec you dag. RSpec is a unit testing
+              framework, Capybara is an accceptance testing framework that
+              allows you to simulate how a user interacts with your
+              application, and Selenium is a driver for web browser automation.
+            Michael:
+              Ah so I will write unit tests asserting expectations using
+              ree-spec, these will use Capybara methods to drive behaviour that
+              a user would make and these commands will ultimately drive a real
+              browser using Selenium.
+            Selena:
+              Correct
+            Michael:
+              Ree-spec
+          </aside>
+        </section>
+        <section>
+          <div class="fake-game">
+            <h3>Game</h3>
+            <button type="button">Start Game</button>
+          </div>
+          <h4 class="code-snippet-title">Start of an RSpec spec</h4>
+          <pre><code data-trim data-noescape>
+          describe 'The game' do
+            it 'Will let me play' do
+              visit '/'
+              click_button 'Start Game'
+              ...
+          </code></pre>
+          <aside class="notes">
+            Michael:
+              So I start by visiting the site and clicking the button
+          </aside>
+        </section>
+        <section>
+          <div class="fake-game">
+            <h3>Game</h3>
+            <button type="button">Start Game</button>
+          </div>
+          <h4 class="code-snippet-title">RSpec</h4>
+          <pre><code data-trim data-noescape>
+          describe 'The game' do
+            it 'Will let me play' do
+              visit '/'
+              click_button 'Start Game'
+              ...
+              TODO add more steps
+              TODO with lots of
+              TODO convoulted css
+              TODO and xpath selectors
+              ...
+          </code></pre>
+          <aside class="notes">
+            Michael:
+              and very quickly I have a mess of steps
+          </aside>
+        </section>
+        <section>
+          <h4 class="code-snippet-title">RSpec output</h4>
+          <pre><code data-trim data-noescape>
+            TODO a failure in rspec
+          </code></pre>
+          <aside class="notes">
+            Michael:
+              not to say that I have no idea where this failed
+          </aside>
+        </section>
+        <section>
+          <pre><code data-trim data-noescape>
+          describe 'The game' do
+            it 'Will let me play' do
+              visit '/'
+              click_button 'Start Game'
+              ...
+          </code></pre>
+          <aside class="notes">
+            Selena:
+              let's get back to where you started, first you may want to tell
+              RSpec to use a javascript driver so it will use selenium ...
+          </aside>
+        </section>
+        <section>
+          <pre><code data-trim data-noescape>
+          describe 'The game' <mark>js: true</mark> do
+            it 'Will let me play' do
+              visit '/'
+              click_button 'Start Game'
+              ...
+          </code></pre>
+          <aside class="notes">
+            Selena:
+              Next to keep these lifecycle flow tests a bit different from you
+              unit tests you may want to use 'feature' and 'scenario'
+          </aside>
+        </section>
+        <section>
+          <pre><code data-trim data-noescape>
+          <mark>feature</mark> 'The game' js: true do
+            <mark>scenario</mark> 'Will let me play' do
+              visit '/'
+              click_button 'Start Game'
+              ...
+          </code></pre>
+          <aside class="notes">
+            Selena:
+              talking of being more descriptive your text blocks 'the game' and
+              'Will let me play' are not very descriptive. Imagine in 6 months
+              when your game has broken the internet and there are numerous
+              ways of playing it, there are players of various levels, you will
+              come back to this test and have no idea which game what kind of
+              play etc. Let's try something different.
+          </aside>
+        </section>
+        <section>
+          <pre><code data-trim data-noescape>
+          feature <mark>'The basic guess the phrase for images game'</mark> js: true do
+            scenario <mark>'''General internet user Michael will play
+                        a perfect game winning each round'''</mark> do
+              TODO create terms
+              visit '/'
+              click_button 'Start Game'
+              TODO assertion for round 1
+              ...
+          </code></pre>
+          <aside class="notes">
+            Selena:
+              How is that
+            Michael:
+              hmm general internet user Michael - should I put that on my linkeind?
+            Selena:
+              no and you certainly could not play a perfect game.
+              This still leaves us with scenarios growing too long and not
+              having any idea where they are failing appart from line number.
+          </aside>
+        </section>
+        <section>
+          <pre><code data-trim data-noescape>
+          feature 'The basic guess the phrase for images game' js: true do
+            scenario 'Casper the ghost plays a perfect game winning each round' do
+              <mark>Given</mark> 'There are spooky phrases to be guessed' do
+                %w[ghost gremlin pumpkin].each{|phrase| Term.create(phrase: phrase) }
+              end
+
+              <mark>When</mark> 'Casper chooses to play the game' do
+                visit '/'
+                click_button 'Start Game'
+              end
+
+              <mark>Then</mark> 'Casper is taken to the first round of the game' do
+                TODO assertions here
+
+          </code></pre>
+          <aside class="notes">
+            Michael:
+              Hey where did Casper come from
+            Selena:
+              it's haloween, I thought we could switch to a more haloween theme
+              anyway try and keep up
+              We now have the ability to group our steps into Given/When/Then steps
+            Michael:
+              TODO fix below
+              Given: some previously set criteria in the system
+              When: some action is taken
+              Then: some result is the result
+            Selena:
+              that said, as part of a flow, Given is more about the user and
+              how they flow through the system, say if they had to sign in or
+              something. In this case we would wrap the scenaio in a context ...
+          </aside>
+        </section>
+        <section>
+          <pre><code data-trim data-noescape>
+          feature 'The basic guess the phrase for images game' js: true do
+            <mark>context</mark> 'There are spooky phrases to be guessed' do
+              before do
+                %w[ghost gremlin pumpkin].each{|phrase| Term.create(phrase: phrase) }
+              end
+
+              scenario 'Casper the ghost plays a perfect game winning each round' do
+                When 'Casper chooses to play the game' do
+                  visit '/'
+                  click_button 'Start Game'
+                end
+
+                Then 'Casper is taken to the first round of the game' do
+                  TODO assertions here
+                
+          </code></pre>
+          <aside class="notes">
+            Selena:
+              so now when we run it we get something like ...
+          </aside>
+        </section>
+        <section>
+          <pre><code data-trim data-noescape>
+            rspec
+
+            TODO fix this
+
+            Michael plays a game of images 2 text
+            Capybara starting Puma...
+            * Version 3.12.0 , codename: Llamas in Pajamas
+            * Min threads: 0, max threads: 4
+            * Listening on tcp://127.0.0.1:49946
+                When Michael starts a new game
+                Then Michael starts Round 1
+                When Michael enters the winning term "beaver"
+                Then the round is completed (FAILED)
+              Michael plays a perfect game (PENDING: need a timer for the score)
+
+            Pending: (Failures listed here are expected and do not affect your suite's status)
+
+              1) Michael plays a game of images 2 text Michael plays a perfect game
+                 # need a timer for the score
+                 Failure/Error: wait(0.5).for { focus_on(:round).score }.to eq '1 second'
+                   RSpec::Wait::TimeoutError
+                 # ./spec/features/flows/play_a_game_of_i2t_spec.rb:25:in `block (3 levels) in <top (required)>'
+                 # ./spec/features/flows/play_a_game_of_i2t_spec.rb:21:in `block (2 levels) in <top (required)>'
+                 # ------------------
+                 # --- Caused by: ---
+                 # Timeout::Error:
+                 #   execution expired
+                 #   ./spec/support/features/page_fragments/round.rb:28:in `score'
+          </code></pre>
+          <aside class="notes">
+            Michael:
+              ree-spec
+            Selena:
+              Now you have nicely grouped features, scenarios, contexts Given/When/Then steps
+            Michael:
+              let's build the app
+            Selena:
+              Well there is a few more things to clean up.
+          </aside>
+        </section>
+        <section>
+          <pre><code data-trim data-noescape>
+          feature 'The basic guess the phrase for images game' js: true do
+            scenario 'Casper the ghost plays a perfect game winning each round' do
+              Given 'There are spooky phrases to be guessed' do
+                %w[ghost gremlin pumpkin].each{|phrase| Term.create(phrase: phrase) }
+              end
+
+              When 'Casper chooses to play the game' do
+                visit '/'
+                click_button 'Start Game'
+              end
+
+              Then 'Casper is taken to the first round of the game' do
+                <mark>TODO assertions here</mark>
+                
+          </code></pre>
+          <aside class="notes">
+            Selena:
+              See all these css selectors, they are not the responsibilty of
+              the lifecycle flow. At the lifecycle flow we are talking about
+              the big user driven actions. These are tightly linked to the
+              implementation, they are pages or components on page like page
+              fragments. let's take a look at your app again ...
+          </aside>
+        </section>
+        <section>
+          <h4>slide showing the start, round, finish pages of the app</h4>
+        </section>
+        <section>
+          <h4>slide showing the start, round, finish pages of the app with page fragment boundaries</h4>
+        </section>
+        <section>
+          <h4>slide showing original flow</h4>
+        </section>
+        <section>
+          <h4>slide changing flow to use page fragment</h4>
+        </section>
+        <section>
+          <h4>slide showig page fragment code</h4>
+        </section>
+        <section>
+          <h4>slide  introducing wait_for</h4>
+        </section>
+        <section>
+          <h4>quick discussion of wait_for and also flakey behaviour - maybe a demo</h4>
+        </section>
+        <section>
+          <h4>dive into real code</h4>
+        </section>
+        <section>
+          <h1>Lifecycle Flow Spec</h1>
+            <pre>
+            <pre>
+            step by step:
+                Scenario "Casper plays to win, and have a good time"
+                - When Casper starts the game
+                - Then round 1 begins
+                    - display 9 images of "ghosts"
+                    - start timer with 10 seconds left
+                    - text box for answers
+                - When Casper types in the correct answer of "ghosts"
+                - Then the timer stops
+                    - You get notified ghosts is correct answer
+                    - score of 10 seconds - time to type is presented
+                    - alert showing 3 seconds till next round pops up
+                - When the next round timer expires
+                - Then the next round is displayed
+                    - with 9 new images (of "gremlins")
+                - When Casper guesses wrongly
+                    - typing "furby monster cat"
+                - Then a wrong guess message appears
+                - When the time runs out
+                - Then Casper gets 0 points
+                    - redirected to next round
+                - When Casper is presented with round 3
+                    - images of haunted houses
+                    - guessing "pizza wine beer"
+                    - typing "haunted house"
+                - Then upon writing the correct guess
+                    - the timer stops
+                    - the guess is highlighted as correct
+                    - a score is shown
+                - When the round finished
+                - Then Casper is taken to result page
+                    - showing final score
+                    - and run down of rounds
+                    - and he can tweet it to his followers cause he's popular as fuck
+                RUN it in reality
+
+                NEW SLIDE
+                    - When do we fall into Mechanic
+                        - page reload?
+                    - continue with mechanic
+                NEW SLIDE
+                    - When do we fall into FE component test
+                    - continue
+                NEW SLIDE
+                    - Api - brief overview of what why? etc?
+                NEW SLIDE
+                    - contoller
+                        - unit not standard RSpec
+                        - touch on no idiotmatic RSpec
+                NEW SLIDE
+                    - model
+                    - external integration
+
+                OVERVIEW
+                    start outside in
+
+            </pre>
+          <section>
+<pre><code data-trim data-noescape>
+feature 'Michael plays a game of images 2 text', js: true do
+  scenario 'Michael plays a perfect game' do
+    When 'Michael starts a new game' do
+      visit root_path
+      focus_on(:welcome).start_new_game
+    end
+    ...
+</code></pre>
+          <aside class="notes">
+            Michael:
+              Oh cool let me add this spec for a guess with a typo ...
+            Selena:
+              STOP flow specs have the following responsibilities ... and your
+              idea of another spec is a layer down
+
+              Explain step by step how it is like a flow, follow along with
+              code snippets and slides showing the action in the game.
+          </aside>
+          </section>
+        </section>
+        <section>
+          <h3>Lifecycle Flow Spec - Summary</h3>
+          <ul>
+            <li>what is the unit</li>
+            <li>what are we testing and not testing</li>
+            <li>Examples of testing and not testing</li>
+          </ul>
+        </section>
+        <section>
+          <h1>Down a level - mechanics</h1>
+          <aside class="notes">
+            Selena:
+              So you wanted to do a spec of a typo, move over let me pair and show you how ...
+              STOP! actually junior at the keyboard, you type
+            Michael:
+              cool so I type ...
+          </aside>
+        </section>
+        <section>
+          <h1>Front End components</h1>
+          <aside class="notes">
+            How to decide what to test in mechanic vs FE component
+            Michael:
+              Cool it looks good on the page, back up to the mechanic - ahh but the test still does not pass!???
+            Selena:
+              Keep your cool, it is layered and iterative, for each layer we go
+              down to the next layer. Only when we get to the bottom of the
+              onion of layers can we walk back up the tests and see everything
+              pass.
+          </aside>
+        </section>
+        <section>
+          <h1>API acceptance specs</h1>
+          <aside class="notes">
+            * Integration
+            * Controller
+            * Serializer
+          </aside>
+        </section>
+        <section>
+          <h1>Controller specs</h1>
+          <aside class="notes">
+            Fresho vs the RSpec rails way
+          </aside>
+        </section>
+        <section>
+          <h1>Model - unit and DB integration specs</h1>
+          <aside class="notes">
+            * group of models that represent a domain concpet
+            * Dan what does he hate at this level? call backs?
+            * Testing active record or not?
+            * Ryan Bigg exploding rails? any input
+          </aside>
+        </section>
+        <section>
+          <h1>External integration specs</h1>
+        </section>
+        <section>
+          <section>
+            <h1>Summary</h1>
+          </section>
+          <section>
+            <h1>Test Drive DESIGN</h1>
+            <aside class="notes">
+              * example of what is Driven and what is Designed
+              * How to decide what to test and at what level?
+              * where to expect things to fail and where not to?
+            </aside>
+          </section>
+          <section>
+            <h1>How to decide what to test</h1>
+            <aside class="notes">
+              * How to decide what to test and at what level?
+              * where to expect things to fail and where not to?
+            </aside>
+          </section>
+          <section>
+            <h1>Everything is a unit</h1>
+            <aside class="notes">
+              ¯\_(ツ)_/¯
+            </aside>
+          </section>
+        </section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				],
+        transition: 'none',
+			});
+		</script>
+	</body>
+</html>
