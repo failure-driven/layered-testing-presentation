@@ -87,6 +87,25 @@
             width: 75%;
             margin: auto !important;
         }
+
+        .iterative-testing {
+            width: 50%;
+            margin: auto !important;
+        }
+
+        .failing-span {
+            background-color: #f2dede;
+            border-color: #ebcccc;
+            color: #a94442;
+            border-radius: .25rem;
+        }
+
+        .passing-span {
+            background-color: #dff0d8;
+            border-color: #d0e9c6;
+            color: #3c763d;
+            border-radius: .25rem;
+        }
     </style>
 
     <!-- Printing and PDF exports -->
@@ -393,22 +412,25 @@
             What is the behaviour we want to document here? When the game starts, images are rendered
         </section>
 
-        <!-- # TODO 3 basic iterations building out the code -->
         <section>
-            <h3>Iteration - small frequent changes</h3>
-            Good software design = small isolated change, loosely coupled design
+            <h3>Good software design</h3>
+            <p>Small isolated changes</p>
+            <p>Loosely coupled design</p>
+            <p>Iteration</p>
         </section>
 
+        <!-- # TODO 3 basic iterations building out the code -->
         <section>
-            <h3>1 - Render images</h3>
-            <h4>Failing test</h4>
-            <div>Img: empty browser page</div>
+            <h3>Render images <span class="failing-span">Failing test</span></h3>
+            <div class="iterative-testing">
+                <img src="images/iteration-1.1-home-empty.png" />
+            </div>
             <pre><code data-trim data-noescape>
                 feature 'Game play lifecycle', js: true do
                   scenario 'WINNING a game' do
                     When 'user starts the game' do
                       visit('/')
-                      wait_for { focus_on(:welcome).text }.to eq('Welcome to the Game')
+                      <mark>wait_for { focus_on(:welcome).text }.to eq('Welcome to the Game')</mark>
                     end
                   end
                 end
@@ -418,20 +440,22 @@
             </aside>
         </section>
         <section>
-            <h3>1 - Render images</h3>
-            <h4>Make it pass</h4>
-            <div>Img: Welcome to the game text</div>
+            <h3>Render images <span class="passing-span">Make it pass</span></h3>
+            <div class="iterative-testing">
+                <img src="images/iteration-1.2-welcome.png" />
+            </div>
             <pre><code data-trim data-noescape>
-                code to make it pass
+                #TODO - code to make it pass
             </code></pre>
             <aside class="notes">
             </aside>
         </section>
 
         <section>
-            <h3>1 - Render images</h3>
-            <h4>Failing test</h4>
-            <div>Img: Welcome to the game text</div>
+            <h3>Render images <span class="failing-span">Failing test</span></h3>
+            <div class="iterative-testing">
+                <img src="images/iteration-1.2-welcome.png" />
+            </div>
             <pre><code data-trim data-noescape>
                 feature 'Game play lifecycle', js: true do
                   scenario 'WINNING a game' do
@@ -439,7 +463,7 @@
                       visit('/')
                       wait_for { focus_on(:welcome).text }.to eq('Welcome to the Game')
 
-                      focus_on(:welcome).start_game
+                      <mark>focus_on(:welcome).start_game</mark>
                     end
 
                     Then 'the game commences' do
@@ -454,20 +478,23 @@
             </aside>
         </section>
         <section>
-            <h3>1 - Render images</h3>
-            <h4>Make it pass</h4>
-            <div>Img: Gif clickable start button</div>
+            <h3>Render images <span class="passing-span">Make it pass</span></h3>
+            <div class="iterative-testing">
+                <img src="" />
+                TODO - gif iteration-1.3-click-start
+            </div>
             <pre><code data-trim data-noescape>
-                code to make it pass
+                #TODO - code to make it pass
             </code></pre>
             <aside class="notes">
             </aside>
         </section>
 
         <section>
-            <h3>1 - Render images</h3>
-            <h4>Failing test</h4>
-            <div>Img: Rounds 1 is a blank screen</div>
+            <h3>Render images <span class="failing-span">Failing test</span></h3>
+            <div class="iterative-testing">
+                <img src="images/iteration-1.4-round-empty.png" />
+            </div>
             <pre><code data-trim data-noescape>
                 feature 'Game play lifecycle', js: true do
                   scenario 'WINNING a game' do
@@ -479,7 +506,7 @@
                     end
 
                     Then 'the game commences' do
-                      wait_for { focus_on(:game).round }.to eq('1')
+                    <mark>wait_for { focus_on(:game).round }.to eq('1')</mark>
                     end
                   end
                 end
@@ -489,20 +516,23 @@
             </aside>
         </section>
         <section>
-            <h3>1 - Render images</h3>
-            <h4>Make it pass</h4>
-            <div>Img: Gif click start game navigates to round 1 with text round 1</div>
+            <h3>Render images <span class="passing-span">Make it pass</span></h3>
+            <div class="iterative-testing">
+                <img src="" />
+                TODO gif iteration-1.5-navigate-to-next-round-text
+            </div>
             <pre><code data-trim data-noescape>
-                code to make it pass
+                #TODO - code to make it pass
             </code></pre>
             <aside class="notes">
             </aside>
         </section>
 
         <section>
-            <h3>1 - Render images</h3>
-            <h4>Failing test</h4>
-            <div>Img: Round 1 has no images</div>
+            <h3>Render images <span class="failing-span">Failing test</span></h3>
+            <div class="iterative-testing">
+                <img src="images/iteration-1.6-no-images.png" />
+            </div>
             <pre><code data-trim data-noescape>
                 feature 'Game play lifecycle', js: true do
                   scenario 'WINNING a game' do
@@ -515,8 +545,7 @@
 
                     Then 'the game commences' do
                       wait_for { focus_on(:game).round }.to eq('1')
-                      pending 'There are no images!'
-                      wait_for { focus_on(:game).images.count }.to eq(9)
+                      <mark>wait_for { focus_on(:game).images.count }.to eq(9)</mark>
                     end
                   end
                 end
@@ -526,19 +555,20 @@
             </aside>
         </section>
         <section>
-            <h3>1 - Render images</h3>
-            <h4>Make it pass</h4>
-            <div>Img: Gif click start game navigates to round 1 with text round 1 and images appear</div>
+            <h3>Render images <span class="passing-span">Make it pass</span></h3>
+            <div class="iterative-testing">
+                <img src="" />
+                TODO gif iteration-1.7-navigate-to-round-1-text-and-images
+            </div>
             <pre><code data-trim data-noescape>
-                code to make it pass
+                #TODO - code to make it pass
             </code></pre>
             <aside class="notes">
             </aside>
         </section>
 
         <section>
-            <h3>1 - Render images</h3>
-            <h4>First iteration</h4>
+            <h3>Render images <span>Iteration 1</span></h3>
             <pre><code data-trim data-noescape>
                 feature 'Game play lifecycle', js: true do
                   scenario 'WINNING a game' do
@@ -563,8 +593,10 @@
 
 
         <section>
-            <h3>2 - Win by submitting a guess</h3>
-            <h4>Failing test</h4>
+            <h3>Submit a guess <span class="failing-span">Failing test</span></h3>
+            <div class="iterative-testing">
+                <img src="images/iteration-2.1-no-status.png" />
+            </div>
             <pre><code data-trim data-noescape>
                 feature 'Game play lifecycle', js: true do
                   scenario 'WINNING a game' do
@@ -577,7 +609,7 @@
 
                     Then 'the game commences' do
                       wait_for { focus_on(:game).round }.to eq('1')
-                <mark>wait_for { focus_on(:game).status }.to eq('IN-PROGRESS')</mark>
+                      <mark>wait_for { focus_on(:game).status }.to eq('IN-PROGRESS')</mark>
                       wait_for { focus_on(:game).images.count }.to eq(9)
                     end
                   end
@@ -588,19 +620,23 @@
             </aside>
         </section>
         <section>
-            <h3>2 - Win by submitting a guess</h3>
-            <h4>Make it pass</h4>
-            <div>Img: Gif game status changes from loading to in-progress</div>
+            <h3>Submit a guess <span class="passing-span">Make it pass</span></h3>
+            <div class="iterative-testing">
+                <img src="" />
+                TODO gif iteration-2.2-status-changes-loading-to-inprogress
+            </div>
             <pre><code data-trim data-noescape>
-                code to make it pass
+                #TODO - code to make it pass
             </code></pre>
             <aside class="notes">
             </aside>
         </section>
 
         <section>
-            <h3>2 - Win by submitting a guess</h3>
-            <h4>Failing test</h4>
+            <h3>Submit a guess <span class="failing-span">Failing test</span></h3>
+            <div class="iterative-testing">
+                <img src="images/iteration-2.3-no-input-field.png" />
+            </div>
             <pre><code data-trim data-noescape>
                 feature 'Game play lifecycle', js: true do
                   context 'the game terms are configured' do
@@ -623,7 +659,7 @@
                       end
 
                       When 'the user submits an answer' do
-                        focus_on(:game).fill_guess('tequila')
+                        <mark>focus_on(:game).fill_guess('tequila')</mark>
                       end
 
                       Then 'the user wins' do
@@ -639,19 +675,20 @@
             </aside>
         </section>
         <section>
-            <h3>2 - Win by submitting a guess</h3>
-            <h4>Make it pass</h4>
-            <div>Img: Gif fill in text tequila and see WINNER appear</div>
+            <h3>Submit a guess <span class="passing-span">Make it pass</span></h3>
+            <div class="iterative-testing">
+                <img src="" />
+                TODO gif iteration-2.4-input-correct-guess
+            </div>
             <pre><code data-trim data-noescape>
-                code to make it pass
+                #TODO - code to make it pass
             </code></pre>
             <aside class="notes">
             </aside>
         </section>
 
         <section>
-            <h3>2 - Win by submitting a guess</h3>
-            <h4>Second iteration</h4>
+            <h3>Submit a guess <span>Iteration 2</span></h3>
             <pre><code data-trim data-noescape>
                 feature 'Game play lifecycle', js: true do
                   context 'the game terms are configured' do
@@ -691,11 +728,13 @@
 
 
         <section>
-            <h3>3 - Multi-round game</h3>
-            <h4>Failing test</h4>
+            <h3>Multi-round game <span class="failing-span">Failing test</span></h3>
+            <div class="iterative-testing">
+                <img src="images/iteration-3.1-no-next-button.png" />
+            </div>
             <pre><code data-trim data-noescape>
                 When 'the user starts the next round' do
-                  focus_on(:game).next_round
+                  <mark>focus_on(:game).next_round</mark>
                 end
 
                 Then 'round two starts' do
@@ -710,19 +749,52 @@
             </aside>
         </section>
         <section>
-            <h3>3 - Multi-round game</h3>
-            <h4>Make it pass</h4>
-            <div>Img: Gif playing through 2 rounds</div>
+            <h3>Multi-round game <span class="passing-span">Make it pass</span></h3>
+            <div class="iterative-testing">
+                <img src="images/iteration-3.2-next-button-rendered.png" />
+            </div>
             <pre><code data-trim data-noescape>
-                code to make it pass
+                #TODO - code to make it pass
             </code></pre>
             <aside class="notes">
             </aside>
         </section>
 
         <section>
-            <h3>3 - Multi-round game</h3>
-            <h4>Third iteration</h4>
+            <h3>Multi-round game <span class="failing-span">Failing test</span></h3>
+            <div class="iterative-testing">
+                <img src="images/iteration-3.2-next-button-rendered.png" />
+            </div>
+            <pre><code data-trim data-noescape>
+                When 'the user starts the next round' do
+                  focus_on(:game).next_round
+                end
+
+                Then 'round two starts' do
+                    <mark>wait_for { focus_on(:game).round }.to eq('2')</mark>
+                end
+            </code></pre>
+            <aside class="notes">
+                In a slightly more built out version, we can now easily develop this into a mutli-round game
+                Round 2 is very similar to round 1
+                And we expect a game to play out very similarly to what plays in round 1
+            </aside>
+        </section>
+        <section>
+            <h3>Multi-round game <span class="passing-span">Make it pass</span></h3>
+            <div class="iterative-testing">
+                <img src="" />
+                TODO gif iteration-3.3-multi-round-game
+            </div>
+            <pre><code data-trim data-noescape>
+                #TODO - code to make it pass
+            </code></pre>
+            <aside class="notes">
+            </aside>
+        </section>
+
+        <section>
+            <h3>Multi-round game <span>Iteration 3</span></h3>
             <pre><code data-trim data-noescape>
                 feature 'Game play lifecycle', js: true do
                   context 'the game terms are configured' do
