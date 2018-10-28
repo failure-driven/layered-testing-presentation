@@ -428,12 +428,18 @@
             <div class="iterative-testing">
                 <img src="images/iteration-1.1-home-empty.png" />
             </div>
+        </section>
+
+        <section>
+            <h3>Render images <span class="failing-span">Failing test</span></h3>
             <pre><code data-trim data-noescape>
                 feature 'Game play lifecycle', js: true do
                   scenario 'WINNING a game' do
                     When 'user starts the game' do
                       visit('/')
-                      <mark>wait_for { focus_on(:welcome).text }.to eq('Welcome to the Game')</mark>
+                      wait_for {
+                        <mark>focus_on(:welcome).text</mark>
+                      }.to eq('Welcome to the Game')
                     end
                   end
                 end
@@ -460,20 +466,18 @@
                 <img src="images/iteration-1.2-welcome.png" />
             </div>
             <pre><code data-trim data-noescape>
-                feature 'Game play lifecycle', js: true do
-                  scenario 'WINNING a game' do
-                    When 'user starts the game' do
-                      visit('/')
-                      wait_for { focus_on(:welcome).text }.to eq('Welcome to the Game')
+                When 'user starts the game' do
+                  visit('/')
+                  wait_for {
+                    focus_on(:welcome).text
+                    }.to eq('Welcome to the Game')
 
-                      <mark>focus_on(:welcome).start_game</mark>
-                    end
+                  <mark>focus_on(:welcome).start_game</mark>
+                end
 
-                    Then 'the game commences' do
-                      pending 'start game button doesnt start a game!'
-                      wait_for { focus_on(:game).round }.to eq('1')
-                    end
-                  end
+                Then 'the game commences' do
+                  pending 'start game button doesnt start a game!'
+                  wait_for { focus_on(:game).round }.to eq('1')
                 end
             </code></pre>
             <aside class="notes">
@@ -499,19 +503,17 @@
                 <img src="images/iteration-1.4-round-empty.png" />
             </div>
             <pre><code data-trim data-noescape>
-                feature 'Game play lifecycle', js: true do
-                  scenario 'WINNING a game' do
-                    When 'user starts the game' do
-                      visit('/')
-                      wait_for { focus_on(:welcome).text }.to eq('Welcome to the Game')
+                When 'user starts the game' do
+                  visit('/')
+                  wait_for {
+                    focus_on(:welcome).text
+                  }.to eq('Welcome to the Game')
 
-                      focus_on(:welcome).start_game
-                    end
+                  focus_on(:welcome).start_game
+                end
 
-                    Then 'the game commences' do
-                    <mark>wait_for { focus_on(:game).round }.to eq('1')</mark>
-                    end
-                  end
+                Then 'the game commences' do
+                  <mark>wait_for { focus_on(:game).round }.to eq('1')</mark>
                 end
             </code></pre>
             <aside class="notes">
@@ -537,20 +539,18 @@
                 <img src="images/iteration-1.6-no-images.png" />
             </div>
             <pre><code data-trim data-noescape>
-                feature 'Game play lifecycle', js: true do
-                  scenario 'WINNING a game' do
-                    When 'user starts the game' do
-                      visit('/')
-                      wait_for { focus_on(:welcome).text }.to eq('Welcome to the Game')
+                When 'user starts the game' do
+                  visit('/')
+                  wait_for {
+                    focus_on(:welcome).text
+                  }.to eq('Welcome to the Game')
 
-                      focus_on(:welcome).start_game
-                    end
+                  focus_on(:welcome).start_game
+                end
 
-                    Then 'the game commences' do
-                      wait_for { focus_on(:game).round }.to eq('1')
-                      <mark>wait_for { focus_on(:game).images.count }.to eq(9)</mark>
-                    end
-                  end
+                Then 'the game commences' do
+                  wait_for { focus_on(:game).round }.to eq('1')
+                  <mark>wait_for { focus_on(:game).images.count }.to eq(9)</mark>
                 end
             </code></pre>
             <aside class="notes">
@@ -572,12 +572,14 @@
 
         <section>
             <h3>Render images <span class="iteration-span">Iteration 1</span></h3>
-            <pre><code data-trim data-noescape>
+            <pre><code data-trim data-noescape style="max-height: 500px">
                 feature 'Game play lifecycle', js: true do
                   scenario 'WINNING a game' do
                     When 'user starts the game' do
                       visit('/')
-                      wait_for { focus_on(:welcome).text }.to eq('Welcome to the Game')
+                      wait_for {
+                        focus_on(:welcome).text
+                      }.to eq('Welcome to the Game')
 
                       focus_on(:welcome).start_game
                     end
@@ -600,12 +602,18 @@
             <div class="iterative-testing">
                 <img src="images/iteration-2.1-no-status.png" />
             </div>
-            <pre><code data-trim data-noescape>
+        </section>
+        <section>
+            <h3>Submit a guess <span class="failing-span">Failing test</span></h3>
+            <div style="display: felx">
+            <pre><code data-trim data-noescape style="max-height: 500px">
                 feature 'Game play lifecycle', js: true do
                   scenario 'WINNING a game' do
                     When 'user starts the game' do
                       visit('/')
-                      wait_for { focus_on(:welcome).text }.to eq('Welcome to the Game')
+                      wait_for {
+                        focus_on(:welcome).text
+                      }.to eq('Welcome to the Game')
 
                       focus_on(:welcome).start_game
                     end
@@ -618,6 +626,7 @@
                   end
                 end
             </code></pre>
+            </div>
             <aside class="notes">
                 loading -> in progress
             </aside>
@@ -640,7 +649,11 @@
             <div class="iterative-testing">
                 <img src="images/iteration-2.3-no-input-field.png" />
             </div>
-            <pre><code data-trim data-noescape>
+        </section>
+
+        <section>
+            <h3>Submit a guess <span class="failing-span">Failing test</span></h3>
+            <pre><code data-trim data-noescape style="max-height: 600px">
                 feature 'Game play lifecycle', js: true do
                   context 'the game terms are configured' do
                     before do
@@ -648,18 +661,9 @@
                     end
 
                     scenario 'WINNING a game' do
-                      When 'user starts the game' do
-                        visit('/')
-                        wait_for { focus_on(:welcome).text }.to eq('Welcome to the Game')
+                      When 'user starts the game' do ... end
 
-                        focus_on(:welcome).start_game
-                      end
-
-                      Then 'the game commences' do
-                        wait_for { focus_on(:game).round }.to eq('1')
-                        wait_for { focus_on(:game).status }.to eq('IN-PROGRESS')
-                        wait_for { focus_on(:game).images.count }.to eq(9)
-                      end
+                      Then 'the game commences' do ... end
 
                       When 'the user submits an answer' do
                         <mark>focus_on(:game).fill_guess('tequila')</mark>
@@ -692,7 +696,7 @@
 
         <section>
             <h3>Submit a guess <span class="iteration-span">Iteration 2</span></h3>
-            <pre><code data-trim data-noescape>
+            <pre style="width: 100%;"><code data-trim data-noescape style="max-height: 600px;">
                 feature 'Game play lifecycle', js: true do
                   context 'the game terms are configured' do
                     before do
@@ -702,14 +706,18 @@
                     scenario 'WINNING a game' do
                       When 'user starts the game' do
                         visit('/')
-                        wait_for { focus_on(:welcome).text }.to eq('Welcome to the Game')
+                        wait_for {
+                          focus_on(:welcome).text
+                        }.to eq('Welcome to the Game')
 
                         focus_on(:welcome).start_game
                       end
 
                       Then 'the game commences' do
                         wait_for { focus_on(:game).round }.to eq('1')
-                        wait_for { focus_on(:game).status }.to eq('IN-PROGRESS')
+                        wait_for {
+                          focus_on(:game).status
+                        }.to eq('IN-PROGRESS')
                         wait_for { focus_on(:game).images.count }.to eq(9)
                       end
 
@@ -798,7 +806,7 @@
 
         <section>
             <h3>Multi-round game <span class="iteration-span">Iteration 3</span></h3>
-            <pre><code data-trim data-noescape>
+            <pre style="width: 100%;"><code data-trim data-noescape style="max-height: 600px;">
                 feature 'Game play lifecycle', js: true do
                   context 'the game terms are configured' do
                     before do
@@ -808,7 +816,9 @@
                     scenario 'WINNING a game' do
                       When 'user starts the game' do
                         visit('/')
-                        wait_for { focus_on(:welcome).text }.to eq('Welcome to the Game')
+                        wait_for {
+                          focus_on(:welcome).text
+                        }.to eq('Welcome to the Game')
 
                         focus_on(:welcome).start_game
                       end
