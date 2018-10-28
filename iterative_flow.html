@@ -1,0 +1,449 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <style>
+.reveal .fake-game {
+  background-color: #ddd;
+  width: 90%;
+  margin: 20px auto;
+}
+
+.reveal .fake-game-nav {
+  background-color: #1b91ff;
+}
+
+.reveal .fake-game-status {
+  text-align: left;
+  width: 90%;
+  margin: 20px auto;
+}
+
+.reveal .fake-game-main {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  margin: 20px auto;
+}
+
+.reveal .fake-game-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.reveal .fake-game-image {
+  background-color: #ccc;
+  width: 2em;
+  height: 2em;
+  border: none;
+  margin: 5px 5px 0 0;
+}
+
+.reveal .fake-game-guess-container {
+  width: 50%;
+}
+
+.reveal .fake-game-guess-container textarea {
+  font-size: 1em;
+}
+
+.reveal .fake-game-guess {
+  width: 100%;
+  height: 100%;
+}
+
+.reveal .fake-game ul {
+  list-style: none;
+}
+
+h4.code-snippet-title {
+  text-align: left;
+  width: 90%;
+  margin: 20px auto;
+}
+    </style>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+        <section>
+          <h1>Failing for the right reason</h1>
+          <h3>Selena Small & Michael Milewski</h3>
+          <aside class="notes">
+            Selena: Hi everyone, thanks for joining us today. I'm Selena and this Michael, we're going to
+              talk you about...
+
+            Michael: "Failing for the right reason!" - how to write tests that fail and drive out a perfect design
+              for your software
+          </aside>
+        </section>
+        <section>
+          <h3>Why Test driven?</h3>
+          <aside class="notes">
+            Imagine designing a cannon
+            Now imagine juggling many objects over obstacles
+          </aside>
+        </section>
+        <section>
+          <h3>Test tooling</h3>
+          <ul>
+            <li>RSpec</li>
+          </ul>
+
+          <h4 class="code-snippet-title">Gemfile snippet</h4>
+          <pre><code data-trim data-noescape>
+          group :development, :test do
+            <mark>gem 'rspec-rails'         # unit testing</mark>
+          end
+          </code></pre>
+          <aside class="notes">
+            RSpec for unit testing, in this case with rails
+          </aside>
+        </section>
+        <section>
+          <h4 class="code-snippet-title">Start of an RSpec spec</h4>
+          <pre><code data-trim data-noescape>
+          describe Game do
+            it 'Will let me play' do
+              game = Game.new()
+              expect(game.play).to be_truthy
+            end
+            ...
+          </code></pre>
+          <aside class="notes">
+            allows us to describe the behaviour of a class and assert
+            expectations
+          </aside>
+        </section>
+        <section>
+          <h4 class="code-snippet-title">execution of RSpec</h4>
+          <pre><code data-trim data-noescape>
+          $ rspec
+
+          Game
+            should play
+
+          1 example, 0 failures
+          </code></pre>
+          <aside class="notes">
+            With the output mimicking the text of our test
+          </aside>
+        </section>
+        <section>
+          <h3>Test tooling</h3>
+          <ul>
+            <li>RSpec</li>
+            <li>Capybara</li>
+          </ul>
+
+          <h4 class="code-snippet-title">Gemfile snippet</h4>
+          <pre><code data-trim data-noescape>
+          group :development, :test do
+            gem 'rspec-rails'         # unit testing
+            <mark>gem 'capybara'            # acceptance testing</mark>
+          end
+          </code></pre>
+          <aside class="notes">
+            If we add capybara for acceptance testing
+          </aside>
+        </section>
+        <section>
+          <div class="fake-game">
+            <div class="fake-game-nav">
+              <h3>Phrase the images</h3>
+            </div>
+            <div class="fake-game-footer">
+              <button disabled>START GAME</button>
+            </div>
+          </div>
+          <h4 class="code-snippet-title">Start of an RSpec spec</h4>
+          <pre><code data-trim data-noescape>
+          describe 'play web game phrase the images' do
+            it 'allows me to play a game' do
+              visit '/'
+              expect(page).to have_content 'PHRASE THE IMAGES'
+              click_on 'NEXT ROUND'
+              expect(page).to have_content 'Round 1'
+              ...
+          </code></pre>
+          <aside class="notes">
+            we can start testing web applications like the mock at the top of
+            the screen with a title and a button, now we use capybara to
+            "visit" and expect the page has certain content as well as click
+            around.
+          </aside>
+        </section>
+        <section>
+          <div class="fake-game">
+            <div class="fake-game-nav">
+              <h3>Phrase the images</h3>
+            </div>
+            <div class="fake-game-footer">
+              <button disabled>START GAME</button>
+            </div>
+          </div>
+          <h4 class="code-snippet-title">Start of an RSpec spec</h4>
+          <pre><code data-trim data-noescape>
+          <mark>feature</mark> 'play web game phrase the images' do
+            <mark>scenario</mark> 'allows me to play a game' do
+              visit '/'
+              expect(page).to have_content 'PHRASE THE IMAGES'
+              click_on 'NEXT ROUND'
+              expect(page).to have_content 'Round 1'
+              ...
+          </code></pre>
+          <aside class="notes">
+            we can use RSpec's built in DST to use feature and scenarios, to
+            keep these higher level tests a bit different from unit tests.
+          </aside>
+        </section>
+        <section>
+          <h3>Test tooling</h3>
+          <ul>
+            <li>RSpec</li>
+            <li>Capybara</li>
+            <li>Selenium</li>
+          </ul>
+
+          <h4 class="code-snippet-title">Gemfile snippet</h4>
+          <pre><code data-trim data-noescape>
+          group :development, :test do
+            gem 'rspec-rails'         # unit testing
+            gem 'capybara'            # acceptance testing
+            <mark>gem 'selenium-webdriver'  # browser automation</mark>
+          end
+          </code></pre>
+          <aside class="notes">
+            adding selenium allows us to drive a web browser
+          </aside>
+        </section>
+        <section>
+          <div class="fake-game">
+            <div class="fake-game-nav">
+              <h3>Phrase the images</h3>
+            </div>
+            <div class="fake-game-footer">
+              <button disabled>START GAME</button>
+            </div>
+          </div>
+          <h4 class="code-snippet-title">Start of an RSpec spec</h4>
+          <pre><code data-trim data-noescape>
+          feature 'play web game phrase the images', <mark>js:</mark> true do
+            scenario 'allows me to play a game' do
+              visit '/'
+              expect(page).to have_content 'PHRASE THE IMAGES'
+              click_on 'NEXT ROUND'
+              expect(page).to have_content 'Round 1'
+              ...
+          </code></pre>
+          <aside class="notes">
+            using the default config we just need to mark specs with a 'js:
+            true' to have capybara drive them through a web browser.
+          </aside>
+        </section>
+        <section>
+          <h3>Test tooling</h3>
+          <ul>
+            <li>RSpec</li>
+            <li>Capybara</li>
+            <li>Selenium</li>
+            <li>wait for condtions</li>
+            <li>Given/When/Then</li>
+          </ul>
+
+          <h4 class="code-snippet-title">Gemfile snippet</h4>
+          <pre><code data-trim data-noescape>
+          group :development, :test do
+            gem 'rspec-rails'         # unit testing
+            <mark>gem 'rspec-wait'          # wait for conditions</mark>
+            <mark>gem 'rspec-example_steps' # Given/When/Then steps</mark>
+            gem 'capybara'            # acceptance testing
+            gem 'selenium-webdriver'  # browser automation
+          end
+          </code></pre>
+          <aside class="notes">
+            A couple more convinience gems allow us to wait for conditions to
+            happen, like animations or call backs to an API from a JS front
+            end. Another one lets us break the test appart into Given/When/Then
+            steps.
+          </aside>
+        </section>
+        <section>
+          <div class="fake-game">
+            <div class="fake-game-nav">
+              <h3>Phrase the images</h3>
+            </div>
+            <div class="fake-game-footer">
+              <button disabled>START GAME</button>
+            </div>
+          </div>
+          <h4 class="code-snippet-title">Start of an RSpec spec</h4>
+          <pre><code data-trim data-noescape>
+          feature 'play web game phrase the images', js: true do
+            <mark>context</mark> 'the phrase to guess is ghost' do
+              before do
+                Phrase.create(phrase: 'ghost')
+              end
+
+              scenario 'allows me to play a game' do
+                <mark>When</mark> 'Michael goes to play the game' do
+                  visit '/'
+                  wait_for { focus_on(:header).title }.to eq 'PHRASE THE IMAGES'
+                  focus_on(:actions).go_to_next_round
+                end
+
+                <mark>Then</mark> 'Michael will start on round 1' do
+                  wait_for { focus_on(:header).title }.to eq 'Round 1'
+                  ...
+          </code></pre>
+          <aside class="notes">
+            Now we have our spec has a few more things going on. A separate
+            context to setup some required state, a When, the wait_for to wait
+            for a title to be the right one and any specific css selectors,
+            button clicks etc wrapped in page fragments that in this case are
+            called with a 'focus_on' helper method.
+          </aside>
+        </section>
+        <section>
+          <h4 class="code-snippet-title">execution of RSpec</h4>
+          <pre><code data-trim data-noescape>
+          $ rspec
+
+          Play web game phrase the images
+              the phrase to guess is ghost
+                  When Michael goes to play the game
+                  Then Michael will start on round 1
+                  When Michael guesses wrongly horse
+                  Then Michael will see that round 1 is still in progress
+                  ...
+
+          </code></pre>
+          <aside class="notes">
+            finally running the spec gives us something like this.
+          </aside>
+        </section>
+        <section>
+          <h3>Lifecycle Flow Spec</h3>
+        </section>
+        <section>
+          <h3>Screen 1 of 3</h3>
+          <div class="fake-game">
+            <div class="fake-game-nav">
+              <h3>Phrase the images</h3>
+            </div>
+            <div class="fake-game-footer">
+              <button disabled>START GAME</button>
+            </div>
+          </div>
+          <aside class="notes">
+            Our demo app comes in 3 main screens, a start screen
+          </aside>
+        </section>
+        <section>
+          <h3>Screen 2 of 3</h3>
+          <div class="fake-game">
+            <div class="fake-game-nav">
+              <h3>Phrase the images</h3>
+            </div>
+            <div class="fake-game-status">
+              <div>Round 2</div>
+              <div>10 seconds remaining</div>
+            </div>
+            <div class="fake-game-main">
+              <div>
+                <div class="fake-game-row">
+                  <img class="fake-game-image"/></li>
+                  <img class="fake-game-image"/></li>
+                  <img class="fake-game-image"/></li>
+                </div>
+                <div class="fake-game-row">
+                  <img class="fake-game-image"/></li>
+                  <img class="fake-game-image"/></li>
+                  <img class="fake-game-image"/></li>
+                </div>
+                <div class="fake-game-row">
+                  <img class="fake-game-image"/></li>
+                  <img class="fake-game-image"/></li>
+                  <img class="fake-game-image"/></li>
+                </div>
+              </div>
+              <div class="fake-game-guess-container">
+                <textarea class="fake-game-guess" placeholder="guess the phrase that describes these images"></textarea>
+              </div>
+            </div>
+            <div class="fake-game-footer">
+              <button disabled>NEXT ROUND</button>
+            </div>
+          </div>
+          <aside class="notes">
+            a round screen which is shown for each round. This includes a
+            title, status, images and guess section
+          </aside>
+        </section>
+        <section>
+          <h3>Screen 3 of 3</h3>
+          <div class="fake-game">
+            <div class="fake-game-nav">
+              <h3>Phrase the images</h3>
+            </div>
+            <div class="fake-game-status">
+              <div>Result</div>
+              <div>Score: 43</div>
+            </div>
+            <div class="fake-game-main">
+              <h3>Ladder</h3>
+              <br />
+              <ol>
+                <li>Selena   100</li>
+                <li>Michael  43</li>
+              </ol>
+            </div>
+            <div class="fake-game-footer">
+              <button disabled>PLAY AGAIN?</button>
+            </div>
+          </div>
+          <aside class="notes">
+            finally a result screen
+          </aside>
+        </section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				],
+        transition: 'none',
+			});
+		</script>
+	</body>
+</html>
