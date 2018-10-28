@@ -106,6 +106,12 @@
             color: #3c763d;
             border-radius: .25rem;
         }
+        .iteration-span {
+            background-color: #d9edf7;
+            border-color: #bcdff1;
+            color: #31708f;
+            border-radius: .25rem;
+        }
     </style>
 
     <!-- Printing and PDF exports -->
@@ -576,7 +582,7 @@
         </section>
 
         <section>
-            <h3>Render images <span>Iteration 1</span></h3>
+            <h3>Render images <span class="iteration-span">Iteration 1</span></h3>
             <pre><code data-trim data-noescape>
                 feature 'Game play lifecycle', js: true do
                   scenario 'WINNING a game' do
@@ -696,7 +702,7 @@
         </section>
 
         <section>
-            <h3>Submit a guess <span>Iteration 2</span></h3>
+            <h3>Submit a guess <span class="iteration-span">Iteration 2</span></h3>
             <pre><code data-trim data-noescape>
                 feature 'Game play lifecycle', js: true do
                   context 'the game terms are configured' do
@@ -802,7 +808,7 @@
         </section>
 
         <section>
-            <h3>Multi-round game <span>Iteration 3</span></h3>
+            <h3>Multi-round game <span class="iteration-span">Iteration 3</span></h3>
             <pre><code data-trim data-noescape>
                 feature 'Game play lifecycle', js: true do
                   context 'the game terms are configured' do
