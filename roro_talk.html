@@ -112,6 +112,9 @@
             color: #31708f;
             border-radius: .25rem;
         }
+        .reveal pre.code-100 {
+          width: 100%;
+        }
     </style>
 
     <!-- Printing and PDF exports -->
@@ -152,7 +155,7 @@
                 <img src="images/app-1-enter-url.png" style="" />
             </div>
 
-            <pre><code data-trim data-noescape>
+            <pre class="code-100"><code data-trim data-noescape>
                 - When Casper visits SearchTerm
                 -
                 -
@@ -167,7 +170,7 @@
                 <img src="images/app-2-welcome-text.png" style="" />
             </div>
 
-            <pre><code data-trim data-noescape>
+            <pre class="code-100"><code data-trim data-noescape>
                 - When Casper visits SearchTerm
                 - <mark>Then a welcome message is shown</mark>
                 -
@@ -182,7 +185,7 @@
                 <img src="images/app-3-start-button.png" style="" />
             </div>
 
-            <pre><code data-trim data-noescape>
+            <pre class="code-100"><code data-trim data-noescape>
                 - When Casper visits SearchTerm
                 - Then a welcome message is rendered
                 - <mark>And a start game button is rendered</mark>
@@ -198,7 +201,7 @@
                 <img src="images/app-4-click-start-button.png" style="" />
             </div>
 
-            <pre><code data-trim data-noescape>
+            <pre class="code-100"><code data-trim data-noescape>
                 - When Casper starts the game
                 -
                 -
@@ -213,7 +216,7 @@
                 <img src="images/app-5-round-1.png" style="" />
             </div>
 
-            <pre><code data-trim data-noescape>
+            <pre class="code-100"><code data-trim data-noescape>
                 - When Casper starts the game
                 - <mark>Then round 1 begins</mark>
                 -
@@ -228,7 +231,7 @@
                 <img src="images/app-6-images.png" style="" />
             </div>
 
-            <pre><code data-trim data-noescape>
+            <pre class="code-100"><code data-trim data-noescape>
                 - When Casper starts the game
                 - Then round 1 begins
                 - <mark>And 9 images are displayed</mark>
@@ -243,7 +246,7 @@
                 <img src="images/app-7-text-area-.png" style="" />
             </div>
 
-            <pre><code data-trim data-noescape>
+            <pre class="code-100"><code data-trim data-noescape>
                 - When Casper starts the game
                 - Then round 1 begins
                 - And 9 images are displayed
@@ -258,7 +261,7 @@
                 <img src="images/app-8-timer.png" style="" />
             </div>
 
-            <pre><code data-trim data-noescape>
+            <pre class="code-100"><code data-trim data-noescape>
                 - When Casper starts the game
                 - Then round 1 begins
                 - And 9 images are displayed
@@ -274,7 +277,7 @@
                 <img src="images/app-9-status.png" style="" />
             </div>
 
-            <pre><code data-trim data-noescape>
+            <pre class="code-100"><code data-trim data-noescape>
                 - When the game is In-progress
                 -
                 -
@@ -289,7 +292,7 @@
                 <img src="images/app-10-counting-down.png" style="" />
             </div>
 
-            <pre><code data-trim data-noescape>
+            <pre class="code-100"><code data-trim data-noescape>
                 - When the game is In-progress
                 - <mark>Then the countdown timer starts counting down</mark>
                 -
@@ -305,7 +308,7 @@
                 <img src="images/app-11-guess.png" style="" />
             </div>
 
-            <pre style="width: 100%;"><code data-trim data-noescape>
+            <pre class="code-100"><code data-trim data-noescape>
                 - When Casper guesses the search term used to find these images
                 -
                 -
@@ -320,7 +323,7 @@
                 <img src="images/app-12-timer-stops.png" style="" />
             </div>
 
-            <pre style="width: 100%;"><code data-trim data-noescape>
+            <pre class="code-100"><code data-trim data-noescape>
                 - When Casper guesses the search term used to find these images
                 - <mark>Then the countdown timer stops</mark>
                 -
@@ -335,7 +338,7 @@
                 <img src="images/app-13-score.png" style="" />
             </div>
 
-            <pre><code data-trim data-noescape>
+            <pre class="code-100"><code data-trim data-noescape>
                 - When Casper types the correct guess into the text box
                 - Then the countdown timer stops
                 - <mark>And a score is rendered for the round</mark>
@@ -350,7 +353,7 @@
                 <img src="images/app-14-winner.png" style="" />
             </div>
 
-            <pre><code data-trim data-noescape>
+            <pre class="code-100"><code data-trim data-noescape>
                 - When Casper types the correct guess into the text box
                 - Then the countdown timer stops
                 - And a score is rendered for the round
@@ -691,7 +694,7 @@
 
         <section>
             <h3>Submit a guess <span class="iteration-span">Iteration 2</span></h3>
-            <pre style="width: 100%;"><code data-trim data-noescape style="max-height: 600px;">
+            <pre class="code-100"><code data-trim data-noescape style="max-height: 600px;">
                 feature 'Game play lifecycle', js: true do
                   context 'the game terms are configured' do
                     before do
@@ -800,7 +803,7 @@
 
         <section>
             <h3>Multi-round game <span class="iteration-span">Iteration 3</span></h3>
-            <pre style="width: 100%;"><code data-trim data-noescape style="max-height: 600px;">
+            <pre class="code-100"><code data-trim data-noescape style="max-height: 600px;">
                 feature 'Game play lifecycle', js: true do
                   context 'the game terms are configured' do
                     before do
