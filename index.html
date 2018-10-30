@@ -552,6 +552,33 @@
 
         <section>
             <h3>Render images <span class="failing-span">Failing test</span></h3>
+            <pre><code data-trim data-noescape>
+                When 'user starts the game' do
+                  visit('/')
+                  wait_for {
+                    focus_on(:welcome).text
+                    }.to eq('Welcome to the Game')
+
+                  <mark>focus_on(:welcome).start_game</mark>
+                end
+
+                Then 'the game commences' do
+                  pending 'start game button doesnt start a game!'
+                  wait_for { focus_on(:game).round }.to eq('1')
+                end
+            </code></pre>
+            <aside class="notes">
+                *Michael:
+
+                *Selena: What is focus_on?
+                    We've hidden away code that asserts against html
+                    in order to make these high level flows easier to read.
+            </aside>
+        </section>
+
+
+        <section>
+            <h3>Render images <span class="failing-span">Failing test</span></h3>
             <div class="iterative-testing">
                 <img src="images/iteration-1.2-welcome.png" />
             </div>
@@ -694,6 +721,11 @@
                   - these can lead to flakey behaviour, things that fail every now and again
                   - this is NOT good for testing, we want to avoid elements moving around
             </aside>
+        </section>
+
+        <section>
+          <h3>Flake due to image loading</h3>
+          <img src="images/flakey_fresho_header.gif" />
         </section>
 
         <section>
