@@ -132,25 +132,22 @@
         <section>
             <h1>Failing for the right reason</h1>
             <h3>Selena Small & Michael Milewski</h3>
-            <aside class="notes">
-              * Selena: intro
+            <aside class="notes" data-markdown>
+              #### Selena: intro
 
-              * Michael: **runs on side stage**
-                Idea for app
-                Big - break internet
-                Game
-                Images
-                Scoreboard
-                Web
-                Share Score
+              #### Michael: **runs on side stage**
+                - Idea for app
+                - Big - break internet
+                - Game - Images - Scoreboard
+                - Web - Share Score
 
-              * Selena: No. The first line of code you write is a test
+              *Selena*: No. The first line of code you write is a test
             </aside>
         </section>
 
         <section>
             <h3>What is the app?</h3>
-            <aside class="notes">
+            <aside class="notes" data-markdown>
               * Selena: Who uses it? What kind of person is going to play this game?
 
               * Michael: Halloween, Casper
@@ -168,10 +165,10 @@
                 -
                 -
             </code></pre>
-            <aside class="notes">
+            <aside class="notes" data-markdown>
                 * Selena: ah! so When casper visits the game, lets call it SearchTerm - then what?
 
-                * Michael:
+                * Michael: greeted with a logo, welcome message
             </aside>
         </section>
         <section>
@@ -186,11 +183,11 @@
                 -
                 -
             </code></pre>
-            <aside class="notes">
+            <aside class="notes" data-markdown>
                 * Selena: A welcome message? kind of like this?
                           How does the game start?
 
-                * Michael:
+                * Michael: oh a button
             </aside>
         </section>
         <section>
@@ -205,11 +202,11 @@
                 -
                 -
             </code></pre>
-            <aside class="notes">
+            <aside class="notes" data-markdown>
                 * Selena: Right, so when Casper clicks the start button
                           Then the game starts?
 
-                * Michael:
+                * Michael: yup you are in the game
             </aside>
         </section>
 
@@ -225,10 +222,10 @@
                 -
                 -
             </code></pre>
-            <aside class="notes">
+            <aside class="notes" data-markdown>
                 * Selena: How do you know that the game has started?
 
-                * Michael:
+                * Michael: ding ding, round 1 baby
             </aside>
         </section>
         <section>
@@ -243,8 +240,8 @@
                 -
                 -
             </code></pre>
-            <aside class="notes">
-                * Selena: Now are you getting?
+            <aside class="notes" data-markdown>
+                * Selena: Now are you getting? you keeping up?
 
                 ** Michael takes over explaining **
             </aside>
@@ -261,7 +258,7 @@
                 -
                 -
             </code></pre>
-            <aside class="notes">
+            <aside class="notes" data-markdown>
                 * Michael:
             </aside>
         </section>
@@ -277,7 +274,7 @@
                 - <mark>And a text area is rendered</mark>
                 -
             </code></pre>
-            <aside class="notes">
+            <aside class="notes" data-markdown>
                 * Michael:
             </aside>
         </section>
@@ -293,7 +290,7 @@
                 - And a text area is rendered
                 - <mark>And a countdown timer is rendered</mark>
             </code></pre>
-            <aside class="notes">
+            <aside class="notes" data-markdown>
                 * Michael:
             </aside>
         </section>
@@ -310,7 +307,7 @@
                 -
                 -
             </code></pre>
-            <aside class="notes">
+            <aside class="notes" data-markdown>
                 * Michael:
             </aside>
         </section>
@@ -326,7 +323,7 @@
                 -
                 -
             </code></pre>
-            <aside class="notes">
+            <aside class="notes" data-markdown>
                 * Michael:
             </aside>
         </section>
@@ -343,7 +340,7 @@
                 -
                 -
             </code></pre>
-            <aside class="notes">
+            <aside class="notes" data-markdown>
                 * Michael:
             </aside>
         </section>
@@ -359,7 +356,7 @@
                 -
                 -
             </code></pre>
-            <aside class="notes">
+            <aside class="notes" data-markdown>
                 * Michael:
             </aside>
         </section>
@@ -375,7 +372,7 @@
                 -
                 -
             </code></pre>
-            <aside class="notes">
+            <aside class="notes" data-markdown>
                 * Michael:
             </aside>
         </section>
@@ -391,8 +388,8 @@
                 - <mark>And a winner message is rendered</mark>
                 -
             </code></pre>
-            <aside class="notes">
-                * Michael:
+            <aside class="notes" data-markdown>
+                * Michael: so how does this all hang together Selena?
             </aside>
         </section>
 
@@ -420,10 +417,11 @@
                   And a score is rendered for the round
                   And a winner message is rendered
             </code></pre>
-            <aside class="notes">
-                *Selena: GIVEN the state of the world before you begin
-                         WHEN an action is carried out
-                         THEN observable changes are expected
+            <aside class="notes" data-markdown>
+                * Selena:
+                  * GIVEN the state of the world before you begin
+                  * WHEN an action is carried out
+                  * THEN observable changes are expected
             </aside>
         </section>
 
@@ -431,24 +429,15 @@
         <section>
             <h3>Why testing matters</h3>
             <ul>
-              <li class="fragment">incremental iterative development</li>
               <li class="fragment"><img src="images/rachet_and_prawl.jpg" /></li>
+              <li class="fragment">incremental iterative development</li>
             </ul>
-            <aside class="notes">
-                There are many reasons to test, but for the context of todays
-                talk it is about incremental iterative development.
-
-                Might sound a little counter intuitive "hey I just want to
-                write the code" "No write a test first" but you will write code
-                faster and sooner, a little bit of test and some code, some
-                test and some code. No big upfront design learn more about your
-                problem through actual code and allow yourself to pivot as you
-                implement your solution not once it is complete and you need
-                Test first to make your code tested to be able to iterate
-                knowing that everything you have done still works. It is like a
-                ratchet
-
+            <aside class="notes" data-markdown>
                 * Michael:
+                  1. scary writing code, nothing to catch you
+                  2. bring in the ratchet
+                  3. bit by bit you can move forward
+                  4. takeaway Incremental iterative development
 
                 * Selena: I'm not quite sure everyone's following...
                           Let's run through an example
@@ -470,8 +459,8 @@
                   end
                 end
             </code></pre>
-            <aside class="notes">
-                *Michael:
+            <aside class="notes" data-markdown>
+                *Michael: 2 simple steps visit and confirm you are there
 
                 *Selena: This is the first piece of code in the whole app!
                          No controllers, models, views
@@ -485,6 +474,10 @@
             <div class="iterative-testing">
                 <img src="images/iteration-1.1-home-empty.png" />
             </div>
+            <aside class="notes" data-markdown>
+                - And when we run that test, what's going to happen?
+                - Well, it's going to fail! Of course
+            </aside>
         </section>
 
         <section>
@@ -501,8 +494,8 @@
                   </div>
                 )
             </code></pre>
-            <aside class="notes">
-                *Michael:
+            <aside class="notes" data-markdown>
+                *Michael: a simple react component to spit a H1 on the page
             </aside>
         </section>
 
@@ -523,24 +516,12 @@
                   wait_for { focus_on(:game).round }.to eq('1')
                 end
             </code></pre>
-            <aside class="notes">
-                *Michael:
+            <aside class="notes" data-markdown>
+                *Michael: now we want to focus_on welcome start_game
 
                 *Selena: What is focus_on?
                     We've hidden away code that asserts against html
                     in order to make these high level flows easier to read.
-            </aside>
-        </section>
-
-        <section>
-            <h3>TODO preview code of page fragment</h3>
-            <aside class="notes">
-                *Selena: As you can see this particular fragment finds the text inside a div with class `WELCOME`
-                    One benefit of separating out fragments like this, is that
-                    they're reusable throughout the tests.
-                    - if a class name changes in the html, you don't have to trawl through
-                      your tests to change every assertion. You can just change it here
-                    - Ans as I mentioned, your tests also become much more readable
             </aside>
         </section>
 
@@ -559,7 +540,13 @@
                   end
                 end
             </code></pre>
-            <aside class="notes">
+            <aside class="notes" data-markdown>
+                *Selena: As you can see this particular fragment finds the text inside a div with class `WELCOME`
+                    One benefit of separating out fragments like this, is that
+                    they're reusable throughout the tests.
+                    - if a class name changes in the html, you don't have to trawl through
+                      your tests to change every assertion. You can just change it here
+                    - Ans as I mentioned, your tests also become much more readable
             </aside>
         </section>
 
@@ -568,8 +555,8 @@
             <div class="iterative-testing">
                 <img src="images/iteration-1.2-welcome.png" />
             </div>
-            <aside class="notes">
-                *Michael:
+            <aside class="notes" data-markdown>
+                *Michael: and the app is failing as we have not built this
             </aside>
         </section>
 
@@ -589,8 +576,8 @@
                   </div>
                 )
             </code></pre>
-            <aside class="notes">
-                *Michael:
+            <aside class="notes" data-markdown>
+                *Michael: and using react router we Link to the first round
             </aside>
         </section>
 
@@ -610,8 +597,8 @@
                   <mark>wait_for { focus_on(:game).round }.to eq('1')</mark>
                 end
             </code></pre>
-            <aside class="notes">
-                *Michael:
+            <aside class="notes" data-markdown>
+                *Michael: How do we know we are on the first round? a round title including 1
             </aside>
         </section>
 
@@ -620,8 +607,13 @@
             <div class="iterative-testing">
                 <img src="images/iteration-1.4-round-empty.png" />
             </div>
-            <aside class="notes">
-                *Michael:
+            <aside class="notes" data-markdown>
+                *Michael: got nothing
+
+                *Selena: questions around fail in round 1
+                Route not there
+                Second page doesn't load
+                Lower level tests?
             </aside>
         </section>
 
@@ -642,13 +634,8 @@
                   </div>
                 )
             </code></pre>
-            <aside class="notes">
-                *Michael:
-
-                *Selena: questions around fail in round 1
-                    Route not there
-                    Second page doesn't load
-                    Lower level tests?
+            <aside class="notes" data-markdown>
+                *Michael: a round component in React which gets the round parameter from the path and displays it
             </aside>
         </section>
 
@@ -669,8 +656,8 @@
                   <mark>wait_for { focus_on(:game).images.count }.to eq(9)</mark>
                 end
             </code></pre>
-            <aside class="notes">
-                *Michael:
+            <aside class="notes" data-markdown>
+                *Michael: again we back ourselves up with a failing test, for 9 images ...
             </aside>
         </section>
 
@@ -679,8 +666,8 @@
             <div class="iterative-testing">
                 <img src="images/iteration-1.6-no-images.png" />
             </div>
-            <aside class="notes">
-                *Michael:
+            <aside class="notes" data-markdown>
+                *Michael: ... that are not there
             </aside>
         </section>
 
@@ -691,17 +678,21 @@
             </div>
             <pre><code data-trim>
                 <div className="images-container">
+                  API.fetchRoundData(round).then((data) => {
+                    this.setState(data)
+                ...
                   { this.state.images.map( ({id, src}) => (
                     <img key={id} src={src} alt="nice try"/>
                   ))}
                 </div>
             </code></pre>
-            <aside class="notes">
-                *Michael:
+            <aside class="notes" data-markdown>
+                *Michael: and to make it pass we make an API call -> API endpoint -> controller -> model -> json back
 
-                *Selena: Flakes - images loading
-                    No set location -> divs moving around
-                    #TODO - Michael can you explain how to explain this shit
+                *Selena:
+                  - there is a few things going on, rendering, waiting for images, changes in the DOM
+                  - these can lead to flakey behaviour, things that fail every now and again
+                  - this is NOT good for testing, we want to avoid elements moving around
             </aside>
         </section>
 
@@ -726,7 +717,7 @@
                   end
                 end
             </code></pre>
-            <aside class="notes">
+            <aside class="notes" data-markdown>
                 *Michael: wrap up iteration 1
 
                 *Selena: On the next iteration, we have a lot of the context already set up.
@@ -758,12 +749,23 @@
                 end
             </code></pre>
             </div>
-            <aside class="notes">
-                *Michael:
+            <aside class="notes" data-markdown>
+                *Michael: more state in-progress loading etc
 
-                *Selena: Mechanics - status, click start & render images
-                    Separation of tests
-                    Failure cases?
+                *Selena: Mechanics
+                    - This is where mechanics come in
+
+                    - The style of test we've been writing here is an integration test
+                    - At Fresho we organise these type of tests into two categories - flows and mechanics
+                    - Flows, like we're writing here test the users experience of flow on effect from user and system interactions
+                    - For behaviours that are specific to a page or component we would use what we call a mechanic test
+                    - take the status it can be one of - loading, round in progress, round complete or error
+                    - it is not practical to navigate through to a round just to test a different status
+                    - specific tests around the round page would allow us to test the status component
+                    - setup scenarios like a network timeout, the data base not being there
+                    - writing these test first also makes sure that from the outset each page/component
+                      is individually testable and you do not have to navigate through lots of screens
+                      to come to a particular scenario
             </aside>
         </section>
 
@@ -772,7 +774,7 @@
             <div class="iterative-testing">
                 <img src="images/iteration-2.1-no-status.png" />
             </div>
-            <aside class="notes">
+            <aside class="notes" data-markdown>
                 *Michael:
             </aside>
         </section>
@@ -796,8 +798,8 @@
                   }
                 </div>
             </code></pre>
-            <aside class="notes">
-                *Michael:
+            <aside class="notes" data-markdown>
+                *Michael: set the status and display it
             </aside>
         </section>
 
@@ -827,12 +829,17 @@
                   end
                 end
             </code></pre>
-            <aside class="notes">
-                *Michael:
+            <aside class="notes" data-markdown>
+                *Michael: time to start guessing
 
                 *Selena - pending.
-                        Trunk based development, working on master, no feature branches
-                        Push code while features are in progress
+                  - you might notice in this and some of the other tests there's line here - pending
+                  - By marking a test as pending, all of the assertions made after the pending line will still be run
+                    but one of them HAS to fail
+                  - Two reason we might want to do this are
+                      1. We haven't implemented the code to assert against - which is the case here
+                      2. If you are working on master - like we do at Fresho - this enables us to
+                         push code while features are still in progress
             </aside>
         </section>
 
@@ -841,7 +848,7 @@
             <div class="iterative-testing">
                 <img src="images/iteration-2.3-no-input-field.png" />
             </div>
-            <aside class="notes">
+            <aside class="notes" data-markdown>
                 *Michael:
             </aside>
         </section>
@@ -863,8 +870,8 @@
                   value={this.state.guess}
                   disabled={this.state.status === 'WINNER'}&gt;&lt;/textarea>
             </code></pre>
-            <aside class="notes">
-                *Michael:
+            <aside class="notes" data-markdown>
+                *Michael: match the word and bind it to the text area
             </aside>
         </section>
 
@@ -906,7 +913,7 @@
                   end
                 end
             </code></pre>
-            <aside class="notes">
+            <aside class="notes" data-markdown>
                 *Michael:
             </aside>
         </section>
@@ -926,7 +933,7 @@
             <div class="iterative-testing">
                 <img src="images/iteration-3.1-no-next-button.png" />
             </div>
-            <aside class="notes">
+            <aside class="notes" data-markdown>
                 *Michael:
             </aside>
         </section>
@@ -939,7 +946,7 @@
             <pre><code data-trim data-noescape>
                 &lt;Link to={`/round/${this.state.round + 1}`}>Next&lt;/Link>
             </code></pre>
-            <aside class="notes">
+            <aside class="notes" data-markdown>
                 *Michael:
             </aside>
         </section>
@@ -958,10 +965,8 @@
             <div class="iterative-testing">
                 <img src="images/iteration-3.2-next-button-rendered.png" />
             </div>
-            <aside class="notes">
-                In a slightly more built out version, we can now easily develop this into a mutli-round game
-                Round 2 is very similar to round 1
-                And we expect a game to play out very similarly to what plays in round 1
+            <aside class="notes" data-markdown>
+
             </aside>
         </section>
 
@@ -970,7 +975,7 @@
             <div class="iterative-testing">
                 <img src="images/iteration-3.3-multi-round-game.gif" width="400" />
             </div>
-            <aside class="notes">
+            <aside class="notes" data-markdown>
                 *Michael:
             </aside>
         </section>
@@ -1021,7 +1026,7 @@
                   end
                 end
             </code></pre>
-            <aside class="notes">
+            <aside class="notes" data-markdown>
                 *Selena: Rinse and repeat.
                     There you go. 3 very basic iterations of tdd-ing a flow.
                     By stepping out the sequence of events that take place in this style of test, it's very easy to make
@@ -1036,7 +1041,7 @@
             <h3>Let's play!</h3>
             <div>Just cause we built it, lets play a game!</div>
 
-            <aside class="notes">
+            <aside class="notes" data-markdown>
                 *Selena: Aaaaand, just cause we built - let's play the game.
                          Who wants to play?!
 
@@ -1049,16 +1054,23 @@
         </section>
 
         <section>
-            <h3>Summary</h3>
+            <h3>The Unit</h3>
+            TODO diagram whole system and the various sub systems that are the unit under test.
+        </section>
+
+        <section>
+            <h3>Review</h3>
             <ul>
-                <li class="fragment">Testing matters</li>
-                <li class="fragment">What is the unit under test?</li>
-                <li class="fragment">Testing behaviour</li>
-                <li class="fragment">Documenting behaviour (Given, When, Then)</li>
-                <li class="fragment">Iteration - small frequent changes</li>
+                <li class="fragment">Test first</li>
+                <li class="fragment">Flow</li>
+                <li class="fragment">Mechanic</li>
+                <li class="fragment">Page Fragments</li>
+                <li class="fragment">Flakes</li>
+                <li class="fragment">Pending</li>
+                <li class="fragment">Iterate</li>
             </ul>
 
-            <aside class="notes">
+            <aside class="notes" data-markdown>
                 note: although this talk focused on flows, these points all apply to testing any unit at any level
                 <!-- # TODO example: maybe talk over an isolated unit test of the round controller? -->
             </aside>
@@ -1067,7 +1079,7 @@
         <section>
             <h3>Resources</h3>
                 <p><a href="https://search-term.herokuapp.com/">https://search-term.herokuapp.com/</a></p>
-                <p><a href="https://github.com/SelenaSmall/search-term">https://github.com/SelenaSmall/search-term</a></p>
+                <p><a href="https://saramic.github.io/layered-testing-workshop/">https://saramic.github.io/layered-testing-workshop/</a></p>
             <div>
                 <a href="http://twitter.com/intent/user?screen_name=selenasmall88">
                     <img class="twitter-avatar" src="images/avatar-selena.jpg" alt="selena-small"/>
@@ -1081,9 +1093,9 @@
                 </a>
             </div>
 
-            <aside class="notes">
+            <aside class="notes" data-markdown>
                 *Selena: If you think you can beat our high score, you can check out the app - it's hosted on heroku
-                *Michael: And you can go back and look out the code we showed here on Github
+                *Michael: And you can go back and look at the code we showed here on Github
                           Thanks everyone!
             </aside>
         </section>
