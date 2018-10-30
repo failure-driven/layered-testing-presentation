@@ -134,18 +134,26 @@
             <h3>Selena Small & Michael Milewski</h3>
             <aside class="notes">
               * Selena: intro
+
               * Michael: **runs on side stage**
-                tell about idea for app
-              * Selena: calm down **click**
+                Idea for app
+                Big - break internet
+                Game
+                Images
+                Scoreboard
+                Web
+                Share Score
+
+              * Selena: No. The first line of code you write is a test
             </aside>
         </section>
 
         <section>
             <h3>What is the app?</h3>
             <aside class="notes">
-              * Selena: so who uses it? what is first thing that happens?
-              * Michael: go to first page
-              * Selena: **click**
+              * Selena: Who uses it? What kind of person is going to play this game?
+
+              * Michael: Halloween, Casper
             </aside>
         </section>
         <section>
@@ -161,7 +169,9 @@
                 -
             </code></pre>
             <aside class="notes">
-              * Selena: ah so they type in a url, and come to the page
+                * Selena: ah! so When casper visits the game, lets call it SearchTerm - then what?
+
+                * Michael:
             </aside>
         </section>
         <section>
@@ -177,6 +187,10 @@
                 -
             </code></pre>
             <aside class="notes">
+                * Selena: A welcome message? kind of like this?
+                          How does the game start?
+
+                * Michael:
             </aside>
         </section>
         <section>
@@ -192,6 +206,10 @@
                 -
             </code></pre>
             <aside class="notes">
+                * Selena: Right, so when Casper clicks the start button
+                          Then the game starts?
+
+                * Michael:
             </aside>
         </section>
 
@@ -208,6 +226,9 @@
                 -
             </code></pre>
             <aside class="notes">
+                * Selena: How do you know that the game has started?
+
+                * Michael:
             </aside>
         </section>
         <section>
@@ -223,6 +244,9 @@
                 -
             </code></pre>
             <aside class="notes">
+                * Selena: Now are you getting?
+
+                ** Michael takes over explaining **
             </aside>
         </section>
         <section>
@@ -238,6 +262,7 @@
                 -
             </code></pre>
             <aside class="notes">
+                * Michael:
             </aside>
         </section>
         <section>
@@ -253,6 +278,7 @@
                 -
             </code></pre>
             <aside class="notes">
+                * Michael:
             </aside>
         </section>
         <section>
@@ -268,6 +294,7 @@
                 - <mark>And a countdown timer is rendered</mark>
             </code></pre>
             <aside class="notes">
+                * Michael:
             </aside>
         </section>
 
@@ -284,6 +311,7 @@
                 -
             </code></pre>
             <aside class="notes">
+                * Michael:
             </aside>
         </section>
         <section>
@@ -299,6 +327,7 @@
                 -
             </code></pre>
             <aside class="notes">
+                * Michael:
             </aside>
         </section>
 
@@ -315,6 +344,7 @@
                 -
             </code></pre>
             <aside class="notes">
+                * Michael:
             </aside>
         </section>
         <section>
@@ -330,6 +360,7 @@
                 -
             </code></pre>
             <aside class="notes">
+                * Michael:
             </aside>
         </section>
         <section>
@@ -345,6 +376,7 @@
                 -
             </code></pre>
             <aside class="notes">
+                * Michael:
             </aside>
         </section>
         <section>
@@ -360,6 +392,7 @@
                 -
             </code></pre>
             <aside class="notes">
+                * Michael:
             </aside>
         </section>
 
@@ -387,8 +420,12 @@
                   And a score is rendered for the round
                   And a winner message is rendered
             </code></pre>
+            <aside class="notes">
+                *Selena: GIVEN the state of the world before you begin
+                         WHEN an action is carried out
+                         THEN observable changes are expected
+            </aside>
         </section>
-
 
         <!-- # TODO Michael analogy of why testing matters -->
         <section>
@@ -398,8 +435,6 @@
               <li class="fragment"><img src="images/rachet_and_prawl.jpg" /></li>
             </ul>
             <aside class="notes">
-                Cool app! Seems pretty straight forward, do we really need to write tests though? We could just build it
-
                 There are many reasons to test, but for the context of todays
                 talk it is about incremental iterative development.
 
@@ -412,13 +447,13 @@
                 Test first to make your code tested to be able to iterate
                 knowing that everything you have done still works. It is like a
                 ratchet
+
+                * Michael:
+
+                * Selena: I'm not quite sure everyone's following...
+                          Let's run through an example
             </aside>
         </section>
-
-        <section>
-            <h3>The unit under test</h3>
-        </section>
-
 
         <!-- # TODO 3 basic iterations building out the code -->
         <section>
@@ -436,7 +471,12 @@
                 end
             </code></pre>
             <aside class="notes">
-                When user starts the game - failing because no code has been implemented!
+                *Michael:
+
+                *Selena: This is the first piece of code in the whole app!
+                         No controllers, models, views
+                         No migrations or db entries
+                         The first piece of code is always a test.
             </aside>
         </section>
 
@@ -462,6 +502,7 @@
                 )
             </code></pre>
             <aside class="notes">
+                *Michael:
             </aside>
         </section>
 
@@ -483,7 +524,23 @@
                 end
             </code></pre>
             <aside class="notes">
-                Start game button not implemented
+                *Michael:
+
+                *Selena: What is focus_on?
+                    We've hidden away code that asserts against html
+                    in order to make these high level flows easier to read.
+            </aside>
+        </section>
+
+        <section>
+            <h3>TODO preview code of page fragment</h3>
+            <aside class="notes">
+                *Selena: As you can see this particular fragment finds the text inside a div with class `WELCOME`
+                    One benefit of separating out fragments like this, is that
+                    they're reusable throughout the tests.
+                    - if a class name changes in the html, you don't have to trawl through
+                      your tests to change every assertion. You can just change it here
+                    - Ans as I mentioned, your tests also become much more readable
             </aside>
         </section>
 
@@ -511,6 +568,9 @@
             <div class="iterative-testing">
                 <img src="images/iteration-1.2-welcome.png" />
             </div>
+            <aside class="notes">
+                *Michael:
+            </aside>
         </section>
 
         <section>
@@ -530,6 +590,7 @@
                 )
             </code></pre>
             <aside class="notes">
+                *Michael:
             </aside>
         </section>
 
@@ -550,7 +611,7 @@
                 end
             </code></pre>
             <aside class="notes">
-                routing works, there's nothing on the first round
+                *Michael:
             </aside>
         </section>
 
@@ -559,6 +620,9 @@
             <div class="iterative-testing">
                 <img src="images/iteration-1.4-round-empty.png" />
             </div>
+            <aside class="notes">
+                *Michael:
+            </aside>
         </section>
 
         <section>
@@ -579,6 +643,12 @@
                 )
             </code></pre>
             <aside class="notes">
+                *Michael:
+
+                *Selena: questions around fail in round 1
+                    Route not there
+                    Second page doesn't load
+                    Lower level tests?
             </aside>
         </section>
 
@@ -600,7 +670,7 @@
                 end
             </code></pre>
             <aside class="notes">
-                Image search service not yet implemented
+                *Michael:
             </aside>
         </section>
 
@@ -609,6 +679,9 @@
             <div class="iterative-testing">
                 <img src="images/iteration-1.6-no-images.png" />
             </div>
+            <aside class="notes">
+                *Michael:
+            </aside>
         </section>
 
         <section>
@@ -624,6 +697,11 @@
                 </div>
             </code></pre>
             <aside class="notes">
+                *Michael:
+
+                *Selena: Flakes - images loading
+                    No set location -> divs moving around
+                    #TODO - Michael can you explain how to explain this shit
             </aside>
         </section>
 
@@ -649,13 +727,16 @@
                 end
             </code></pre>
             <aside class="notes">
-                First basic iteration of creating the game
+                *Michael: wrap up iteration 1
+
+                *Selena: On the next iteration, we have a lot of the context already set up.
+                    Adding the next feature (Submit a guess) is now fairly straight forward
             </aside>
         </section>
 
         <section>
             <h3>Submit a guess <span class="failing-span">Failing test</span></h3>
-            <div style="display: felx">
+            <div style="display: flex">
             <pre><code data-trim data-noescape style="max-height: 500px">
                 feature 'Game play lifecycle', js: true do
                   scenario 'WINNING a game' do
@@ -678,7 +759,11 @@
             </code></pre>
             </div>
             <aside class="notes">
-                loading -> in progress
+                *Michael:
+
+                *Selena: Mechanics - status, click start & render images
+                    Separation of tests
+                    Failure cases?
             </aside>
         </section>
 
@@ -687,6 +772,9 @@
             <div class="iterative-testing">
                 <img src="images/iteration-2.1-no-status.png" />
             </div>
+            <aside class="notes">
+                *Michael:
+            </aside>
         </section>
 
         <section>
@@ -709,6 +797,7 @@
                 </div>
             </code></pre>
             <aside class="notes">
+                *Michael:
             </aside>
         </section>
 
@@ -739,7 +828,11 @@
                 end
             </code></pre>
             <aside class="notes">
-                new context, create term in the database so we can assert a winner
+                *Michael:
+
+                *Selena - pending.
+                        Trunk based development, working on master, no feature branches
+                        Push code while features are in progress
             </aside>
         </section>
 
@@ -748,6 +841,9 @@
             <div class="iterative-testing">
                 <img src="images/iteration-2.3-no-input-field.png" />
             </div>
+            <aside class="notes">
+                *Michael:
+            </aside>
         </section>
 
         <section>
@@ -768,6 +864,7 @@
                   disabled={this.state.status === 'WINNER'}&gt;&lt;/textarea>
             </code></pre>
             <aside class="notes">
+                *Michael:
             </aside>
         </section>
 
@@ -810,7 +907,7 @@
                 end
             </code></pre>
             <aside class="notes">
-                Second basic iteration of creating the game
+                *Michael:
             </aside>
         </section>
 
@@ -830,9 +927,7 @@
                 <img src="images/iteration-3.1-no-next-button.png" />
             </div>
             <aside class="notes">
-                In a slightly more built out version, we can now easily develop this into a mutli-round game
-                Round 2 is very similar to round 1
-                And we expect a game to play out very similarly to what plays in round 1
+                *Michael:
             </aside>
         </section>
 
@@ -845,6 +940,7 @@
                 &lt;Link to={`/round/${this.state.round + 1}`}>Next&lt;/Link>
             </code></pre>
             <aside class="notes">
+                *Michael:
             </aside>
         </section>
 
@@ -875,6 +971,7 @@
                 <img src="images/iteration-3.3-multi-round-game.gif" width="400" />
             </div>
             <aside class="notes">
+                *Michael:
             </aside>
         </section>
 
@@ -919,36 +1016,18 @@
 
                       Then 'round two starts' do
                         wait_for { focus_on(:game).round }.to eq('2')
-                        wait_for { focus_on(:game).status }.to eq('IN-PROGRESS')
-                        wait_for { focus_on(:game).timer }.to match(/[0-9]/)
-                        wait_for { focus_on(:game).images.count }.to eq(9)
-                      end
-
-                      When 'the user submits an answer' do
-                        focus_on(:game).fill_guess('tequila')
-                      end
-
-                      Then 'the user wins the round' do
-                        wait_for { focus_on(:game).status }.to eq('WINNER')
-                        wait_for { focus_on(:game).score }.to match(/[0-9]/)
                       end
                     end
                   end
                 end
             </code></pre>
             <aside class="notes">
-                Third basic iteration of creating the game
-
-                So there you have 3 very basic iterations of tdd-ing a flow.
-                By stepping out the sequence of events that take place in this style of test, it's very easy to make
-                additions and adjustments to the way the app works.
-                We've only shown you a snippet of one flow that will take place in this app, which happens to go down a
-                happy path. There will in fact be a number of flows that emerge before this game is complete
-                These might include...
-
-
-                Since getting to this point, we've actually managed to get the app in a more complete state so we
-                could play a game with you - do you guys want to play??
+                *Selena: Rinse and repeat.
+                    There you go. 3 very basic iterations of tdd-ing a flow.
+                    By stepping out the sequence of events that take place in this style of test, it's very easy to make
+                    additions and adjustments to the way the app works.
+                    We've only shown you a snippet of one flow that will take place in this app, which happens to go down a
+                    happy path. There will in fact be a number of flows that emerge before this game is complete
             </aside>
         </section>
         <!-- 3 basic iterations building out the code -->
@@ -958,7 +1037,10 @@
             <div>Just cause we built it, lets play a game!</div>
 
             <aside class="notes">
-                probably exit and play the live game with the audience now...
+                *Selena: Aaaaand, just cause we built - let's play the game.
+                         Who wants to play?!
+
+                **Michael get ready to play the live game with the audience now**
             </aside>
         </section>
 
@@ -983,37 +1065,6 @@
         </section>
 
         <section>
-            <h3>Testing behaviour</h3>
-            <ul>
-                <li class="fragment">Set up the context</li>
-                <li class="fragment">Invoke the <i>thing</i></li>
-                <li class="fragment">Make an assertion</li>
-            </ul>
-            <aside>
-                Early on in the development cycle, there is no context but the thing is a component rendering images
-                We want to assert that the images will be rendered at the right time
-            </aside>
-        </section>
-
-        <section>
-            <h3>Documenting behaviour</h3>
-            <ul>
-                <li class="fragment">Test is largely documenting how to use that <i>thing</i></li>
-                <li class="fragment">What is the behaviour we want to document here?</li>
-                <li class="fragment">Language matters</li>
-            </ul>
-        </section>
-
-        <section>
-            <h3>Good software design</h3>
-            <ul>
-                <li class="fragment">Small isolated changes</li>
-                <li class="fragment">Loosely coupled design</li>
-                <li class="fragment">Iteration</li>
-            </ul>
-        </section>
-
-        <section>
             <h3>Resources</h3>
                 <p><a href="https://search-term.herokuapp.com/">https://search-term.herokuapp.com/</a></p>
                 <p><a href="https://github.com/SelenaSmall/search-term">https://github.com/SelenaSmall/search-term</a></p>
@@ -1029,6 +1080,12 @@
                     <span>@saramic</span>
                 </a>
             </div>
+
+            <aside class="notes">
+                *Selena: If you think you can beat our high score, you can check out the app - it's hosted on heroku
+                *Michael: And you can go back and look out the code we showed here on Github
+                          Thanks everyone!
+            </aside>
         </section>
     </div>
 </div>
