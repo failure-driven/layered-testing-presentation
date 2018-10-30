@@ -482,14 +482,29 @@
         </section>
 
         <section>
+            <h3>Page Fragment</h3>
+            <pre><code data-trim data-noescape>
+                module PageFragments
+                  module Welcome
+                    def text
+                      browser.find('h1').text
+                    end
+
+                    def start_game
+                      browser.click_on('Start Game')
+                    end
+                  end
+                end
+            </code></pre>
+            <aside class="notes">
+            </aside>
+        </section>
+
+        <section>
             <h3>Render images <span class="failing-span">Failing test</span></h3>
             <div class="iterative-testing">
                 <img src="images/iteration-1.2-welcome.png" />
             </div>
-        </section>
-
-        <section>
-          <h3>TODO preview code of page fragment</h3>
         </section>
 
         <section>
