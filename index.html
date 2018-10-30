@@ -133,22 +133,20 @@
             <h1>Failing for the right reason</h1>
             <h3>Selena Small & Michael Milewski</h3>
             <aside class="notes">
-                Hi everyone, I’m Selena and this is Michael and we have an awesome idea for an app!
-                It’s gonna be big, like, the next Facebook
-
-                But how are we going to failsafe the software? When our empire starts growing and we’re adding
-                features left, right and centre to keep our consumers happy, how will we ensure that a new piece
-                of code doesn’t break one of the original features?
-
-                The answer is simple. We are talking to you today about "Failing for the right reason!" - how to
-                write tests that fail and drive out a perfect design for your software
-
-                So, here's the idea for the app!
+              * Selena: intro
+              * Michael: **runs on side stage**
+                tell about idea for app
+              * Selena: calm down **click**
             </aside>
         </section>
 
         <section>
             <h3>What is the app?</h3>
+            <aside class="notes">
+              * Selena: so who uses it? what is first thing that happens?
+              * Michael: go to first page
+              * Selena: **click**
+            </aside>
         </section>
         <section>
             <div class="what-is-the-app-image-area">
@@ -163,6 +161,7 @@
                 -
             </code></pre>
             <aside class="notes">
+              * Selena: ah so they type in a url, and come to the page
             </aside>
         </section>
         <section>
@@ -364,6 +363,32 @@
             </aside>
         </section>
 
+        <section>
+            <pre><code data-trim data-noescape style="max-height: 600px">
+                When Casper visits SearchTerm
+
+                Then a welcome message is rendered
+                  And a start game button is rendered
+
+                When Casper starts the game
+
+                Then round 1 begins
+                  And 9 images are displayed
+                  And a text area is rendered
+                  And a countdown timer is rendered
+
+                When the game is In-progress
+
+                Then the countdown timer starts counting down
+
+                When Casper types the correct guess into the text box
+
+                Then the countdown timer stops
+                  And a score is rendered for the round
+                  And a winner message is rendered
+            </code></pre>
+        </section>
+
 
         <!-- # TODO Michael analogy of why testing matters -->
         <section>
@@ -468,6 +493,10 @@
             <div class="iterative-testing">
                 <img src="images/iteration-1.2-welcome.png" />
             </div>
+        </section>
+
+        <section>
+            <h3>Render images <span class="failing-span">Failing test</span></h3>
             <pre><code data-trim data-noescape>
                 When 'user starts the game' do
                   visit('/')
@@ -487,6 +516,11 @@
                 Start game button not implemented
             </aside>
         </section>
+
+        <section>
+          <h3>TODO preview code of page fragment</h3>
+        </section>
+
         <section>
             <h3>Render images <span class="passing-span">Make it pass</span></h3>
             <div class="iterative-testing">
@@ -504,6 +538,9 @@
             <div class="iterative-testing">
                 <img src="images/iteration-1.4-round-empty.png" />
             </div>
+        </section>
+        <section>
+            <h3>Render images <span class="failing-span">Failing test</span></h3>
             <pre><code data-trim data-noescape>
                 When 'user starts the game' do
                   visit('/')
@@ -539,6 +576,10 @@
             <div class="iterative-testing">
                 <img src="images/iteration-1.6-no-images.png" />
             </div>
+        </section>
+
+        <section>
+            <h3>Render images <span class="failing-span">Failing test</span></h3>
             <pre><code data-trim data-noescape>
                 When 'user starts the game' do
                   visit('/')
