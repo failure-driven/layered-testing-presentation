@@ -423,13 +423,6 @@
         <!-- # TODO 3 basic iterations building out the code -->
         <section>
             <h3>Render images <span class="failing-span">Failing test</span></h3>
-            <div class="iterative-testing">
-                <img src="images/iteration-1.1-home-empty.png" />
-            </div>
-        </section>
-
-        <section>
-            <h3>Render images <span class="failing-span">Failing test</span></h3>
             <pre><code data-trim data-noescape>
                 feature 'Game play lifecycle', js: true do
                   scenario 'WINNING a game' do
@@ -446,6 +439,14 @@
                 When user starts the game - failing because no code has been implemented!
             </aside>
         </section>
+
+        <section>
+            <h3>Render images <span class="failing-span">Failing test</span></h3>
+            <div class="iterative-testing">
+                <img src="images/iteration-1.1-home-empty.png" />
+            </div>
+        </section>
+
         <section>
             <h3>Render images <span class="passing-span">Make it pass</span></h3>
             <div class="iterative-testing">
@@ -456,13 +457,6 @@
             </code></pre>
             <aside class="notes">
             </aside>
-        </section>
-
-        <section>
-            <h3>Render images <span class="failing-span">Failing test</span></h3>
-            <div class="iterative-testing">
-                <img src="images/iteration-1.2-welcome.png" />
-            </div>
         </section>
 
         <section>
@@ -488,6 +482,13 @@
         </section>
 
         <section>
+            <h3>Render images <span class="failing-span">Failing test</span></h3>
+            <div class="iterative-testing">
+                <img src="images/iteration-1.2-welcome.png" />
+            </div>
+        </section>
+
+        <section>
           <h3>TODO preview code of page fragment</h3>
         </section>
 
@@ -503,12 +504,6 @@
             </aside>
         </section>
 
-        <section>
-            <h3>Render images <span class="failing-span">Failing test</span></h3>
-            <div class="iterative-testing">
-                <img src="images/iteration-1.4-round-empty.png" />
-            </div>
-        </section>
         <section>
             <h3>Render images <span class="failing-span">Failing test</span></h3>
             <pre><code data-trim data-noescape>
@@ -529,6 +524,14 @@
                 routing works, there's nothing on the first round
             </aside>
         </section>
+
+        <section>
+            <h3>Render images <span class="failing-span">Failing test</span></h3>
+            <div class="iterative-testing">
+                <img src="images/iteration-1.4-round-empty.png" />
+            </div>
+        </section>
+
         <section>
             <h3>Render images <span class="passing-span">Make it pass</span></h3>
             <div class="iterative-testing">
@@ -539,13 +542,6 @@
             </code></pre>
             <aside class="notes">
             </aside>
-        </section>
-
-        <section>
-            <h3>Render images <span class="failing-span">Failing test</span></h3>
-            <div class="iterative-testing">
-                <img src="images/iteration-1.6-no-images.png" />
-            </div>
         </section>
 
         <section>
@@ -569,6 +565,14 @@
                 Image search service not yet implemented
             </aside>
         </section>
+
+        <section>
+            <h3>Render images <span class="failing-span">Failing test</span></h3>
+            <div class="iterative-testing">
+                <img src="images/iteration-1.6-no-images.png" />
+            </div>
+        </section>
+
         <section>
             <h3>Render images <span class="passing-span">Make it pass</span></h3>
             <div class="iterative-testing">
@@ -607,13 +611,6 @@
             </aside>
         </section>
 
-
-        <section>
-            <h3>Submit a guess <span class="failing-span">Failing test</span></h3>
-            <div class="iterative-testing">
-                <img src="images/iteration-2.1-no-status.png" />
-            </div>
-        </section>
         <section>
             <h3>Submit a guess <span class="failing-span">Failing test</span></h3>
             <div style="display: felx">
@@ -642,6 +639,14 @@
                 loading -> in progress
             </aside>
         </section>
+
+        <section>
+            <h3>Submit a guess <span class="failing-span">Failing test</span></h3>
+            <div class="iterative-testing">
+                <img src="images/iteration-2.1-no-status.png" />
+            </div>
+        </section>
+
         <section>
             <h3>Submit a guess <span class="passing-span">Make it pass</span></h3>
             <div class="iterative-testing">
@@ -652,13 +657,6 @@
             </code></pre>
             <aside class="notes">
             </aside>
-        </section>
-
-        <section>
-            <h3>Submit a guess <span class="failing-span">Failing test</span></h3>
-            <div class="iterative-testing">
-                <img src="images/iteration-2.3-no-input-field.png" />
-            </div>
         </section>
 
         <section>
@@ -691,6 +689,14 @@
                 new context, create term in the database so we can assert a winner
             </aside>
         </section>
+
+        <section>
+            <h3>Submit a guess <span class="failing-span">Failing test</span></h3>
+            <div class="iterative-testing">
+                <img src="images/iteration-2.3-no-input-field.png" />
+            </div>
+        </section>
+
         <section>
             <h3>Submit a guess <span class="passing-span">Make it pass</span></h3>
             <div class="iterative-testing">
@@ -746,12 +752,8 @@
             </aside>
         </section>
 
-
         <section>
             <h3>Multi-round game <span class="failing-span">Failing test</span></h3>
-            <div class="iterative-testing">
-                <img src="images/iteration-3.1-no-next-button.png" />
-            </div>
             <pre><code data-trim data-noescape>
                 When 'the user starts the next round' do
                   <mark>focus_on(:game).next_round</mark>
@@ -762,12 +764,16 @@
                   wait_for { focus_on(:game).round }.to eq('2')
                 end
             </code></pre>
+            <div class="iterative-testing">
+                <img src="images/iteration-3.1-no-next-button.png" />
+            </div>
             <aside class="notes">
                 In a slightly more built out version, we can now easily develop this into a mutli-round game
                 Round 2 is very similar to round 1
                 And we expect a game to play out very similarly to what plays in round 1
             </aside>
         </section>
+
         <section>
             <h3>Multi-round game <span class="passing-span">Make it pass</span></h3>
             <div class="iterative-testing">
@@ -782,9 +788,6 @@
 
         <section>
             <h3>Multi-round game <span class="failing-span">Failing test</span></h3>
-            <div class="iterative-testing">
-                <img src="images/iteration-3.2-next-button-rendered.png" />
-            </div>
             <pre><code data-trim data-noescape>
                 When 'the user starts the next round' do
                   focus_on(:game).next_round
@@ -794,12 +797,16 @@
                     <mark>wait_for { focus_on(:game).round }.to eq('2')</mark>
                 end
             </code></pre>
+            <div class="iterative-testing">
+                <img src="images/iteration-3.2-next-button-rendered.png" />
+            </div>
             <aside class="notes">
                 In a slightly more built out version, we can now easily develop this into a mutli-round game
                 Round 2 is very similar to round 1
                 And we expect a game to play out very similarly to what plays in round 1
             </aside>
         </section>
+
         <section>
             <h3>Multi-round game <span class="passing-span">Make it pass</span></h3>
             <div class="iterative-testing">
