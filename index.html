@@ -142,9 +142,9 @@
             <h1>Failing for the right reason</h1>
             <h3>Selena Small & Michael Milewski</h3>
             <aside class="notes" data-markdown>
-              #### Selena: Hi everyone, I' Selena and I'm sure Michael's around here somewhere...
+              **Selena:** Hi everyone, I'm Selena and I'm sure Michael's around here somewhere...
 
-              #### Michael: **runs on side stage**
+              **Michael:** **runs on side stage**
                 - Idea for app - Big - break internet
                 - Game - Images - Scoreboard - Web - Share Score
 
@@ -279,7 +279,7 @@
             </code></pre>
             <aside class="notes" data-markdown>
                 * Selena: Maybe we see some indication that it's round 1
-                * Michael:
+                * Michael: Yeah and there are images!
             </aside>
         </section>
         <section>
@@ -295,12 +295,10 @@
                 -
             </code></pre>
             <aside class="notes" data-markdown>
-                * Selena: so...
-                - When casper starts the game
-                - Then rounds 1 begins
-                - And what else?
+                * Selena: Images. And you said something about making a guess
+                - How does that happen?
 
-                * Michael:
+                * Michael: They need an input for the guess
             </aside>
         </section>
         <section>
@@ -316,10 +314,9 @@
                 -
             </code></pre>
             <aside class="notes" data-markdown>
-                * Selena: Images. And you said something about making a guess
-                - How does that happen?
+                * Selena: Maybe we should put the pressure on too and give users a time limit
 
-                * Michael:
+                * Michael: Yeah, maybe 10 seconds
             </aside>
         </section>
         <section>
@@ -335,7 +332,7 @@
                 - <mark>And a countdown timer is rendered</mark>
             </code></pre>
             <aside class="notes" data-markdown>
-                * Selena: Maybe we should put the pressure on too and give users a time limit
+                * Selena: Cool! You're starting to get it
                 * Michael:
             </aside>
         </section>
@@ -353,10 +350,10 @@
                 -
             </code></pre>
             <aside class="notes" data-markdown>
-                * Selena: Cool! You're starting to get it
+                * Selena:
                 - So, now, when the game is in progress... Then what happens?
                 - Do you want to have a go?
-                * Michael:
+                * Michael: Oh yeah, so when the game is in progress...
             </aside>
         </section>
         <section>
@@ -372,7 +369,7 @@
                 -
             </code></pre>
             <aside class="notes" data-markdown>
-                * Michael:
+                * Michael: Then timer starts counting down
             </aside>
         </section>
 
@@ -389,7 +386,7 @@
                 -
             </code></pre>
             <aside class="notes" data-markdown>
-                * Michael:
+                * Michael: And when the user guesses the right answer
             </aside>
         </section>
         <section>
@@ -405,7 +402,9 @@
                 -
             </code></pre>
             <aside class="notes" data-markdown>
-                * Michael:
+                * Michael: The timer stops
+                * Selena: Cool - this is starting to come together.
+                - Do we want to give the user a score?
             </aside>
         </section>
         <section>
@@ -421,7 +420,7 @@
                 -
             </code></pre>
             <aside class="notes" data-markdown>
-                * Michael:
+                * Michael: Ohh I know, the time remaining can be the score
             </aside>
         </section>
         <section>
@@ -437,7 +436,12 @@
                 -
             </code></pre>
             <aside class="notes" data-markdown>
-                * Michael: so how does this all hang together Selena?
+                * Michael:
+                - And in everyone round, everyone's a winner
+
+                * Selena: cool, sounds like you've got a pretty solid idea
+
+                * Michael: Yeah but how does this all hang together
             </aside>
         </section>
 
@@ -516,7 +520,8 @@
                 end
             </code></pre>
             <aside class="notes" data-markdown>
-                *Michael: setup context GIVEN, user perspective flow so can change to a context
+                **Michael:** we have setup a feature scenario and GIVEN, flows are usually from a user perspective so the GIVEN
+                would actually be a CONTEXT for the system let's do that
             </aside>
         </section>
 
@@ -537,7 +542,7 @@
                 end
             </code></pre>
             <aside class="notes" data-markdown>
-                *Michael: like so
+                **Michael:** like so, this prepares us for the scenario of a user winning the game, a happy path
             </aside>
         </section>
 
@@ -560,9 +565,9 @@
                 end
             </code></pre>
             <aside class="notes" data-markdown>
-                *Michael: 2 simple steps visit and confirm you are there
+                **Michael:** 2 simple steps visit and confirm you are there
 
-                *Selena: This is the first piece of code in the whole app!
+                **Selena:** This is the first piece of code in the whole app!
                          No controllers, models, views
                          No migrations or db entries
                          The first piece of code is always a test.
@@ -575,6 +580,7 @@
                 <img src="images/iteration-1.1-home-empty.png" />
             </div>
             <aside class="notes" data-markdown>
+                **Selena:**
                 - And when we run that test, what's going to happen?
                 - Well, it's going to fail! Of course
             </aside>
@@ -595,7 +601,7 @@
                 )
             </code></pre>
             <aside class="notes" data-markdown>
-                *Michael: a simple react component to spit a H1 on the page
+                **Michael:** a simple react component to spit a H1 on the page
             </aside>
         </section>
 
@@ -617,9 +623,9 @@
                 end
             </code></pre>
             <aside class="notes" data-markdown>
-                *Michael: now we want to focus_on welcome start_game
+                **Michael:** now we want to focus_on welcome start_game
 
-                *Selena: What is focus_on?
+                **Selena:** What is focus_on?
                     We've hidden away code that asserts against html
                     in order to make these high level flows easier to read.
             </aside>
@@ -645,7 +651,7 @@
                 end
             </code></pre>
             <aside class="notes" data-markdown>
-                *Selena: As you can see this particular fragment finds the text inside a div with class `WELCOME`
+                **Selena:** As you can see this particular fragment finds the text inside a div with class `WELCOME`
                   One benefit of separating out fragments like this, is that
                   they're reusable throughout the tests.
                   - if a class name changes in the html, you don't have to trawl through
@@ -672,7 +678,7 @@
                 end
             </code></pre>
             <aside class="notes">
-                *Michael:
+                **Michael:** we need to click on the start_game button ...
             </aside>
         </section>
 
@@ -683,7 +689,7 @@
                 <img src="images/iteration-1.2-welcome.png" />
             </div>
             <aside class="notes" data-markdown>
-                *Michael: and the app is failing as we have not built this
+                **Michael:** ... but there is no button
             </aside>
         </section>
 
@@ -704,7 +710,7 @@
                 )
             </code></pre>
             <aside class="notes" data-markdown>
-                *Michael: and using react router we Link to the first round
+                **Michael:** so lets create one using react router, we Link to the first round
             </aside>
         </section>
 
@@ -725,7 +731,13 @@
                 end
             </code></pre>
             <aside class="notes" data-markdown>
-                *Michael: How do we know we are on the first round? a round title including 1
+                **Michael:** How do we know we are on the first round? a round title including 1
+
+                **Selena:**
+                - Right now we're happily skipping along down one happy path,
+                - But is it possible that there are alternate happy paths?
+                - And what about failure cases? for example - what happens if there is no route, or the next page doesn't load.
+                - Maybe we need to consider those at a lower level test?
             </aside>
         </section>
 
@@ -735,12 +747,9 @@
                 <img src="images/iteration-1.4-round-empty.png" />
             </div>
             <aside class="notes" data-markdown>
-                *Michael: got nothing
-
-                *Selena: questions around fail in round 1
-                Route not there
-                Second page doesn't load
-                Lower level tests?
+                **Michael:**
+                - Those are great questions but let's keep that in the back of our minds for a moment
+                - Right now, with the tests as they are - we're getting nothing
             </aside>
         </section>
 
@@ -762,7 +771,7 @@
                 )
             </code></pre>
             <aside class="notes" data-markdown>
-                *Michael: a round component in React which gets the round parameter from the path and displays it
+                **Michael:** a Rounds component in React which gets the round parameter from the path and displays it
             </aside>
         </section>
 
@@ -784,7 +793,7 @@
                 end
             </code></pre>
             <aside class="notes" data-markdown>
-                *Michael: again we back ourselves up with a failing test, for 9 images ...
+                **Michael:** again we back ourselves up with a failing test, for 9 images ...
             </aside>
         </section>
 
@@ -794,7 +803,7 @@
                 <img src="images/iteration-1.6-no-images.png" />
             </div>
             <aside class="notes" data-markdown>
-                *Michael: ... that are not there
+                **Michael:** ... that are not there
             </aside>
         </section>
 
@@ -814,9 +823,12 @@
                 </div>
             </code></pre>
             <aside class="notes" data-markdown>
-                *Michael: and to make it pass we make an API call -> API endpoint -> controller -> model -> json back
+                **Michael:**
+                - more code that is not covered here like when the API call is made -> we need an API endpoint ->
+                  controller -> model -> returning JSON
+                - these network latencies also lead to asynchronous rendering
 
-                *Selena:
+                **Selena:**
                   - there is a few things going on, rendering, waiting for images, changes in the DOM
                   - these can lead to flakey behaviour, things that fail every now and again
                   - this is NOT good for testing, we want to avoid elements moving around
@@ -828,15 +840,16 @@
           <img src="images/flakey_fresho_header.gif" />
 
             <aside class="notes" data-markdown>
-                *Selena:
-                - example from Fresho
-                - microsecond transition slowed down
-                - the test wants to click on orders tab
-                - the mouse down event occurs on the orders tab
-                - but by time logo is loaded the mouse up event is on the market tab
-                - this is treated like a click and drag event, not a click event
-                - 9 times out of 10 the logo loads fast enough for the test suite to find what it's looking for
-                - but occasionally, it flakes.
+                **Selena:**
+                - Here's an example from Fresho
+                - it's a microsecond transition, slowed right down
+                - you can see in the animation that the test wants to click on orders tab
+                - When orders is clicked, the mouse down event occurs
+                - but by time logo is loaded, the whole right hand div has moved across
+                - and the mouse up event now takes place on the market tab
+                - this is treated like a click and drag event, not a click event - which behaves slightly different.
+                - In CI, 9 times out of 10 the logo loads fast enough for the test suite to find what it's looking for
+                - but occasionally, it fails. - A flakey failure
             </aside>
         </section>
 
@@ -870,9 +883,10 @@
                 end
             </code></pre>
             <aside class="notes" data-markdown>
-                *Michael: wrap up iteration 1
+                **Michael:** wrapping up iteration 1 we have a WHEN action on the system and THEN a measurable state
+                  being shown of the game commencing
 
-                *Selena: On the next iteration, we have a lot of the context already set up.
+                **Selena:** On the next iteration, we have a lot of the context already set up.
                     Adding the next feature (Submit a guess) is now fairly straight forward
             </aside>
         </section>
@@ -904,7 +918,7 @@
             </code></pre>
             </div>
             <aside class="notes" data-markdown>
-                *Michael: drop the feature scenario and context for clarity
+                **Michael:** to simplify the slide let's drop the feature, scenario and context for clarity
             </aside>
         </section>
 
@@ -929,9 +943,10 @@
             </code></pre>
             </div>
             <aside class="notes" data-markdown>
-                *Michael: more state in-progress loading etc
+                **Michael:** from last iteration we noticed some loading time required which suggests we need a state
+                  of the game LOADING and IN-PROGRESS to stat with
 
-                *Selena: Mechanics
+                **Selena:** Mechanics
                   - This is where mechanics come in
 
                   - The style of test we've been writing here is an integration test
@@ -991,7 +1006,7 @@
                 end
             </code></pre>
             <aside class="notes" data-markdown>
-                *SelSel:
+                **Selena:**
                 - scenarios in a mechanic tend to be a lot smaller. They're ultra specific
                 - like you can see here, we would test something as small as a state change
                 - But we would test that every state changes the way we expect it to and at the time we expect
@@ -1004,11 +1019,36 @@
 
         <section>
             <h3>Submit a guess <span class="failing-span">Failing test</span></h3>
+            <div style="display: flex">
+            <pre><code data-trim data-noescape style="max-height: 500px">
+                When 'user starts the game' do
+                  visit('/')
+                  wait_for {
+                    focus_on(:welcome).text
+                  }.to eq('Welcome to the Game')
+
+                  focus_on(:welcome).start_game
+                end
+
+                Then 'the game commences' do
+                  wait_for { focus_on(:game).round }.to eq('1')
+                  <mark>wait_for { focus_on(:game).status }.to eq('IN-PROGRESS')</mark>
+                  wait_for { focus_on(:game).images.count }.to eq(9)
+                end
+            </code></pre>
+            </div>
+            <aside class="notes" data-markdown>
+                **Michael:** back to the flow - we need a status
+            </aside>
+        </section>
+
+        <section>
+            <h3>Submit a guess <span class="failing-span">Failing test</span></h3>
             <div class="iterative-testing">
                 <img src="images/iteration-2.1-no-status.png" />
             </div>
             <aside class="notes" data-markdown>
-                *Michael:
+                **Michael:** which is not on our page
             </aside>
         </section>
 
@@ -1032,7 +1072,8 @@
                 </div>
             </code></pre>
             <aside class="notes" data-markdown>
-                *Michael: set the status and display it
+                **Michael:** we know that once the fetchRoundData is fetched successfully we can set and display the
+                  in progress state
             </aside>
         </section>
 
@@ -1053,9 +1094,9 @@
                 end
             </code></pre>
             <aside class="notes" data-markdown>
-                *Michael: time to start guessing
+                **Michael:** time to start guessing
 
-                *Selena - pending.
+                **Selena:** - pending.
                   - you might notice in this and some of the other tests there's line here - pending
                   - By marking a test as pending, all of the assertions made after the pending line will still be run
                     but one of them HAS to fail
@@ -1072,7 +1113,7 @@
                 <img src="images/iteration-2.3-no-input-field.png" />
             </div>
             <aside class="notes" data-markdown>
-                *Michael:
+                **Michael:** we have no input
             </aside>
         </section>
 
@@ -1083,7 +1124,8 @@
             </div>
             <pre><code data-trim>
                 handleGuess(event) {
-                  if(event.target.value.split(/[\s\n]/).find((word) => (word === this.state.term))) {
+                  const REGEX = new RegExp(this.state.term)
+                  if(REGEX.exec(event.target.value)) {
                     this.setState({status: 'WINNER'})
                   }
                 }
@@ -1094,7 +1136,7 @@
                   disabled={this.state.status === 'WINNER'}&gt;&lt;/textarea>
             </code></pre>
             <aside class="notes" data-markdown>
-                *Michael: match the word and bind it to the text area
+                **Michael:** match the word and 2 way bind it to the text area
             </aside>
         </section>
 
@@ -1139,7 +1181,7 @@
                 end
             </code></pre>
             <aside class="notes" data-markdown>
-                *Michael: added another set When Then
+                **Michael:** added another set of WHEN THEN
             </aside>
         </section>
 
@@ -1159,7 +1201,7 @@
                 <img src="images/iteration-3.1-no-next-button.png" />
             </div>
             <aside class="notes" data-markdown>
-                *Michael: great start but we need more then 1 round
+                **Michael:** great start but we need more then 1 round
             </aside>
         </section>
 
@@ -1172,7 +1214,7 @@
                 &lt;Link to={`/round/${this.state.round + 1}`}>Next&lt;/Link>
             </code></pre>
             <aside class="notes" data-markdown>
-                *Michael:
+                **Michael:** which can be implemented with a react router Link to the round + 1 with a label of NEXT
             </aside>
         </section>
 
@@ -1191,7 +1233,7 @@
                 <img src="images/iteration-3.2-next-button-rendered.png" />
             </div>
             <aside class="notes" data-markdown>
-
+                **Michael:** we write a test to match the text to tell us it is round 2
             </aside>
         </section>
 
@@ -1201,7 +1243,13 @@
                 <img src="images/iteration-3.3-multi-round-game.gif" width="400" />
             </div>
             <aside class="notes" data-markdown>
-                *Michael:
+                **Michael:** we get a freebie as the way we implemented it the round passed in from the path
+                  is already rendered in the title
+                **Selena:** So if it passes, shouldn't you make it fail to see that it fails the way you expect?
+                **Michael:** Good catch Selena, absolutely, if you do not see it fail, you may not be testing what you
+                  mean to be testing. Even when you test and fail often developers do not read the error messages
+                  and get lost in trying to make a test pass when the message is right there in front of them
+                  Remember - read the output of the test, and all ways see the way it fails!
             </aside>
         </section>
 
@@ -1254,12 +1302,13 @@
                 end
             </code></pre>
             <aside class="notes" data-markdown>
-                *Selena: Rinse and repeat.
+                **Selena:** Simple as that. Rinse and repeat.
                     There you go. 3 very basic iterations of tdd-ing a flow.
                     By stepping out the sequence of events that take place in this style of test, it's very easy to make
                     additions and adjustments to the way the app works.
                     We've only shown you a snippet of one flow that will take place in this app, which happens to go down a
                     happy path. There will in fact be a number of flows that emerge before this game is complete
+                **Michael:** SHOW ME THE CODE!!!!
             </aside>
         </section>
         <!-- 3 basic iterations building out the code -->
@@ -1267,6 +1316,7 @@
         <section>
             <h3>Show me the code!</h3>
             <aside class="notes" data-markdown>
+                **Selena shows the real test**
             </aside>
         </section>
 
@@ -1275,7 +1325,7 @@
             <div>Just cause we built it, lets play a game!</div>
 
             <aside class="notes" data-markdown>
-                *Selena: Aaaaand, just cause we built - let's play the game.
+                **Selena:** Aaaaand, just cause we built - let's play the game.
                          Who wants to play?!
 
                 **Michael get ready to play the live game with the audience now**
@@ -1291,7 +1341,7 @@
             <aside class="notes" data-markdown>
                 *Selena:
                 - Alright, that's enough fun for tonight.
-                - Let's recep the tests
+                - Let's recap the tests
             </aside>
         </section>
 
@@ -1396,7 +1446,7 @@
             <img src="/images/units/13-fe-component.jpg" width="600" height="600">
             <aside class="notes" data-markdown>
                 **Selena:**
-                - each frontend componet will get unit tested
+                - each frontend component will get unit tested
             </aside>
         </section>
 
@@ -1404,7 +1454,9 @@
             <img src="/images/units/SPA-mechanic.jpg" width="600" height="600">
             <aside class="notes" data-markdown>
                 **Selena:**
-                - finally wrapping a page from the front end which we test as a mechanic
+                - Now we move on to testing the users experience of the app.
+                - The example we showed you today is basically a flow through 3 pages.
+                - We want to test that each of those pages works as expected in a Mechanic test
             </aside>
         </section>
 
@@ -1412,7 +1464,9 @@
             <img src="/images/units/SPA-flow.jpg" width="600" height="600">
             <aside class="notes" data-markdown>
                 **Selena:**
-                - and the flow on effect between pages as the high level integreation flow spec that we have focused on today
+                - Lastly, that brings us to flows
+                - We test the flow on effects of user interactions between frontend components and pages
+                - Covering the whole app (with the exception of external integrations)
             </aside>
         </section>
 
@@ -1459,8 +1513,9 @@
             </div>
 
             <aside class="notes" data-markdown>
-                *Selena: If you think you can beat our high score, you can check out the app - it's hosted on heroku
-                *Michael: And you can go back and look at the code we showed here on Github
+                **Selena:** If you think you can beat our high score, you can check out the app - it's hosted on heroku
+                  find the link on the meetup-s or our latest tweets
+                **Michael:** And you can go back and look at the code we showed here on Github
                           Thanks everyone!
             </aside>
         </section>
