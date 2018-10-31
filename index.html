@@ -13,6 +13,15 @@
     <link rel="stylesheet" href="lib/css/zenburn.css">
 
     <style>
+        .fresho-logo img {
+            width: 80px;
+            border-style: none !important;
+            box-shadow: none !important;
+            margin: 0px 0px -30px !important;
+        }
+        .fresho-logo span {
+            padding-left: 10px;
+        }
         .twitter-avatar {
             border-radius: 50px;
             border: 1px solid #fff !important;
@@ -148,9 +157,27 @@
         <section>
             <h3>What is the app?</h3>
             <aside class="notes" data-markdown>
-              * Selena: Who uses it? What kind of person is going to play this game?
+              * Selena: What is the base state of the app? let's call it SearchTerm
 
-              * Michael: Halloween, Casper
+              * Michael: Halloween, spooky terms
+            </aside>
+        </section>
+        <section>
+            <div class="what-is-the-app-image-area">
+                <img src="images/app-1-enter-url.png" style="" />
+            </div>
+
+            <pre class="code-100"><code data-trim data-noescape>
+                - Given SearchTerm is setup with spooky terms
+                -
+                -
+                -
+                -
+            </code></pre>
+            <aside class="notes" data-markdown>
+                * Selena: Who uses it? What kind of person is going to play this game?
+
+                * Michael: Halloween, Casper
             </aside>
         </section>
         <section>
@@ -166,7 +193,7 @@
                 -
             </code></pre>
             <aside class="notes" data-markdown>
-                * Selena: ah! so When casper visits the game, lets call it SearchTerm - then what?
+                * Selena: ah! so When casper visits the game, then what?
 
                 * Michael: greeted with a logo, welcome message
             </aside>
@@ -395,27 +422,29 @@
 
         <section>
             <pre><code data-trim data-noescape style="max-height: 600px">
-                When Casper visits SearchTerm
+                GIVEN SearchTerm is setup with spooky terms
 
-                Then a welcome message is rendered
-                  And a start game button is rendered
+                WHEN Casper visits SearchTerm
 
-                When Casper starts the game
+                THEN a welcome message is rendered
+                  AND a start game button is rendered
 
-                Then round 1 begins
-                  And 9 images are displayed
-                  And a text area is rendered
-                  And a countdown timer is rendered
+                WHEN Casper starts the game
 
-                When the game is In-progress
+                THEN round 1 begins
+                  AND 9 images are displayed
+                  AND a text area is rendered
+                  AND a countdown timer is rendered
 
-                Then the countdown timer starts counting down
+                WHEN the game is In-progress
 
-                When Casper types the correct guess into the text box
+                THEN the countdown timer starts counting down
 
-                Then the countdown timer stops
-                  And a score is rendered for the round
-                  And a winner message is rendered
+                WHEN Casper types the correct guess into the text box
+
+                THEN the countdown timer stops
+                  AND a score is rendered for the round
+                  AND a winner message is rendered
             </code></pre>
             <aside class="notes" data-markdown>
                 * Selena:
@@ -450,11 +479,58 @@
             <pre><code data-trim data-noescape>
                 feature 'Game play lifecycle', js: true do
                   scenario 'WINNING a game' do
-                    When 'user starts the game' do
-                      visit('/')
-                      wait_for {
-                        <mark>focus_on(:welcome).text</mark>
-                      }.to eq('Welcome to the Game')
+                    Given <mark> 'Game is setup with spooky terms'</mark> do
+                      ["ghost", "haunted house"].each do |phrase|
+                        Term.<mark>create(phrase: phrase)</mark>
+                      end
+                    end
+                  end
+                end
+            </code></pre>
+            <aside class="notes" data-markdown>
+                *Michael: setup context GIVEN, user perspective flow so can change to a context
+
+                *Selena: ?
+            </aside>
+        </section>
+
+        <section>
+            <h3>Render images <span class="failing-span">Failing test</span></h3>
+            <pre><code data-trim data-noescape>
+                feature 'Game play lifecycle', js: true do
+                  <mark>context</mark> 'Game is setup with spooky terms' do
+                    before do
+                      ["ghost", "haunted house"].each do |phrase|
+                        Term.<mark>create(phrase: phrase)</mark>
+                      end
+
+                      scenario 'WINNING a game' do
+                      end
+                    end
+                  end
+                end
+            </code></pre>
+            <aside class="notes" data-markdown>
+                *Michael: like so
+
+                *Selena: ?
+            </aside>
+        </section>
+
+        <section>
+            <h3>Render images <span class="failing-span">Failing test</span></h3>
+            <pre><code data-trim data-noescape>
+                feature 'Game play lifecycle', js: true do
+                  context 'Game is setup with spooky terms' do
+                    before do ... end
+
+                    scenario 'WINNING a game' do
+                      When 'user starts the game' do
+                        visit('/')
+                        wait_for {
+                          <mark>focus_on(:welcome).text</mark>
+                        }.to eq('Welcome to the Game')
+                      end
                     end
                   end
                 end
@@ -732,19 +808,27 @@
             <h3>Render images <span class="iteration-span">Iteration 1</span></h3>
             <pre><code data-trim data-noescape style="max-height: 500px">
                 feature 'Game play lifecycle', js: true do
-                  scenario 'WINNING a game' do
-                    When 'user starts the game' do
-                      visit('/')
-                      wait_for {
-                        focus_on(:welcome).text
-                      }.to eq('Welcome to the Game')
-
-                      focus_on(:welcome).start_game
+                  context 'Game is setup with spooky terms' do
+                    before do
+                      ["ghost", "haunted house"].each do |phrase|
+                        Term.create(phrase: phrase)
+                      end
                     end
 
-                    Then 'the game commences' do
-                      wait_for { focus_on(:game).round }.to eq('1')
-                      wait_for { focus_on(:game).images.count }.to eq('9')
+                    scenario 'WINNING a game' do
+                      When 'user starts the game' do
+                        visit('/')
+                        wait_for {
+                          focus_on(:welcome).text
+                        }.to eq('Welcome to the Game')
+
+                        focus_on(:welcome).start_game
+                      end
+
+                      Then 'the game commences' do
+                        wait_for { focus_on(:game).round }.to eq('1')
+                        wait_for { focus_on(:game).images.count }.to eq('9')
+                      end
                     end
                   end
                 end
@@ -762,22 +846,49 @@
             <div style="display: flex">
             <pre><code data-trim data-noescape style="max-height: 500px">
                 feature 'Game play lifecycle', js: true do
-                  scenario 'WINNING a game' do
-                    When 'user starts the game' do
-                      visit('/')
-                      wait_for {
-                        focus_on(:welcome).text
-                      }.to eq('Welcome to the Game')
+                  context 'Game is setup with spooky terms' do
+                    scenario 'WINNING a game' do
+                      When 'user starts the game' do
+                        visit('/')
+                        wait_for {
+                          focus_on(:welcome).text
+                        }.to eq('Welcome to the Game')
 
-                      focus_on(:welcome).start_game
-                    end
+                        focus_on(:welcome).start_game
+                      end
 
-                    Then 'the game commences' do
-                      wait_for { focus_on(:game).round }.to eq('1')
-                      <mark>wait_for { focus_on(:game).status }.to eq('IN-PROGRESS')</mark>
-                      wait_for { focus_on(:game).images.count }.to eq(9)
+                      Then 'the game commences' do
+                        wait_for { focus_on(:game).round }.to eq('1')
+                        <mark>wait_for { focus_on(:game).status }.to eq('IN-PROGRESS')</mark>
+                        wait_for { focus_on(:game).images.count }.to eq(9)
+                      end
                     end
                   end
+                end
+            </code></pre>
+            </div>
+            <aside class="notes" data-markdown>
+                *Michael: drop the feature scenario and context for clarity
+            </aside>
+        </section>
+
+        <section>
+            <h3>Submit a guess <span class="failing-span">Failing test</span></h3>
+            <div style="display: flex">
+            <pre><code data-trim data-noescape style="max-height: 500px">
+                When 'user starts the game' do
+                  visit('/')
+                  wait_for {
+                    focus_on(:welcome).text
+                  }.to eq('Welcome to the Game')
+
+                  focus_on(:welcome).start_game
+                end
+
+                Then 'the game commences' do
+                  wait_for { focus_on(:game).round }.to eq('1')
+                  <mark>wait_for { focus_on(:game).status }.to eq('IN-PROGRESS')</mark>
+                  wait_for { focus_on(:game).images.count }.to eq(9)
                 end
             </code></pre>
             </div>
@@ -798,6 +909,56 @@
                     - writing these test first also makes sure that from the outset each page/component
                       is individually testable and you do not have to navigate through lots of screens
                       to come to a particular scenario
+            </aside>
+        </section>
+
+        <section>
+            <h3>Mechanic of status</h3>
+            <pre><code data-trim data-noescape style="max-height: 500px">
+                feature 'Status on round', type: feature, js: true do
+                  scenario 'Casper starts a round and data is not yet loaded' do
+                    When 'user on a round' do
+                      visit('/round/1')
+                    end
+
+                    Then 'status is loading' do
+                      wait_for { focus_on(:game).status }.to eq('LOADING ...')
+                    end
+                  end
+
+                  scenario 'Casper starts a round and data is loaded' do
+                    When 'user on a round and the round loads' do
+                      visit('/round/1')
+                      FeatureSupport::ApiSupport.return_success
+                    end
+
+                    Then 'status is loading' do
+                      wait_for { focus_on(:game).status }.to eq('IN-PROGRESS')
+                    end
+                  end
+
+                  scenario 'Casper wins a round' do
+                    When 'user on a round' do
+                      visit('/round/1')
+                      FeatureSupport::ApiSupport.return_success
+                    end
+
+                    And 'user guesses correctly' do
+                      focus_on(:game).fill_guess('ghost')
+                    end
+
+                    Then 'status is winner' do
+                      wait_for { focus_on(:game).status }.to eq('WINNER')
+                    end
+                  end
+
+                  scenario 'Casper starts a round which times out' do
+
+                  scenario 'Casper starts a round and api throws an error' do
+                end
+            </code></pre>
+            <aside class="notes" data-markdown>
+                *Michael:
             </aside>
         </section>
 
@@ -838,27 +999,17 @@
         <section>
             <h3>Submit a guess <span class="failing-span">Failing test</span></h3>
             <pre><code data-trim data-noescape style="max-height: 600px">
-                feature 'Game play lifecycle', js: true do
-                  context 'the game terms are configured' do
-                    before do
-                      Term.create(phrase: 'tequila')
-                    end
+                When 'user starts the game' do ... end
 
-                    scenario 'WINNING a game' do
-                      When 'user starts the game' do ... end
+                Then 'the game commences' do ... end
 
-                      Then 'the game commences' do ... end
+                When 'the user submits an answer' do
+                  <mark>focus_on(:game).fill_guess('ghost')</mark>
+                end
 
-                      When 'the user submits an answer' do
-                        <mark>focus_on(:game).fill_guess('tequila')</mark>
-                      end
-
-                      Then 'the user wins' do
-                        pending
-                        wait_for { focus_on(:game).status }.to eq('WINNER')
-                      end
-                    end
-                  end
+                Then 'the user wins' do
+                  pending
+                  wait_for { focus_on(:game).status }.to eq('WINNER')
                 end
             </code></pre>
             <aside class="notes" data-markdown>
@@ -911,9 +1062,11 @@
             <h3>Submit a guess <span class="iteration-span">Iteration 2</span></h3>
             <pre class="code-100"><code data-trim data-noescape style="max-height: 600px;">
                 feature 'Game play lifecycle', js: true do
-                  context 'the game terms are configured' do
+                  context 'Game is setup with spooky terms' do
                     before do
-                      Term.create(phrase: 'tequila')
+                      ["ghost", "haunted house"].each do |phrase|
+                        Term.create(phrase: phrase)
+                      end
                     end
 
                     scenario 'WINNING a game' do
@@ -935,7 +1088,7 @@
                       end
 
                       When 'the user submits an answer' do
-                        focus_on(:game).fill_guess('tequila')
+                        focus_on(:game).fill_guess('ghost')
                       end
 
                       Then 'the user wins' do
@@ -1016,9 +1169,11 @@
             <h3>Multi-round game <span class="iteration-span">Iteration 3</span></h3>
             <pre class="code-100"><code data-trim data-noescape style="max-height: 600px;">
                 feature 'Game play lifecycle', js: true do
-                  context 'the game terms are configured' do
+                  context 'Game is setup with spooky terms' do
                     before do
-                      Term.create(phrase: 'tequila')
+                      ["ghost", "haunted house"].each do |phrase|
+                        Term.create(phrase: phrase)
+                      end
                     end
 
                     scenario 'WINNING a game' do
@@ -1034,17 +1189,17 @@
                       Then 'the game commences' do
                         wait_for { focus_on(:game).round }.to eq('1')
                         wait_for { focus_on(:game).status }.to eq('IN-PROGRESS')
-                        wait_for { focus_on(:game).timer }.to match(/[0-9]/)
+                        wait_for { focus_on(:game).timer }.to eq('10')
                         wait_for { focus_on(:game).images.count }.to eq(9)
                       end
 
                       When 'the user submits an answer' do
-                        focus_on(:game).fill_guess('tequila')
+                        focus_on(:game).fill_guess('ghost')
                       end
 
                       Then 'the user wins the round' do
                         wait_for { focus_on(:game).status }.to eq('WINNER')
-                        wait_for { focus_on(:game).score }.to match(/[0-9]/)
+                        wait_for { focus_on(:game).score }.to eq('10')
                       end
 
                       When 'the user starts the next round' do
@@ -1070,6 +1225,12 @@
         <!-- 3 basic iterations building out the code -->
 
         <section>
+            <h3>Show me the code!</h3>
+            <aside class="notes" data-markdown>
+            </aside>
+        </section>
+
+        <section>
             <h3>Let's play!</h3>
             <div>Just cause we built it, lets play a game!</div>
 
@@ -1088,6 +1249,10 @@
         <section>
             <h3>The Unit</h3>
             TODO diagram whole system and the various sub systems that are the unit under test.
+        </section>
+
+        <section>
+            TODO the unit images start here
         </section>
 
         <section>
@@ -1112,6 +1277,7 @@
             <h3>Resources</h3>
                 <p><a href="https://search-term.herokuapp.com/">https://search-term.herokuapp.com/</a></p>
                 <p><a href="https://saramic.github.io/layered-testing-workshop/">https://saramic.github.io/layered-testing-workshop/</a></p>
+                <p><a href="https://fresho.com/" class="fresho-logo"><img src="images/fresho_logo_green.svg"/><span>https://fresho.com/</span></a></p>
             <div>
                 <a href="http://twitter.com/intent/user?screen_name=selenasmall88">
                     <img class="twitter-avatar" src="images/avatar-selena.jpg" alt="selena-small"/>
