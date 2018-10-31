@@ -142,22 +142,26 @@
             <h1>Failing for the right reason</h1>
             <h3>Selena Small & Michael Milewski</h3>
             <aside class="notes" data-markdown>
-              #### Selena: intro
+              #### Selena: Hi everyone, I' Selena and I'm sure Michael's around here somewhere...
 
               #### Michael: **runs on side stage**
-                - Idea for app
-                - Big - break internet
-                - Game - Images - Scoreboard
-                - Web - Share Score
+                - Idea for app - Big - break internet
+                - Game - Images - Scoreboard - Web - Share Score
 
               *Selena*: No. The first line of code you write is a test
+
+              *Michael* how do I get started
+
+              *Selena* how about you describe the app
             </aside>
         </section>
 
         <section>
             <h3>What is the app?</h3>
             <aside class="notes" data-markdown>
-              * Selena: What is the base state of the app? let's call it SearchTerm
+              * Selena:
+                - What's it called?
+                - What's the base state of the app?
 
               * Michael: Halloween, spooky terms
             </aside>
@@ -175,7 +179,13 @@
                 -
             </code></pre>
             <aside class="notes" data-markdown>
-                * Selena: Who uses it? What kind of person is going to play this game?
+                * Selena:
+                - Given the app - search term - is set up with spooky terms...
+                - Who uses it?
+
+                * Michael: everyone on the internet!
+
+                * Selena: yeah but What kind of person is going to play this game?
 
                 * Michael: Halloween, Casper
             </aside>
@@ -268,9 +278,8 @@
                 -
             </code></pre>
             <aside class="notes" data-markdown>
-                * Selena: Now are you getting? you keeping up?
-
-                ** Michael takes over explaining **
+                * Selena: Maybe we see some indication that it's round 1
+                * Michael:
             </aside>
         </section>
         <section>
@@ -286,6 +295,11 @@
                 -
             </code></pre>
             <aside class="notes" data-markdown>
+                * Selena: so...
+                - When casper starts the game
+                - Then rounds 1 begins
+                - And what else?
+
                 * Michael:
             </aside>
         </section>
@@ -302,6 +316,9 @@
                 -
             </code></pre>
             <aside class="notes" data-markdown>
+                * Selena: Images. And you said something about making a guess
+                - How does that happen?
+
                 * Michael:
             </aside>
         </section>
@@ -318,6 +335,7 @@
                 - <mark>And a countdown timer is rendered</mark>
             </code></pre>
             <aside class="notes" data-markdown>
+                * Selena: Maybe we should put the pressure on too and give users a time limit
                 * Michael:
             </aside>
         </section>
@@ -335,6 +353,9 @@
                 -
             </code></pre>
             <aside class="notes" data-markdown>
+                * Selena: Cool! You're starting to get it
+                - So, now, when the game is in progress... Then what happens?
+                - Do you want to have a go?
                 * Michael:
             </aside>
         </section>
@@ -448,9 +469,14 @@
             </code></pre>
             <aside class="notes" data-markdown>
                 * Selena:
+                  * Sure - quick recap on what we've just been through
+                  * You can see a pretty clear pattern here...
                   * GIVEN the state of the world before you begin
                   * WHEN an action is carried out
                   * THEN observable changes are expected
+
+                  * This is almost exactly how we are going to write our first test
+                  - But why do we care about testing?
             </aside>
         </section>
 
@@ -468,8 +494,10 @@
                   3. bit by bit you can move forward
                   4. takeaway Incremental iterative development
 
-                * Selena: I'm not quite sure everyone's following...
-                          Let's run through an example
+                * Selena:
+                - Great explaination!
+                - I'm not quite sure everyone's following...
+                - Let's run through an example
             </aside>
         </section>
 
@@ -489,8 +517,6 @@
             </code></pre>
             <aside class="notes" data-markdown>
                 *Michael: setup context GIVEN, user perspective flow so can change to a context
-
-                *Selena: ?
             </aside>
         </section>
 
@@ -512,8 +538,6 @@
             </code></pre>
             <aside class="notes" data-markdown>
                 *Michael: like so
-
-                *Selena: ?
             </aside>
         </section>
 
@@ -607,22 +631,26 @@
                 module PageFragments
                   module Welcome
                     def text
-                      browser.find('h1').text
+                      welcome.find('h1').text
                     end
 
                     def start_game
-                      browser.click_on('Start Game')
+                      welcome.click_on('Start Game')
+                    end
+
+                    def welcome
+                      browser.find('.welcome')
                     end
                   end
                 end
             </code></pre>
             <aside class="notes" data-markdown>
                 *Selena: As you can see this particular fragment finds the text inside a div with class `WELCOME`
-                    One benefit of separating out fragments like this, is that
-                    they're reusable throughout the tests.
-                    - if a class name changes in the html, you don't have to trawl through
-                      your tests to change every assertion. You can just change it here
-                    - Ans as I mentioned, your tests also become much more readable
+                  One benefit of separating out fragments like this, is that
+                  they're reusable throughout the tests.
+                  - if a class name changes in the html, you don't have to trawl through
+                    your tests to change every assertion. You can just change it here
+                  - Ans as I mentioned, your tests also become much more readable
             </aside>
         </section>
 
@@ -645,10 +673,6 @@
             </code></pre>
             <aside class="notes">
                 *Michael:
-
-                *Selena: What is focus_on?
-                    We've hidden away code that asserts against html
-                    in order to make these high level flows easier to read.
             </aside>
         </section>
 
@@ -802,6 +826,18 @@
         <section>
           <h3>Flake due to image loading</h3>
           <img src="images/flakey_fresho_header.gif" />
+
+            <aside class="notes" data-markdown>
+                *Selena:
+                - example from Fresho
+                - microsecond transition slowed down
+                - the test wants to click on orders tab
+                - the mouse down event occurs on the orders tab
+                - but by time logo is loaded the mouse up event is on the market tab
+                - this is treated like a click and drag event, not a click event
+                - 9 times out of 10 the logo loads fast enough for the test suite to find what it's looking for
+                - but occasionally, it flakes.
+            </aside>
         </section>
 
         <section>
@@ -896,25 +932,22 @@
                 *Michael: more state in-progress loading etc
 
                 *Selena: Mechanics
-                    - This is where mechanics come in
+                  - This is where mechanics come in
 
-                    - The style of test we've been writing here is an integration test
-                    - At Fresho we organise these type of tests into two categories - flows and mechanics
-                    - Flows, like we're writing here test the users experience of flow on effect from user and system interactions
-                    - For behaviours that are specific to a page or component we would use what we call a mechanic test
-                    - take the status it can be one of - loading, round in progress, round complete or error
-                    - it is not practical to navigate through to a round just to test a different status
-                    - specific tests around the round page would allow us to test the status component
-                    - setup scenarios like a network timeout, the data base not being there
-                    - writing these test first also makes sure that from the outset each page/component
-                      is individually testable and you do not have to navigate through lots of screens
-                      to come to a particular scenario
+                  - The style of test we've been writing here is an integration test
+                  - At Fresho we organise these type of tests into two categories - flows and mechanics
+                  - Flows, like we're writing here test the users experience of flow on effect from user and system interactions
+                  - For behaviours that are specific to a page or component we would use what we call a mechanic test
+                  - take the status it can be one of - loading, round in progress, round complete or error
+                  - it is not practical to navigate through to a round just to test a different status
+                  - specific tests around the round page would allow us to test the status component
+                  - let's look at an example
             </aside>
         </section>
 
         <section>
             <h3>Mechanic of status</h3>
-            <pre><code data-trim data-noescape style="max-height: 500px">
+            <pre><code data-trim data-noescape style="max-height: 600px">
                 feature 'Status on round', type: feature, js: true do
                   scenario 'Casper starts a round and data is not yet loaded' do
                     When 'user on a round' do
@@ -958,7 +991,14 @@
                 end
             </code></pre>
             <aside class="notes" data-markdown>
-                *Michael:
+                *SelSel:
+                - scenarios in a mechanic tend to be a lot smaller. They're ultra specific
+                - like you can see here, we would test something as small as a state change
+                - But we would test that every state changes the way we expect it to and at the time we expect
+                - We can also setup scenarios like a network timeout or the data base not being available
+                - writing these test first also makes sure that from the outset each page/component
+                is individually testable and you don't have to navigate through a whole sequence of events
+                to come to a particular edge case that you want to test
             </aside>
         </section>
 
@@ -1008,7 +1048,7 @@
                 end
 
                 Then 'the user wins' do
-                  pending
+                  pending 'no text area to input a guess'
                   wait_for { focus_on(:game).status }.to eq('WINNER')
                 end
             </code></pre>
@@ -1099,7 +1139,7 @@
                 end
             </code></pre>
             <aside class="notes" data-markdown>
-                *Michael:
+                *Michael: added another set When Then
             </aside>
         </section>
 
@@ -1111,7 +1151,7 @@
                 end
 
                 Then 'round two starts' do
-                  pending
+                  pending 'No next round button'
                   wait_for { focus_on(:game).round }.to eq('2')
                 end
             </code></pre>
@@ -1119,7 +1159,7 @@
                 <img src="images/iteration-3.1-no-next-button.png" />
             </div>
             <aside class="notes" data-markdown>
-                *Michael:
+                *Michael: great start but we need more then 1 round
             </aside>
         </section>
 
@@ -1247,67 +1287,133 @@
         </section>
 
         <section>
+            <h3>Recap on flow tests</h3>
+            <aside class="notes" data-markdown>
+                *Selena:
+                - Alright, that's enough fun for tonight.
+                - Let's recep the tests
+            </aside>
+        </section>
+
+        <section>
             <img src="/images/units/1-models-and-db.jpg" width="600" height="600">
+            <aside class="notes" data-markdown>
+                **Selena:**
+                - Most apps have a db of some sort
+            </aside>
         </section>
 
         <section>
             <img src="/images/units/2-test-models-and-db.jpg" width="600" height="600">
+            <aside class="notes" data-markdown>
+                **Selena:**
+                - which get traditionally tested as DB integration
+            </aside>
         </section>
 
         <section>
             <img src="/images/units/3-test-models.jpg" width="600" height="600">
+            <aside class="notes" data-markdown>
+                **Selena:**
+                - we at Fresho also like to unit test the models
+            </aside>
         </section>
 
         <section>
             <img src="/images/units/4-service-objects.jpg" width="600" height="600">
+            <aside class="notes" data-markdown>
+                **Selena:**
+                - models may interact with service objects
+            </aside>
         </section>
 
         <section>
             <img src="/images/units/5-external-service.jpg" width="600" height="600">
+            <aside class="notes" data-markdown>
+                **Selena:**
+                - service objects may talk to external services, this is another test boundary
+                - we would have exteranl integration tests
+            </aside>
         </section>
 
         <section>
             <img src="/images/units/6-controllers.jpg" width="600" height="600">
+            <aside class="notes" data-markdown>
+                **Selena:**
+                - conrtrollers also interact with the model
+            </aside>
         </section>
 
         <section>
             <img src="/images/units/7-api-endpoint.jpg" width="600" height="600">
+            <aside class="notes" data-markdown>
+                **Selena:**
+                - and in this case present an API layer
+            </aside>
         </section>
 
         <section>
             <img src="/images/units/8-controller-test.jpg" width="600" height="600">
+            <aside class="notes" data-markdown>
+                **Selena:**
+                - controllers are traditionally tested as integration tests including model and db
+            </aside>
         </section>
 
         <section>
             <img src="/images/units/9-wrong-controller-test.jpg" width="600" height="600">
+            <aside class="notes" data-markdown>
+                **Selena:**
+                - we don't do controller integration tests at fresho to simplify tests which requires testing all of ActiveRecord
+            </aside>
         </section>
 
         <section>
             <img src="/images/units/10-isolated-controller.jpg" width="600" height="600">
+            <aside class="notes" data-markdown>
+                **Selena:**
+                - instead we do isolated controller specs focusing in on only the controller behaviour
+            </aside>
         </section>
 
         <section>
             <img src="/images/units/11-api-acceptance.jpg" width="600" height="600">
+            <aside class="notes" data-markdown>
+                **Selena:**
+                - we treat the API as a unit and do a full integration test at that level, are you following along?
+            </aside>
         </section>
 
         <section>
             <img src="/images/units/12-spa.jpg" width="600" height="600">
+            <aside class="notes" data-markdown>
+                **Selena:**
+                - Adding in a Single Page App written in a javascript framework of choice with a number of components
+            </aside>
         </section>
 
         <section>
             <img src="/images/units/13-fe-component.jpg" width="600" height="600">
-        </section>
-
-        <section>
-            <img src="/images/units/SPA-ux.jpg" width="600" height="600">
-        </section>
-
-        <section>
-            <img src="/images/units/SPA-flow.jpg" width="600" height="600">
+            <aside class="notes" data-markdown>
+                **Selena:**
+                - each frontend componet will get unit tested
+            </aside>
         </section>
 
         <section>
             <img src="/images/units/SPA-mechanic.jpg" width="600" height="600">
+            <aside class="notes" data-markdown>
+                **Selena:**
+                - finally wrapping a page from the front end which we test as a mechanic
+            </aside>
+        </section>
+
+        <section>
+            <img src="/images/units/SPA-flow.jpg" width="600" height="600">
+            <aside class="notes" data-markdown>
+                **Selena:**
+                - and the flow on effect between pages as the high level integreation flow spec that we have focused on today
+            </aside>
         </section>
 
         <section>
@@ -1323,8 +1429,14 @@
             </ul>
 
             <aside class="notes" data-markdown>
-                note: although this talk focused on flows, these points all apply to testing any unit at any level
-                <!-- # TODO example: maybe talk over an isolated unit test of the round controller? -->
+                **Michael:**
+                - remember test first
+                - start with a flow of your system
+                - test each page with a mechanic
+                - hide away the particulars of the page in Page Fragements
+                - don't let Flakes put you off, buttons jumping around can be a distraction for users
+                - mark tests as pending to always be committing and pushing to master
+                - iterate
             </aside>
         </section>
 
