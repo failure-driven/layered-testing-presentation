@@ -279,6 +279,7 @@
             </code></pre>
             <aside class="notes" data-markdown>
                 **Selena:** Maybe we see some indication that it's round 1
+
                 **Michael:** Yeah and there are images!
             </aside>
         </section>
@@ -333,7 +334,6 @@
             </code></pre>
             <aside class="notes" data-markdown>
                 **Selena:** Cool! You're starting to get it
-                **Michael:**
             </aside>
         </section>
 
@@ -353,6 +353,7 @@
                 **Selena:**
                 - So, now, when the game is in progress... Then what happens?
                 - Do you want to have a go?
+
                 **Michael:** Oh yeah, so when the game is in progress...
             </aside>
         </section>
@@ -627,9 +628,9 @@
                 **Michael:** now we want to focus_on welcome start_game
 
                 **Selena:** What is focus_on?
-                    - We've hidden away code that asserts against html
-                    in order to make these high level flows easier to read.
-                    - What we've done, is move this code into a module called page fragments
+                  - We've hidden away code that asserts against html
+                  in order to make these high level flows easier to read.
+                  - What we've done, is move this code into a module called page fragments
             </aside>
         </section>
 
@@ -679,7 +680,7 @@
                   wait_for { focus_on(:game).round }.to eq('1')
                 end
             </code></pre>
-            <aside class="notes">
+            <aside class="notes" data-markdown>
                 **Michael:** we need to click on the start_game button ...
             </aside>
         </section>
@@ -1129,9 +1130,7 @@
                   const REGEX = new RegExp(this.state.term)
                   if(REGEX.exec(event.target.value)) {
                     this.setState({status: 'WINNER'})
-                  }
-                }
-
+                  ...
                 &lt;textarea
                   onChange={this.handleGuess }
                   value={this.state.guess}
@@ -1312,6 +1311,7 @@
                     additions and adjustments to the way the app works.
                     We've only shown you a snippet of one flow that will take place in this app, which happens to go down a
                     happy path. There will in fact be a number of flows that emerge before this game is complete
+
                 **Michael:** SHOW ME THE CODE!!!!
             </aside>
         </section>
@@ -1520,6 +1520,7 @@
             <aside class="notes" data-markdown>
                 **Selena:** If you think you can beat our high score, you can check out the app - it's hosted on heroku
                   find the link on the meetup-s or our latest tweets
+                
                 **Michael:** And you can go back and look at the code we showed here on Github
                           Thanks everyone!
             </aside>
