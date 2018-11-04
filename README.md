@@ -88,7 +88,11 @@ Talk/workshop on the idea of outside in multi layered behaviour driven layered t
 - [Ruby Conf India](https://www.rubyconfindia.org/)
   - 20-21 Jan 2019
   - [CFP](https://www.papercall.io/rci19) - Nov 30
-  
+
+- [React Amsterdam](https://goo.gl/forms/WZsgwz8WGvrlPyvH2)
+  - April 12
+  - CFP open till Jan 15th 2019
+
 - [Rails Conf](http://railsconf.com/) - April 17-19 2018 - 2019 dates?
   - is there a CFP - https://eventil.com/events/railsconf-2019/cfp ?
   - https://cfp.rubycentral.org/events
