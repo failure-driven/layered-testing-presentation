@@ -9,7 +9,7 @@ Talk/workshop on the idea of outside in multi layered behaviour driven layered t
   - [ ] should be fun
   - Presentation inspirations
     * **Tell a story**
-      * https://www.youtube.com/watch?v=nChKjkG2NDw 
+      * https://www.youtube.com/watch?v=nChKjkG2NDw
         the video does not seem to do the talk justice bring in personal experience and story to better allow for the audience to be inspired and understand
       * all story example https://www.youtube.com/watch?v=WoTemqfZiHE
       * good stories and presence https://www.youtube.com/watch?v=nAEt36XNtAE
@@ -22,7 +22,7 @@ Talk/workshop on the idea of outside in multi layered behaviour driven layered t
       * redux tutorial on egghead has short concises videos about different specific concepts https://egghead.io/courses/getting-started-with-redux
     * **A level of performance art**
       * https://www.youtube.com/watch?v=_z8FQdIbpJo This example being musical goes above and beyond, leaning towards some jokes is a start but clearly would be cool to get some energy across. Left-right keyboard pairing? pushups for broken tests?
-  
+
 ## Skills
 
   - [ ] come up with a convincing example, key feature flow, that everyone immedaitely can relate to and intimately know and understand
@@ -55,7 +55,7 @@ Talk/workshop on the idea of outside in multi layered behaviour driven layered t
     * ... and what ever I have missed
   - ...
 
-## Credibility 
+## Credibility
 
   - [ ] run workshop at ruby hack night
   - [ ] run workshop at rails camp
@@ -66,40 +66,78 @@ Talk/workshop on the idea of outside in multi layered behaviour driven layered t
   - [ ] run presentation at ruby meetup
   - [ ] run presentation at a conference
   - ...
-  
+
 ## Glory
 
   :)
-  
+
 ## Conference options
+
+**Done:**
 
 - [Ruby meetup Melboure](https://www.meetup.com/Ruby-On-Rails-Oceania-Melbourne/)
   - plan for November 2018
   - https://github.com/rails-oceania/melbourne-ruby/issues/111
-  
+  - DONE [Ruby.org.au video Oct 31](http://youtu.be/p72EPNXbjiU)
+
+**Waiting:**
+
 - [Ruby Conf AU](https://www.rubyconf.org.au/2019)
   - CFP ends 15 October https://www.papercall.io/rubyconf-au-2019
-- https://rubyconferences.org/
-  
-- [Ruby Conf Malaysia](https://rubyconf.my/) 25-26 October
-  - missed it?
-- [Ruby Russia](https://rubyrussia.club/en) 6 October
-  - CFP 15 September
+  - SUBMITTED waiting ⏱
+
+- [Craft Conf - Budapest](https://www.papercall.io/craft-conf-2019)
+  - May 9 - 10 2019
+  - SUBMITTED waiting ⏱
+
+- [ReactJS meetup](https://www.meetup.com/React-Melbourne/events/255823040/)
+  - Tue Nov 27
+  - SUBMITTED waiting ⏱
+
+**Next submissions:**
+
+- [React Amsterdam](https://goo.gl/forms/WZsgwz8WGvrlPyvH2)
+  - April 11 - workshops
+  - April 12 - conference
+  - CFP open till Jan 15th 2019
+
+- [EuRuKo Rotterdam](https://euruko2019.org/)
+  - June 21-22 Rotterdam
+  - CFP open till Feb 28th 2019 - [CFP](https://www.papercall.io/euruko2019)
+
+- [Hack in Paris](https://www.papercall.io/hack-in-paris)
+  - June 16th to 20th 2019
+  - CFP closes December 10, 2018
+
+**Possible submissions but no travel budget:**
+
+- [Rubyfuza & friends](https://www.papercall.io/rubyfuza)
+  - Feb 7-9 2019 Capetown
+  - CFP close 15 December
+
 - [Ruby Conf India](https://www.rubyconfindia.org/)
   - 20-21 Jan 2019
   - [CFP](https://www.papercall.io/rci19) - Nov 30
 
-- [React Amsterdam](https://goo.gl/forms/WZsgwz8WGvrlPyvH2)
-  - April 12
-  - CFP open till Jan 15th 2019
+**Other:**
+  - https://rubyconferences.org/
 
-- [Rails Conf](http://railsconf.com/) - April 17-19 2018 - 2019 dates?
-  - is there a CFP - https://eventil.com/events/railsconf-2019/cfp ?
-  - https://cfp.rubycentral.org/events
-- [Ruby Conf](https://rubyconf.org/) - 13-15 Nov 2018
-  - CFP closed Jul 31
-- any other https://www.papercall.io/events
-- or how do you got onto https://www.codercruise.com/speakers/
+  - [Ruby Conf Malaysia](https://rubyconf.my/) 25-26 October
+    - missed it?
+
+  - [Ruby Russia](https://rubyrussia.club/en) 6 October
+    - CFP 15 September
+
+  - [Rails Conf](http://railsconf.com/) - April 17-19 2018 - 2019 dates?
+    - is there a CFP - https://eventil.com/events/railsconf-2019/cfp ?
+    - https://cfp.rubycentral.org/events
+
+  - [Ruby Conf](https://rubyconf.org/) - 13-15 Nov 2018
+    - CFP closed Jul 31
+
+  - any other https://www.papercall.io/events
+
+  - or how do you got onto https://www.codercruise.com/speakers/
 
 ## Demo Blog
 
