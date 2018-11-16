@@ -120,6 +120,13 @@ Talk/workshop on the idea of outside in multi layered behaviour driven layered t
   - [CFP](https://www.papercall.io/rci19) - Nov 30
 
 **Other:**
+
+  - https://eventil.com/events?q%5Bcfp_open%5D=cfp_is_open
+
+  - Ruby Conf 2019 Nashville, Nov 18-20, 2019! - http://rubyconf.org/
+
+  - http://railsconf.com/ 2019 April 30 - May 2 2019 Minneapolis
+
   - https://rubyconferences.org/
 
   - [Ruby Conf Malaysia](https://rubyconf.my/) 25-26 October
