@@ -139,382 +139,107 @@
 <div class="reveal">
     <div class="slides">
         <section>
-            <h1>Failing for the right reason</h1>
+            <h1>Failing for the REACT reason</h1>
             <h3>Selena Small & Michael Milewski</h3>
             <aside class="notes" data-markdown>
-              **Selena:** Hi everyone, I'm Selena and I'm sure Michael's around here somewhere...
+              We work at Fresho!
 
-              **Michael:** **runs on side stage**
-                - Idea for app - Big - break internet
-                - Game - Images - Scoreboard - Web - Share Score
+              And at Fresho! we're 100% focused on multi layer outside in BDD
 
-              **Selena:** No. The first line of code you write is a test
+              Sound boring?
 
-              **Michael:** how do I get started
+              Yeah, it's not.
 
-              **Selena:** how about you describe the app
+              Ok we've only got 10 minutes so let's make sure everyone knows what we mean by 100% MULTI-LAYER OUTSIDE-IN
+            </aside>
+        </section>
+
+        <!-- How Flows/Mechanics fit into testing -->
+        <section>
+            <img src="images/units/11-api-acceptance.jpg" width="600" height="600">
+            <aside class="notes" data-markdown>
+                Here's an example of a back end might look, we have a number of tests around individual
+                models, controllers, service objects as well as integration tests around groups of these
+                that work together
+
+                You guys don't really care about that though so we won't bother talking about it
+
+                But at the highest level of backend tests, we treat the API as a unit and do a full
+                integration test to essentially test the back end as a whole
+
+                We'll leave it at that 'cause we don't want to bore you
             </aside>
         </section>
 
         <section>
-            <h3>What is the app?</h3>
+            <img src="images/units/12-spa.jpg" width="600" height="600">
             <aside class="notes" data-markdown>
-                **Selena:**
-                - What's it called?
-                - What's the base state of the app?
+                In this app, our frontend is a SPA - you all know what that is. A single page application
 
-                **Michael:** Halloween, spooky terms
-            </aside>
-        </section>
-        <section>
-            <div class="what-is-the-app-image-area">
-                <img src="images/app-1-enter-url.png" style="" />
-            </div>
+                Which as you know is made up of a number of components
 
-            <pre class="code-100"><code data-trim data-noescape>
-                - Given SearchTerm is setup with spooky terms
-                -
-                -
-                -
-                -
-            </code></pre>
-            <aside class="notes" data-markdown>
-                **Selena:**
-                - Given the app - search term - is set up with spooky terms...
-                - Who uses it?
-
-                **Michael:** everyone on the internet!
-
-                **Selena:** yeah but What kind of person is going to play this game?
-
-                **Michael:** Halloween, Casper
-            </aside>
-        </section>
-        <section>
-            <div class="what-is-the-app-image-area">
-                <img src="images/app-1-enter-url.png" style="" />
-            </div>
-
-            <pre class="code-100"><code data-trim data-noescape>
-                - When Casper visits SearchTerm
-                -
-                -
-                -
-                -
-            </code></pre>
-            <aside class="notes" data-markdown>
-                **Selena:** ah! so When casper visits the game, then what?
-
-                **Michael:** greeted with a logo, welcome message
-            </aside>
-        </section>
-        <section>
-            <div class="what-is-the-app-image-area">
-                <img src="images/app-2-welcome-text.png" style="" />
-            </div>
-
-            <pre class="code-100"><code data-trim data-noescape>
-                - When Casper visits SearchTerm
-                - <mark>Then a welcome message is shown</mark>
-                -
-                -
-                -
-            </code></pre>
-            <aside class="notes" data-markdown>
-                **Selena:** A welcome message? kind of like this?
-                          How does the game start?
-
-                **Michael:** oh a button
-            </aside>
-        </section>
-        <section>
-            <div class="what-is-the-app-image-area">
-                <img src="images/app-3-start-button.png" style="" />
-            </div>
-
-            <pre class="code-100"><code data-trim data-noescape>
-                - When Casper visits SearchTerm
-                - Then a welcome message is rendered
-                - <mark>And a start game button is rendered</mark>
-                -
-                -
-            </code></pre>
-            <aside class="notes" data-markdown>
-                **Selena:** Right, so when Casper clicks the start button
-                          Then the game starts?
-
-                **Michael:** yup you are in the game
+                Now, we thought about writing this in Ember - like we do at Fresho! - but since we're at a React
+                meetup that didn't seem appropriate
             </aside>
         </section>
 
         <section>
-            <div class="what-is-the-app-image-area">
-                <img src="images/app-4-click-start-button.png" style="" />
-            </div>
-
-            <pre class="code-100"><code data-trim data-noescape>
-                - When Casper starts the game
-                -
-                -
-                -
-                -
-            </code></pre>
+            <img src="images/units/13-fe-component.jpg" width="600" height="600">
             <aside class="notes" data-markdown>
-                **Selena:** How do you know that the game has started?
+                So anyway, each frontend component will be tested in isolation
 
-                **Michael:** ding ding, round 1 baby
-            </aside>
-        </section>
-        <section>
-            <div class="what-is-the-app-image-area">
-                <img src="images/app-5-round-1.png" style="" />
-            </div>
+                Anyone have thoughts on isolated component tests in React?
 
-            <pre class="code-100"><code data-trim data-noescape>
-                - When Casper starts the game
-                - <mark>Then round 1 begins</mark>
-                -
-                -
-                -
-            </code></pre>
-            <aside class="notes" data-markdown>
-                **Selena:** Maybe we see some indication that it's round 1
-
-                **Michael:** Yeah and there are images!
-            </aside>
-        </section>
-        <section>
-            <div class="what-is-the-app-image-area">
-                <img src="images/app-6-images.png" style="" />
-            </div>
-
-            <pre class="code-100"><code data-trim data-noescape>
-                - When Casper starts the game
-                - Then round 1 begins
-                - <mark>And 9 images are displayed</mark>
-                -
-                -
-            </code></pre>
-            <aside class="notes" data-markdown>
-                **Selena:** Images. And you said something about making a guess
-                - How does that happen?
-
-                **Michael:** They need an input for the guess
-            </aside>
-        </section>
-        <section>
-            <div class="what-is-the-app-image-area">
-                <img src="images/app-7-text-area-.png" style="" />
-            </div>
-
-            <pre class="code-100"><code data-trim data-noescape>
-                - When Casper starts the game
-                - Then round 1 begins
-                - And 9 images are displayed
-                - <mark>And a text area is rendered</mark>
-                -
-            </code></pre>
-            <aside class="notes" data-markdown>
-                **Selena:** Maybe we should put the pressure on too and give users a time limit
-
-                **Michael:** Yeah, maybe 10 seconds
-            </aside>
-        </section>
-        <section>
-            <div class="what-is-the-app-image-area">
-                <img src="images/app-8-timer.png" style="" />
-            </div>
-
-            <pre class="code-100"><code data-trim data-noescape>
-                - When Casper starts the game
-                - Then round 1 begins
-                - And 9 images are displayed
-                - And a text area is rendered
-                - <mark>And a countdown timer is rendered</mark>
-            </code></pre>
-            <aside class="notes" data-markdown>
-                **Selena:** Cool! You're starting to get it
+                What about snapshot testing?
             </aside>
         </section>
 
         <section>
-            <div class="what-is-the-app-image-area">
-                <img src="images/app-9-status.png" style="" />
-            </div>
-
-            <pre class="code-100"><code data-trim data-noescape>
-                - When the game is In-progress
-                -
-                -
-                -
-                -
-            </code></pre>
+            <img src="images/units/SPA-mechanic.jpg" width="600" height="600">
             <aside class="notes" data-markdown>
-                **Selena:**
-                - So, now, when the game is in progress... Then what happens?
-                - Do you want to have a go?
-
-                **Michael:** Oh yeah, so when the game is in progress...
-            </aside>
-        </section>
-        <section>
-            <div class="what-is-the-app-image-area">
-                <img src="images/app-10-counting-down.png" style="" />
-            </div>
-
-            <pre class="code-100"><code data-trim data-noescape>
-                - When the game is In-progress
-                - <mark>Then the countdown timer starts counting down</mark>
-                -
-                -
-                -
-            </code></pre>
-            <aside class="notes" data-markdown>
-                **Michael:** Then timer starts counting down
+                - Now we move on to testing the users experience of the app.
+                - The example we will show you today is basically a flow through 3 pages.
+                - We want to test that each of those pages individually
+                - if you imagine a multi page form wizard, we want to be able to test any one of
+                those steps in isolation from each other
+                - we call this style of integration test a Mechanic test that exercises
+                the "Mechanics" of the page
             </aside>
         </section>
 
         <section>
-            <div class="what-is-the-app-image-area">
-                <img src="images/app-11-guess.png" style="" />
-            </div>
-
-            <pre class="code-100"><code data-trim data-noescape>
-                - When Casper guesses the search term used to find these images
-                -
-                -
-                -
-                -
-            </code></pre>
+            <img src="images/units/SPA-flow.jpg" width="600" height="600">
             <aside class="notes" data-markdown>
-                **Michael:** And when the user guesses the right answer
-            </aside>
-        </section>
-        <section>
-            <div class="what-is-the-app-image-area">
-                <img src="images/app-11-guess.png" style="" />
-            </div>
-
-            <pre class="code-100"><code data-trim data-noescape>
-                - When Casper guesses the search term used to find these images
-                - <mark>Then the countdown timer stops</mark>
-                -
-                -
-                -
-            </code></pre>
-            <aside class="notes" data-markdown>
-                **Michael:** The timer stops
-
-                **Selena:** Cool - this is starting to come together.
-                - Do we want to give the user a score?
-            </aside>
-        </section>
-        <section>
-            <div class="what-is-the-app-image-area">
-                <img src="images/app-13-score.png" style="" />
-            </div>
-
-            <pre class="code-100"><code data-trim data-noescape>
-                - When Casper types the correct guess into the text box
-                - Then the countdown timer stops
-                - <mark>And a score is rendered for the round</mark>
-                -
-                -
-            </code></pre>
-            <aside class="notes" data-markdown>
-                **Michael:** Ohh I know, the time remaining can be the score
-            </aside>
-        </section>
-        <section>
-            <div class="what-is-the-app-image-area">
-                <img src="images/app-14-winner.png" style="" />
-            </div>
-
-            <pre class="code-100"><code data-trim data-noescape>
-                - When Casper types the correct guess into the text box
-                - Then the countdown timer stops
-                - And a score is rendered for the round
-                - <mark>And a winner message is rendered</mark>
-                -
-            </code></pre>
-            <aside class="notes" data-markdown>
-                **Michael:**
-                - And in everyone round, everyone's a winner
-
-                **Selena:** cool, sounds like you've got a pretty solid idea
-
-                **Michael:** Yeah but how does this all hang together
+                - finally the highest level of tests are what we call "integration lifecycle flows" or simply "flows"
+                - We test the flow on effects of user interactions between frontend components and pages
+                - As you can see here, this style of test tests the whole application
+                - Back end, API and Front end!
+                - They encapsulate user behaviour and interactions with the whole system
             </aside>
         </section>
 
         <section>
-            <pre><code data-trim data-noescape style="max-height: 600px">
-                GIVEN SearchTerm is setup with spooky terms
+            <h1>Flows</h1>
 
-                WHEN Casper visits SearchTerm
-
-                THEN a welcome message is rendered
-                  AND a start game button is rendered
-
-                WHEN Casper starts the game
-
-                THEN round 1 begins
-                  AND 9 images are displayed
-                  AND a text area is rendered
-                  AND a countdown timer is rendered
-
-                WHEN the game is In-progress
-
-                THEN the countdown timer starts counting down
-
-                WHEN Casper types the correct guess into the text box
-
-                THEN the countdown timer stops
-                  AND a score is rendered for the round
-                  AND a winner message is rendered
-            </code></pre>
             <aside class="notes" data-markdown>
-                **Selena:**
-                  * Sure - quick recap on what we've just been through
-                  * You can see a pretty clear pattern here...
-                  * GIVEN the state of the world before you begin
-                  * WHEN an action is carried out
-                  * THEN observable changes are expected
+                * joke about being rails devs
+                * joke about rails backend instead of node
 
-                  * This is almost exactly how we are going to write our first test
-                  - But why do we care about testing?
+                - Every piece of code we write starts with a series of full integration tests
+                - let's start writing some code
+                - yep
+
             </aside>
         </section>
 
-        <!-- # TODO Michael analogy of why testing matters -->
-        <section>
-            <h3>Why testing matters</h3>
-            <ul>
-              <li class="fragment"><img src="images/rachet_and_prawl.jpg" /></li>
-              <li class="fragment">incremental iterative development</li>
-            </ul>
-            <aside class="notes" data-markdown>
-                **Michael:**
-                  1. scary writing code, nothing to catch you
-                  2. bring in the ratchet
-                  3. bit by bit you can move forward
-                  4. takeaway Incremental iterative development
-
-                **Selena:**
-                - Great explaination!
-                - I'm not quite sure everyone's following...
-                - Let's run through an example
-            </aside>
-        </section>
-
-        <!-- # TODO 3 basic iterations building out the code -->
+        <!-- # Submit a guess (Failing Flow) -->
         <section>
             <h3>Render images <span class="failing-span">Failing test</span></h3>
             <pre><code data-trim data-noescape>
                 feature 'Game play lifecycle', js: true do
                   scenario 'WINNING a game' do
-                    Given <mark> 'Game is setup with spooky terms'</mark> do
-                      ["ghost", "haunted house"].each do |phrase|
+                    Given <mark> 'Game is setup with names of cute animals'</mark> do
+                      ["paddy melon", "beaver"].each do |phrase|
                         Term.<mark>create(phrase: phrase)</mark>
                       end
                     end
@@ -522,8 +247,10 @@
                 end
             </code></pre>
             <aside class="notes" data-markdown>
-                **Michael:** we have setup a feature scenario and GIVEN, flows are usually from a user perspective so the GIVEN
-                would actually be a CONTEXT for the system let's do that
+                - we have setup a flow using ruby RSpec, capybara and selenium testing frameworks
+                - The feature we are building is a Game play lifecycle flow
+                - our first scenario is Winning the game
+                - and we setup some initial state for our Game with names of cute animals
             </aside>
         </section>
 
@@ -544,7 +271,8 @@
                 end
             </code></pre>
             <aside class="notes" data-markdown>
-                **Michael:** like so, this prepares us for the scenario of a user winning the game, a happy path
+                - the game setup can be re-written as a "context" of this particular test
+                - joke about context
             </aside>
         </section>
 
@@ -567,12 +295,12 @@
                 end
             </code></pre>
             <aside class="notes" data-markdown>
-                **Michael:** 2 simple steps visit and confirm you are there
-
-                **Selena:** This is the first piece of code in the whole app!
-                         No controllers, models, views
-                         No migrations or db entries
-                         The first piece of code is always a test.
+                - 2 simple steps
+                - visit the app
+                - confirm you are there
+                - This is the first piece of code in the whole app!
+                - No controllers, models, views. No migrations or db entries
+                - The first piece of code is always a test.
             </aside>
         </section>
 
@@ -582,7 +310,6 @@
                 <img src="images/iteration-1.1-home-empty.png" />
             </div>
             <aside class="notes" data-markdown>
-                **Selena:**
                 - And when we run that test, what's going to happen?
                 - Well, it's going to fail! Of course
             </aside>
@@ -603,7 +330,7 @@
                 )
             </code></pre>
             <aside class="notes" data-markdown>
-                **Michael:** a simple react component to spit a H1 on the page
+                - a simple react component to spit a H1 on the page
             </aside>
         </section>
 
@@ -625,66 +352,12 @@
                 end
             </code></pre>
             <aside class="notes" data-markdown>
-                **Michael:** now we want to focus_on welcome start_game
-
-                **Selena:** What is focus_on?
-                  - We've hidden away code that asserts against html
-                  in order to make these high level flows easier to read.
-                  - What we've done, is move this code into a module called page fragments
+                - back to the test
+                - now we want to focus_on welcome start_game
+                - which uses a page fragment to click on the "start game" button
+                - the button? what button
             </aside>
         </section>
-
-        <section>
-            <h3>Page Fragment</h3>
-            <pre><code data-trim data-noescape>
-                module PageFragments
-                  module Welcome
-                    def text
-                      welcome.find('h1').text
-                    end
-
-                    def start_game
-                      welcome.click_on('Start Game')
-                    end
-
-                    def welcome
-                      browser.find('.welcome')
-                    end
-                  end
-                end
-            </code></pre>
-            <aside class="notes" data-markdown>
-                **Selena:** As you can see this particular fragment finds the text inside a div with class `WELCOME`
-                  One benefit of separating out fragments like this, is that
-                  they're reusable throughout the tests.
-                  - if a class name changes in the html, you don't have to trawl through
-                    your tests to change every assertion. You can just change it here
-                  - Ans as I mentioned, your tests also become much more readable
-            </aside>
-        </section>
-
-        <section>
-            <h3>Render images <span class="failing-span">Failing test</span></h3>
-            <pre><code data-trim data-noescape>
-                When 'user starts the game' do
-                  visit('/')
-                  wait_for {
-                    focus_on(:welcome).text
-                    }.to eq('Welcome to the Game')
-
-                  <mark>focus_on(:welcome).start_game</mark>
-                end
-
-                Then 'the game commences' do
-                  pending 'start game button doesnt start a game!'
-                  wait_for { focus_on(:game).round }.to eq('1')
-                end
-            </code></pre>
-            <aside class="notes" data-markdown>
-                **Michael:** we need to click on the start_game button ...
-            </aside>
-        </section>
-
 
         <section>
             <h3>Render images <span class="failing-span">Failing test</span></h3>
@@ -692,7 +365,10 @@
                 <img src="images/iteration-1.2-welcome.png" />
             </div>
             <aside class="notes" data-markdown>
-                **Michael:** ... but there is no button
+                - there is no button!
+                - no shit
+                - oh yeah
+                - fail first
             </aside>
         </section>
 
@@ -713,7 +389,15 @@
                 )
             </code></pre>
             <aside class="notes" data-markdown>
-                **Michael:** so lets create one using react router, we Link to the first round
+                - lets create one
+                - using react router, we Link to the first round
+                - is this good react
+                - look a room full of no reaction
+                - maybe they are ember devs after all
+                - cmon people React
+                - where are the tests?
+                - for react?
+                - fuck em just snap shot test
             </aside>
         </section>
 
@@ -730,17 +414,12 @@
                 end
 
                 Then 'the game commences' do
-                  <mark>wait_for { focus_on(:game).round }.to eq('1')</mark>
+                  <mark>wait_for { focus_on(:game).title }.to eq('1')</mark>
                 end
             </code></pre>
             <aside class="notes" data-markdown>
-                **Michael:** How do we know we are on the first round? a round title including 1
-
-                **Selena:**
-                - Right now we're happily skipping along down one happy path,
-                - But is it possible that there are alternate happy paths?
-                - And what about failure cases? for example - what happens if there is no route, or the next page doesn't load.
-                - Maybe we need to consider those at a lower level test?
+                - How do we know the game has commenced?
+                - we are on round 1, it says it in the title
             </aside>
         </section>
 
@@ -750,9 +429,8 @@
                 <img src="images/iteration-1.4-round-empty.png" />
             </div>
             <aside class="notes" data-markdown>
-                **Michael:**
-                - Those are great questions but let's keep that in the back of our minds for a moment
-                - Right now, with the tests as they are - we're getting nothing
+                - and we get nothing
+                - zip
             </aside>
         </section>
 
@@ -774,7 +452,10 @@
                 )
             </code></pre>
             <aside class="notes" data-markdown>
-                **Michael:** a Rounds component in React which gets the round parameter from the path and displays it
+                - here is a Rounds component in React
+                - it gets the React Router round parameter from the path and displays it
+                - should we be doing something different with state? audience?
+                - come grab us later to tell us, PR's on the github will also be accepted.
             </aside>
         </section>
 
@@ -796,7 +477,8 @@
                 end
             </code></pre>
             <aside class="notes" data-markdown>
-                **Michael:** again we back ourselves up with a failing test, for 9 images ...
+                - back in flow test land
+                - we are now waiting on 9 images
             </aside>
         </section>
 
@@ -806,7 +488,9 @@
                 <img src="images/iteration-1.6-no-images.png" />
             </div>
             <aside class="notes" data-markdown>
-                **Michael:** ... that are not there
+                - images? what of those cute furry animals?
+                - there are none
+                - good! [pause] a failing test
             </aside>
         </section>
 
@@ -826,33 +510,10 @@
                 </div>
             </code></pre>
             <aside class="notes" data-markdown>
-                **Michael:**
-                - more code that is not covered here like when the API call is made -> we need an API endpoint ->
-                  controller -> model -> returning JSON
-                - these network latencies also lead to asynchronous rendering
-
-                **Selena:**
-                  - there is a few things going on, rendering, waiting for images, changes in the DOM
-                  - these can lead to flakey behaviour, things that fail every now and again
-                  - this is NOT good for testing, we want to avoid elements moving around
-            </aside>
-        </section>
-
-        <section>
-          <h3>Flake due to image loading</h3>
-          <img src="images/flakey_fresho_header.gif" />
-
-            <aside class="notes" data-markdown>
-                **Selena:**
-                - Here's an example from Fresho
-                - it's a microsecond transition, slowed right down
-                - you can see in the animation that the test wants to click on orders tab
-                - When orders is clicked, the mouse down event occurs
-                - but by time logo is loaded, the whole right hand div has moved across
-                - and the mouse up event now takes place on the market tab
-                - this is treated like a click and drag event, not a click event - which behaves slightly different.
-                - In CI, 9 times out of 10 the logo loads fast enough for the test suite to find what it's looking for
-                - but occasionally, it fails. - A flakey failure
+                - there is more code here
+                - like API endpoints, controllers
+                - models, serializers
+                - but you guys don't care, you are react developers so here is a snippet of some JSX instead
             </aside>
         </section>
 
@@ -886,42 +547,9 @@
                 end
             </code></pre>
             <aside class="notes" data-markdown>
-                **Michael:** wrapping up iteration 1 we have a WHEN action on the system and THEN a measurable state
-                  being shown of the game commencing
-
-                **Selena:** On the next iteration, we have a lot of the context already set up.
-                    Adding the next feature (Submit a guess) is now fairly straight forward
-            </aside>
-        </section>
-
-        <section>
-            <h3>Submit a guess <span class="failing-span">Failing test</span></h3>
-            <div style="display: flex">
-            <pre><code data-trim data-noescape style="max-height: 500px">
-                feature 'Game play lifecycle', js: true do
-                  context 'Game is setup with spooky terms' do
-                    scenario 'WINNING a game' do
-                      When 'user starts the game' do
-                        visit('/')
-                        wait_for {
-                          focus_on(:welcome).text
-                        }.to eq('Welcome to the Game')
-
-                        focus_on(:welcome).start_game
-                      end
-
-                      Then 'the game commences' do
-                        wait_for { focus_on(:game).round }.to eq('1')
-                        <mark>wait_for { focus_on(:game).status }.to eq('IN-PROGRESS')</mark>
-                        wait_for { focus_on(:game).images.count }.to eq(9)
-                      end
-                    end
-                  end
-                end
-            </code></pre>
-            </div>
-            <aside class="notes" data-markdown>
-                **Michael:** to simplify the slide let's drop the feature, scenario and context for clarity
+                - wrapping up iteration 1 we have just written
+                - we have a WHEN action on the system
+                - and THEN a measurable state showing the commencement of the game
             </aside>
         </section>
 
@@ -946,393 +574,43 @@
             </code></pre>
             </div>
             <aside class="notes" data-markdown>
-                **Michael:** from last iteration we noticed some loading time required which suggests we need a state
-                  of the game LOADING and IN-PROGRESS to stat with
-
-                **Selena:** Mechanics
-                  - This is where mechanics come in
-
-                  - The style of test we've been writing here is an integration test
-                  - At Fresho we organise these type of tests into two categories - flows and mechanics
-                  - Flows, like we're writing here test the users experience of flow on effect from user and system interactions
-                  - For behaviours that are specific to a page or component we would use what we call a mechanic test
-                  - take the status it can be one of - loading, round in progress, round complete or error
-                  - it is not practical to navigate through to a round just to test a different status
-                  - specific tests around the round page would allow us to test the status component
-                  - let's look at an example
+                - dealing with us backend devs is a pain
+                - there is all this latency, network to and fro
+                - great time for spinners
+                - or in our case a state of LOADING and game IN-PROGRESS
+                - This is where page mechanics come in
+                - not wanting to start the game each time, we just want to explore the mechanics
+                of the status component on this page
             </aside>
         </section>
 
         <section>
-            <h3>Mechanic of status</h3>
-            <pre><code data-trim data-noescape style="max-height: 600px">
-                feature 'Status on round', type: feature, js: true do
-                  scenario 'Casper starts a round and data is not yet loaded' do
-                    When 'user on a round' do
-                      visit('/round/1')
-                    end
-
-                    Then 'status is loading' do
-                      wait_for { focus_on(:game).status }.to eq('LOADING ...')
-                    end
-                  end
-
-                  scenario 'Casper starts a round and data is loaded' do
-                    When 'user on a round and the round loads' do
-                      visit('/round/1')
-                      FeatureSupport::ApiSupport.return_success
-                    end
-
-                    Then 'status is loading' do
-                      wait_for { focus_on(:game).status }.to eq('IN-PROGRESS')
-                    end
-                  end
-
-                  scenario 'Casper wins a round' do
-                    When 'user on a round' do
-                      visit('/round/1')
-                      FeatureSupport::ApiSupport.return_success
-                    end
-
-                    And 'user guesses correctly' do
-                      focus_on(:game).fill_guess('ghost')
-                    end
-
-                    Then 'status is winner' do
-                      wait_for { focus_on(:game).status }.to eq('WINNER')
-                    end
-                  end
-
-                  scenario 'Casper starts a round which times out' do
-
-                  scenario 'Casper starts a round and api throws an error' do
-                end
-            </code></pre>
-            <aside class="notes" data-markdown>
-                **Selena:**
-                - scenarios in a mechanic tend to be a lot smaller. They're ultra specific
-                - like you can see here, we would test something as small as a state change
-                - But we would test that every state changes the way we expect it to and at the time we expect
-                - We can also setup scenarios like a network timeout or the data base not being available
-                - writing these test first also makes sure that from the outset each page/component
-                is individually testable and you don't have to navigate through a whole sequence of events
-                to come to a particular edge case that you want to test
-            </aside>
+            <h3>failing mechanic TODO</h3>
+            <h3>lIVE CODING</h3>
+            <aside class="notes" data-markdown></aside>
         </section>
-
         <section>
-            <h3>Submit a guess <span class="failing-span">Failing test</span></h3>
-            <div style="display: flex">
-            <pre><code data-trim data-noescape style="max-height: 500px">
-                When 'user starts the game' do
-                  visit('/')
-                  wait_for {
-                    focus_on(:welcome).text
-                  }.to eq('Welcome to the Game')
-
-                  focus_on(:welcome).start_game
-                end
-
-                Then 'the game commences' do
-                  wait_for { focus_on(:game).round }.to eq('1')
-                  <mark>wait_for { focus_on(:game).status }.to eq('IN-PROGRESS')</mark>
-                  wait_for { focus_on(:game).images.count }.to eq(9)
-                end
-            </code></pre>
-            </div>
-            <aside class="notes" data-markdown>
-                **Michael:** back to the flow - we need a status
-            </aside>
+            <h3>component test TODO</h3>
+            <aside class="notes" data-markdown></aside>
         </section>
-
         <section>
-            <h3>Submit a guess <span class="failing-span">Failing test</span></h3>
-            <div class="iterative-testing">
-                <img src="images/iteration-2.1-no-status.png" />
-            </div>
-            <aside class="notes" data-markdown>
-                **Michael:** which is not on our page
-            </aside>
+            <h3>frontend impmentation TODO</h3>
+            <aside class="notes" data-markdown></aside>
         </section>
-
         <section>
-            <h3>Submit a guess <span class="passing-span">Make it pass</span></h3>
-            <div class="iterative-testing">
-                <img src="images/iteration-2.2-status-changes-loading-to-inprogress.gif" width="400" />
-            </div>
-            <pre><code data-trim>
-                ...
-                  API.fetchRoundData(round).then((data) => {
-                    this.setState({status: 'IN-PROGRESS'})
-                ...
-                &lt;div className="images-container">
-                  { this.state.status === 'LOADING ...' ?
-                      <div className="background" /> :
-                      this.state.images.map( ({id, src}) => (
-                        <img key={id} src={src} alt="nice try"/>
-                      ))
-                  }
-                </div>
-            </code></pre>
-            <aside class="notes" data-markdown>
-                **Michael:** we know that once the fetchRoundData is fetched successfully we can set and display the
-                  in progress state
-            </aside>
+            <h3>back to the compelte flow TODO</h3>
+            <aside class="notes" data-markdown></aside>
         </section>
 
-        <section>
-            <h3>Submit a guess <span class="failing-span">Failing test</span></h3>
-            <pre><code data-trim data-noescape style="max-height: 600px">
-                When 'user starts the game' do ... end
-
-                Then 'the game commences' do ... end
-
-                When 'the user submits an answer' do
-                  <mark>focus_on(:game).fill_guess('ghost')</mark>
-                end
-
-                Then 'the user wins' do
-                  pending 'no text area to input a guess'
-                  wait_for { focus_on(:game).status }.to eq('WINNER')
-                end
-            </code></pre>
-            <aside class="notes" data-markdown>
-                **Michael:** time to start guessing
-
-                **Selena:** - pending.
-                  - you might notice in this and some of the other tests there's line here - pending
-                  - By marking a test as pending, all of the assertions made after the pending line will still be run
-                    but one of them HAS to fail
-                  - Two reason we might want to do this are
-                      1. We haven't implemented the code to assert against - which is the case here
-                      2. If you are working on master - like we do at Fresho - this enables us to
-                         push code while features are still in progress
-            </aside>
-        </section>
-
-        <section>
-            <h3>Submit a guess <span class="failing-span">Failing test</span></h3>
-            <div class="iterative-testing">
-                <img src="images/iteration-2.3-no-input-field.png" />
-            </div>
-            <aside class="notes" data-markdown>
-                **Michael:** we have no input
-            </aside>
-        </section>
-
-        <section>
-            <h3>Submit a guess <span class="passing-span">Make it pass</span></h3>
-            <div class="iterative-testing">
-                <img src="images/iteration-2.4-input-correct-guess.gif" width="400" />
-            </div>
-            <pre><code data-trim>
-                handleGuess(event) {
-                  const REGEX = new RegExp(this.state.term)
-                  if(REGEX.exec(event.target.value)) {
-                    this.setState({status: 'WINNER'})
-                  ...
-                &lt;textarea
-                  onChange={this.handleGuess }
-                  value={this.state.guess}
-                  disabled={this.state.status === 'WINNER'}&gt;&lt;/textarea>
-            </code></pre>
-            <aside class="notes" data-markdown>
-                **Michael:** match the word and 2 way bind it to the text area
-            </aside>
-        </section>
-
-        <section>
-            <h3>Submit a guess <span class="iteration-span">Iteration 2</span></h3>
-            <pre class="code-100"><code data-trim data-noescape style="max-height: 600px;">
-                feature 'Game play lifecycle', js: true do
-                  context 'Game is setup with spooky terms' do
-                    before do
-                      ["ghost", "haunted house"].each do |phrase|
-                        Term.create(phrase: phrase)
-                      end
-                    end
-
-                    scenario 'WINNING a game' do
-                      When 'user starts the game' do
-                        visit('/')
-                        wait_for {
-                          focus_on(:welcome).text
-                        }.to eq('Welcome to the Game')
-
-                        focus_on(:welcome).start_game
-                      end
-
-                      Then 'the game commences' do
-                        wait_for { focus_on(:game).round }.to eq('1')
-                        wait_for {
-                          focus_on(:game).status
-                        }.to eq('IN-PROGRESS')
-                        wait_for { focus_on(:game).images.count }.to eq(9)
-                      end
-
-                      When 'the user submits an answer' do
-                        focus_on(:game).fill_guess('ghost')
-                      end
-
-                      Then 'the user wins' do
-                        wait_for { focus_on(:game).status }.to eq('WINNER')
-                      end
-                    end
-                  end
-                end
-            </code></pre>
-            <aside class="notes" data-markdown>
-                **Michael:** added another set of WHEN THEN
-            </aside>
-        </section>
-
-        <section>
-            <h3>Multi-round game <span class="failing-span">Failing test</span></h3>
-            <pre><code data-trim data-noescape>
-                When 'the user starts the next round' do
-                  <mark>focus_on(:game).next_round</mark>
-                end
-
-                Then 'round two starts' do
-                  pending 'No next round button'
-                  wait_for { focus_on(:game).round }.to eq('2')
-                end
-            </code></pre>
-            <div class="iterative-testing">
-                <img src="images/iteration-3.1-no-next-button.png" />
-            </div>
-            <aside class="notes" data-markdown>
-                **Michael:** great start but we need more then 1 round
-            </aside>
-        </section>
-
-        <section>
-            <h3>Multi-round game <span class="passing-span">Make it pass</span></h3>
-            <div class="iterative-testing">
-                <img src="images/iteration-3.2-next-button-rendered.png" />
-            </div>
-            <pre><code data-trim data-noescape>
-                &lt;Link to={`/round/${this.state.round + 1}`}>Next&lt;/Link>
-            </code></pre>
-            <aside class="notes" data-markdown>
-                **Michael:** which can be implemented with a react router Link to the round + 1 with a label of NEXT
-            </aside>
-        </section>
-
-        <section>
-            <h3>Multi-round game <span class="failing-span">Failing test</span></h3>
-            <pre><code data-trim data-noescape>
-                When 'the user starts the next round' do
-                  focus_on(:game).next_round
-                end
-
-                Then 'round two starts' do
-                    <mark>wait_for { focus_on(:game).round }.to eq('2')</mark>
-                end
-            </code></pre>
-            <div class="iterative-testing">
-                <img src="images/iteration-3.2-next-button-rendered.png" />
-            </div>
-            <aside class="notes" data-markdown>
-                **Michael:** we write a test to match the text to tell us it is round 2
-            </aside>
-        </section>
-
-        <section>
-            <h3>Multi-round game <span class="passing-span">Make it pass</span></h3>
-            <div class="iterative-testing">
-                <img src="images/iteration-3.3-multi-round-game.gif" width="400" />
-            </div>
-            <aside class="notes" data-markdown>
-                **Michael:** we get a freebie as the way we implemented it the round passed in from the path
-                  is already rendered in the title
-
-                **Selena:** So if it passes, shouldn't you make it fail to see that it fails the way you expect?
-
-                **Michael:** Good catch Selena, absolutely, if you do not see it fail, you may not be testing what you
-                  mean to be testing. Even when you test and fail often developers do not read the error messages
-                  and get lost in trying to make a test pass when the message is right there in front of them
-                  Remember - read the output of the test, and all ways see the way it fails!
-            </aside>
-        </section>
-
-        <section>
-            <h3>Multi-round game <span class="iteration-span">Iteration 3</span></h3>
-            <pre class="code-100"><code data-trim data-noescape style="max-height: 600px;">
-                feature 'Game play lifecycle', js: true do
-                  context 'Game is setup with spooky terms' do
-                    before do
-                      ["ghost", "haunted house"].each do |phrase|
-                        Term.create(phrase: phrase)
-                      end
-                    end
-
-                    scenario 'WINNING a game' do
-                      When 'user starts the game' do
-                        visit('/')
-                        wait_for {
-                          focus_on(:welcome).text
-                        }.to eq('Welcome to the Game')
-
-                        focus_on(:welcome).start_game
-                      end
-
-                      Then 'the game commences' do
-                        wait_for { focus_on(:game).round }.to eq('1')
-                        wait_for { focus_on(:game).status }.to eq('IN-PROGRESS')
-                        wait_for { focus_on(:game).timer }.to eq('10')
-                        wait_for { focus_on(:game).images.count }.to eq(9)
-                      end
-
-                      When 'the user submits an answer' do
-                        focus_on(:game).fill_guess('ghost')
-                      end
-
-                      Then 'the user wins the round' do
-                        wait_for { focus_on(:game).status }.to eq('WINNER')
-                        wait_for { focus_on(:game).score }.to eq('10')
-                      end
-
-                      When 'the user starts the next round' do
-                        focus_on(:game).next_round
-                      end
-
-                      Then 'round two starts' do
-                        wait_for { focus_on(:game).round }.to eq('2')
-                      end
-                    end
-                  end
-                end
-            </code></pre>
-            <aside class="notes" data-markdown>
-                **Selena:** Simple as that. Rinse and repeat.
-                    There you go. 3 very basic iterations of tdd-ing a flow.
-                    By stepping out the sequence of events that take place in this style of test, it's very easy to make
-                    additions and adjustments to the way the app works.
-                    We've only shown you a snippet of one flow that will take place in this app, which happens to go down a
-                    happy path. There will in fact be a number of flows that emerge before this game is complete
-
-                **Michael:** SHOW ME THE CODE!!!!
-            </aside>
-        </section>
-        <!-- 3 basic iterations building out the code -->
-
-        <section>
-            <h3>Show me the code!</h3>
-            <aside class="notes" data-markdown>
-                **Selena shows the real test**
-            </aside>
-        </section>
-
+        <!-- # Play the game! -->
         <section>
             <h3>Let's play!</h3>
             <div>Just cause we built it, lets play a game!</div>
 
             <aside class="notes" data-markdown>
-                **Selena:** Aaaaand, just cause we built - let's play the game.
-                         Who wants to play?!
-
-                **Michael get ready to play the live game with the audience now**
+                - Aaaaand, just cause we built
+                - let's play the game.
+                - Who wants to play?!
             </aside>
         </section>
 
@@ -1340,169 +618,10 @@
           <iframe src="https://search-term.herokuapp.com" width="600" height="600"></iframe>
         </section>
 
-        <section>
-            <h3>Recap on flow tests</h3>
-            <aside class="notes" data-markdown>
-                *Selena:
-                - Alright, that's enough fun for tonight.
-                - Let's recap the tests
-            </aside>
-        </section>
-
-        <section>
-            <img src="images/units/1-models-and-db.jpg" width="600" height="600">
-            <aside class="notes" data-markdown>
-                **Selena:**
-                - Most apps have a db of some sort
-            </aside>
-        </section>
-
-        <section>
-            <img src="images/units/2-test-models-and-db.jpg" width="600" height="600">
-            <aside class="notes" data-markdown>
-                **Selena:**
-                - which get traditionally tested as DB integration
-            </aside>
-        </section>
-
-        <section>
-            <img src="images/units/3-test-models.jpg" width="600" height="600">
-            <aside class="notes" data-markdown>
-                **Selena:**
-                - we at Fresho also like to unit test the models
-            </aside>
-        </section>
-
-        <section>
-            <img src="images/units/4-service-objects.jpg" width="600" height="600">
-            <aside class="notes" data-markdown>
-                **Selena:**
-                - models may interact with service objects
-            </aside>
-        </section>
-
-        <section>
-            <img src="images/units/5-external-service.jpg" width="600" height="600">
-            <aside class="notes" data-markdown>
-                **Selena:**
-                - service objects may talk to external services, this is another test boundary
-                - we would have exteranl integration tests
-            </aside>
-        </section>
-
-        <section>
-            <img src="images/units/6-controllers.jpg" width="600" height="600">
-            <aside class="notes" data-markdown>
-                **Selena:**
-                - conrtrollers also interact with the model
-            </aside>
-        </section>
-
-        <section>
-            <img src="images/units/7-api-endpoint.jpg" width="600" height="600">
-            <aside class="notes" data-markdown>
-                **Selena:**
-                - and in this case present an API layer
-            </aside>
-        </section>
-
-        <section>
-            <img src="images/units/8-controller-test.jpg" width="600" height="600">
-            <aside class="notes" data-markdown>
-                **Selena:**
-                - controllers are traditionally tested as integration tests including model and db
-            </aside>
-        </section>
-
-        <section>
-            <img src="images/units/9-wrong-controller-test.jpg" width="600" height="600">
-            <aside class="notes" data-markdown>
-                **Selena:**
-                - we don't do controller integration tests at fresho to simplify tests which requires testing all of ActiveRecord
-            </aside>
-        </section>
-
-        <section>
-            <img src="images/units/10-isolated-controller.jpg" width="600" height="600">
-            <aside class="notes" data-markdown>
-                **Selena:**
-                - instead we do isolated controller specs focusing in on only the controller behaviour
-            </aside>
-        </section>
-
-        <section>
-            <img src="images/units/11-api-acceptance.jpg" width="600" height="600">
-            <aside class="notes" data-markdown>
-                **Selena:**
-                - we treat the API as a unit and do a full integration test at that level, are you following along?
-            </aside>
-        </section>
-
-        <section>
-            <img src="images/units/12-spa.jpg" width="600" height="600">
-            <aside class="notes" data-markdown>
-                **Selena:**
-                - In this app, like many people do now, our frontend is a single page application (or SPA)
-                - whcih is made up of a number of components
-            </aside>
-        </section>
-
-        <section>
-            <img src="images/units/13-fe-component.jpg" width="600" height="600">
-            <aside class="notes" data-markdown>
-                **Selena:**
-                - each frontend component will get unit tested
-            </aside>
-        </section>
-
-        <section>
-            <img src="images/units/SPA-mechanic.jpg" width="600" height="600">
-            <aside class="notes" data-markdown>
-                **Selena:**
-                - Now we move on to testing the users experience of the app.
-                - The example we showed you today is basically a flow through 3 pages.
-                - We want to test that each of those pages works as expected in a Mechanic test
-            </aside>
-        </section>
-
-        <section>
-            <img src="images/units/SPA-flow.jpg" width="600" height="600">
-            <aside class="notes" data-markdown>
-                **Selena:**
-                - Lastly, that brings us to flows
-                - We test the flow on effects of user interactions between frontend components and pages
-                - Covering the whole app (with the exception of external integrations)
-            </aside>
-        </section>
-
-        <section>
-            <h3>Review</h3>
-            <ul>
-                <li class="fragment">Test first</li>
-                <li class="fragment">Flow</li>
-                <li class="fragment">Mechanic</li>
-                <li class="fragment">Page Fragments</li>
-                <li class="fragment">Flakes</li>
-                <li class="fragment">Pending</li>
-                <li class="fragment">Iterate</li>
-            </ul>
-
-            <aside class="notes" data-markdown>
-                **Michael:**
-                - remember test first
-                - start with a flow of your system
-                - test each page with a mechanic
-                - hide away the particulars of the page in Page Fragements
-                - don't let Flakes put you off, buttons jumping around can be a distraction for users
-                - mark tests as pending to always be committing and pushing to master
-                - iterate
-            </aside>
-        </section>
-
+        <!-- # Thanks -->
         <section>
             <h3>Resources</h3>
-                <p><a href="https://search-term.herokuapp.com/">https://search-term.herokuapp.com/</a></p>
-                <p><a href="https://saramic.github.io/layered-testing-workshop/">https://saramic.github.io/layered-testing-workshop/</a></p>
+                <p><a href="https://failure-driven.com/">https://failure-driven.com/</a></p>
                 <p><a href="https://fresho.com/" class="fresho-logo"><img src="images/fresho_logo_green.svg"/><span>https://fresho.com/</span></a></p>
             <div>
                 <a href="http://twitter.com/intent/user?screen_name=selenasmall88">
@@ -1518,11 +637,13 @@
             </div>
 
             <aside class="notes" data-markdown>
-                **Selena:** If you think you can beat our high score, you can check out the app - it's hosted on heroku
-                  find the link on the meetup-s or our latest tweets
-                
-                **Michael:** And you can go back and look at the code we showed here on Github
-                          Thanks everyone!
+                - go checkout our blog Failure Drivem
+                - you will find links to the game, the code and this presentation
+                - we work for Fresho!
+                - catch us on twitter
+                - any react tips, tweet them at us
+                - come over and give us 5 minutes, we will take an hour
+                - Thanks everyone!
             </aside>
         </section>
     </div>
