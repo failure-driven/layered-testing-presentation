@@ -160,24 +160,25 @@
                 - we have a number of tests around individual models, controllers, service objects
                 as well as integration tests around groups of these that work together
                 - at the outer layer of the backend, the complete API is treated as a unit, and is tested as such
-                We'll leave it at that 'cause we don't want to bore you
+                - But we'll leave it at that 'cause we don't want to bore you with backend crap
             </aside>
         </section>
 
         <section>
             <img src="images/units/12-spa.jpg" width="600" height="600">
             <aside class="notes" data-markdown>
-                - **SS** In this app, our frontend is a SPA- - you all know what that is. A single page application
+                - **MM** In this app, our frontend is a SPA - you all know what that is. A single page application
                 - Which as you know is made up of a number of components
                 - Now, we thought about writing this in Ember - like we do at Fresho! - but since we're at a React
                 meetup that didn't seem appropriate
+                - **SS** FYI we are React noobs - feel free to reach out and give us feedback
             </aside>
         </section>
 
         <section>
             <img src="images/units/13-fe-component.jpg" width="600" height="600">
             <aside class="notes" data-markdown>
-                - **MM** So anyway, each frontend component will be tested in isolation
+                - **SS** So anyway, each frontend component will be tested in isolation
                 - Anyone have thoughts on isolated component tests in React?
                 - What about snapshot testing?
             </aside>
@@ -186,24 +187,24 @@
         <section>
             <img src="images/units/SPA-mechanic.jpg" width="600" height="600">
             <aside class="notes" data-markdown>
-                - Now we move on to testing the users experience of the app.
-                - The example we will show you today is basically a flow through 3 pages.
-                - We want to test that each of those pages individually
-                - if you imagine a multi page form wizard, we want to be able to test any one of
+                - **MM** Now we move on to testing the users experience of the app.
+                - The example we're going to show you today is basically a flow through 3 pages.
+                - We want to test each of those pages individually
+                - If you imagine a multi step form wizard, we want to be able to test any one of
                 those steps in isolation from each other
                 - we call this style of integration test a Mechanic test that exercises
-                the "Mechanics" of the page
+                the "Mechanics" of the step
             </aside>
         </section>
 
         <section>
             <img src="images/units/SPA-flow.jpg" width="600" height="600">
             <aside class="notes" data-markdown>
-                - finally the highest level of tests are what we call "integration lifecycle flows" or simply "flows"
-                - We test the flow on effects of user interactions between frontend components and pages
+                - **SS** Lastly, the outer-most layer of tests that we like to implement are what we call "flows"
+                - flows are just integration tests
+                - They test the flow-on effects as the user interacts between different pages
                 - As you can see here, this style of test tests the whole application
-                - Back end, API and Front end!
-                - They encapsulate user behaviour and interactions with the whole system
+                - Flows encapsulate user behaviour across the whole system: Back end, API and Front end!
             </aside>
         </section>
 
@@ -211,13 +212,8 @@
             <h1>Flows</h1>
 
             <aside class="notes" data-markdown>
-                * joke about being rails devs
-                * joke about rails backend instead of node
-
-                - Every piece of code we write starts with a series of full integration tests
+                - **MM** Every piece of code we write starts with a series of flows
                 - let's start writing some code
-                - yep
-
             </aside>
         </section>
 
@@ -226,30 +222,9 @@
             <h3>Render images <span class="failing-span">Failing test</span></h3>
             <pre><code data-trim data-noescape>
                 feature 'Game play lifecycle', js: true do
-                  scenario 'WINNING a game' do
-                    Given <mark> 'Game is setup with names of cute animals'</mark> do
-                      ["paddy melon", "beaver"].each do |phrase|
-                        Term.<mark>create(phrase: phrase)</mark>
-                      end
-                    end
-                  end
-                end
-            </code></pre>
-            <aside class="notes" data-markdown>
-                - we have setup a flow using ruby RSpec, capybara and selenium testing frameworks
-                - The feature we are building is a Game play lifecycle flow
-                - our first scenario is Winning the game
-                - and we setup some initial state for our Game with names of cute animals
-            </aside>
-        </section>
-
-        <section>
-            <h3>Render images <span class="failing-span">Failing test</span></h3>
-            <pre><code data-trim data-noescape>
-                feature 'Game play lifecycle', js: true do
-                  <mark>context</mark> 'Game is setup with spooky terms' do
+                  context <mark> 'Game is setup with names of cute animals'</mark> do
                     before do
-                      ["ghost", "haunted house"].each do |phrase|
+                      ["paddy melon", "beaver"].each do |phrase|
                         Term.<mark>create(phrase: phrase)</mark>
                       end
 
@@ -260,8 +235,11 @@
                 end
             </code></pre>
             <aside class="notes" data-markdown>
-                - the game setup can be re-written as a "context" of this particular test
-                - joke about context
+                - **MM** We're wanting to build a basic game to guess the search term used to find images from the internet
+                - To get started we've setup a flow using ruby's RSpec, capybara and selenium testing frameworks
+                - **➡** The first feature is a Game play lifecycle flow
+                - **➡** The context is: that we setup some initial state for our Game with names of cute animals
+                - **➡** And our first scenario is Winning the game
             </aside>
         </section>
 
@@ -284,11 +262,10 @@
                 end
             </code></pre>
             <aside class="notes" data-markdown>
-                - 2 simple steps
-                - visit the app
-                - confirm you are there
+                - **SS** In the scenario 'winning the game', the user has to start the game
+                - so, we visit the app and confirm we are there through the welcome message
                 - This is the first piece of code in the whole app!
-                - No controllers, models, views. No migrations or db entries
+                - We have no controllers, models, views. No migrations. Nothing.
                 - The first piece of code is always a test.
             </aside>
         </section>
@@ -299,8 +276,9 @@
                 <img src="images/iteration-1.1-home-empty.png" />
             </div>
             <aside class="notes" data-markdown>
-                - And when we run that test, what's going to happen?
+                - **MM** And when we run that test, what's going to happen?
                 - Well, it's going to fail! Of course
+                - as you can see we are on localhost:3000 and nothing is rendered
             </aside>
         </section>
 
@@ -319,7 +297,8 @@
                 )
             </code></pre>
             <aside class="notes" data-markdown>
-                - a simple react component to spit a H1 on the page
+                - **SS** Can you think of a way to make this pass?
+                - Yeah we can create a simple react component to spit an H1 on the page
             </aside>
         </section>
 
@@ -341,10 +320,9 @@
                 end
             </code></pre>
             <aside class="notes" data-markdown>
-                - back to the test
-                - now we want to focus_on welcome start_game
-                - which uses a page fragment to click on the "start game" button
-                - the button? what button
+                - **SS** in the next part of the test we want to start the game
+                - "focus_on welcome to start_game" is a page fragment to click on the "start game" button
+                - the button? what button?
             </aside>
         </section>
 
@@ -354,10 +332,8 @@
                 <img src="images/iteration-1.2-welcome.png" />
             </div>
             <aside class="notes" data-markdown>
-                - there is no button!
+                - **MM** there is no button!
                 - no shit
-                - oh yeah
-                - fail first
             </aside>
         </section>
 
@@ -378,15 +354,12 @@
                 )
             </code></pre>
             <aside class="notes" data-markdown>
-                - lets create one
-                - using react router, we Link to the first round
-                - is this good react
-                - look a room full of no reaction
-                - maybe they are ember devs after all
-                - cmon people React
-                - where are the tests?
-                - for react?
-                - fuck em just snap shot test
+                - **MM** ok, lets create one
+                - using react router, we're going to Link to the first round
+                - should we write a test first?
+                - I dunno, we've got a room full of experts - should we ask them?
+                - Sure. Would anyone here ever drive this kind of code with a test?
+                - ** see what happens **
             </aside>
         </section>
 
@@ -403,12 +376,12 @@
                 end
 
                 Then 'the game commences' do
-                  <mark>wait_for { focus_on(:game).title }.to eq('1')</mark>
+                  <mark>wait_for { focus_on(:game).title }.to eq('Round 1')</mark>
                 end
             </code></pre>
             <aside class="notes" data-markdown>
-                - How do we know the game has commenced?
-                - we are on round 1, it says it in the title
+                - **MM** Ok, back on track. How do we know the game has commenced?
+                - we're on "round 1", it says it in the title
             </aside>
         </section>
 
@@ -418,8 +391,8 @@
                 <img src="images/iteration-1.4-round-empty.png" />
             </div>
             <aside class="notes" data-markdown>
-                - and we get nothing
-                - zip
+                - **MM** and we get nothing
+                - How would we write the implementation to notify the user they're on round 1?
             </aside>
         </section>
 
@@ -441,10 +414,9 @@
                 )
             </code></pre>
             <aside class="notes" data-markdown>
-                - here is a Rounds component in React
-                - it gets the React Router round parameter from the path and displays it
-                - should we be doing something different with state? audience?
-                - come grab us later to tell us, PR's on the github will also be accepted.
+                - **MM** Like this! Here is a Rounds component in React, it gets the React Router round parameter from the path and displays it
+                - Is this the way we should write this? Should we be doing something different with state maybe? Does anyone here know?
+                - Come grab us later to tell us
             </aside>
         </section>
 
@@ -466,8 +438,8 @@
                 end
             </code></pre>
             <aside class="notes" data-markdown>
-                - back in flow test land
-                - we are now waiting on 9 images
+                - **SS** Back to our flow, the next thing we need is 9 images
+                - images? what of those cute furry animals?
             </aside>
         </section>
 
@@ -477,8 +449,7 @@
                 <img src="images/iteration-1.6-no-images.png" />
             </div>
             <aside class="notes" data-markdown>
-                - images? what of those cute furry animals?
-                - there are none
+                - **SS** Yeah! But there are none
                 - good! [pause] a failing test
             </aside>
         </section>
@@ -499,10 +470,10 @@
                 </div>
             </code></pre>
             <aside class="notes" data-markdown>
-                - there is more code here
-                - like API endpoints, controllers
-                - models, serializers
+                - **SS** In the next step, there's a bunch more code that happens
+                - like API endpoints, controllers, models, serializers
                 - but you guys don't care, you are react developers so here is a snippet of some JSX instead
+                - it's the bit that shows some images fetched from our API
             </aside>
         </section>
 
@@ -536,7 +507,7 @@
                 end
             </code></pre>
             <aside class="notes" data-markdown>
-                - wrapping up iteration 1 we have just written
+                - **MM** wrapping up iteration 1 we have just written
                 - we have a WHEN action on the system
                 - and THEN a measurable state showing the commencement of the game
             </aside>
@@ -563,9 +534,9 @@
             </code></pre>
             </div>
             <aside class="notes" data-markdown>
-                - dealing with us backend devs is a pain
+                - **SS** Dealing with backend devs like us is a pain
                 - there is all this latency, network to and fro
-                - great time for spinners
+                - it's a great time for spinners
                 - or in our case a state of LOADING and game IN-PROGRESS
                 - This is where page mechanics come in
                 - not wanting to start the game each time, we just want to explore the mechanics
@@ -574,20 +545,8 @@
         </section>
 
         <section>
-            <h3>failing mechanic TODO</h3>
+            <h3>failing mechanic</h3>
             <h3>lIVE CODING</h3>
-            <aside class="notes" data-markdown></aside>
-        </section>
-        <section>
-            <h3>component test TODO</h3>
-            <aside class="notes" data-markdown></aside>
-        </section>
-        <section>
-            <h3>frontend impmentation TODO</h3>
-            <aside class="notes" data-markdown></aside>
-        </section>
-        <section>
-            <h3>back to the compelte flow TODO</h3>
             <aside class="notes" data-markdown></aside>
         </section>
 
@@ -597,8 +556,7 @@
             <div>Just cause we built it, lets play a game!</div>
 
             <aside class="notes" data-markdown>
-                - Aaaaand, just cause we built
-                - let's play the game.
+                - **SS** Aaaaand, just cause we built let's play it.
                 - Who wants to play?!
             </aside>
         </section>
@@ -626,12 +584,11 @@
             </div>
 
             <aside class="notes" data-markdown>
-                - go checkout our blog Failure Drivem
+                - **SS** We have a blog. Go check it out: FailureDriven.com
                 - you will find links to the game, the code and this presentation
-                - we work for Fresho!
-                - catch us on twitter
-                - any react tips, tweet them at us
-                - come over and give us 5 minutes, we will take an hour
+                - Catch us on twitter
+                - Any react tips, tweet them at us
+                - Or come over and give us 5 minutes, we've got a million questions
                 - Thanks everyone!
             </aside>
         </section>
