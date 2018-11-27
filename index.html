@@ -146,7 +146,7 @@
                 - and I'm Michael
                 - We work at Fresho!
                 - at Fresho! we're 100% focused on multi layer outside in BDD
-                - Sound boring?
+                - Sounds boring, right?
                 - Yeah, well it's not.
                 - Ok we've only got 10 minutes so let's make sure everyone knows what we mean by 100% MULTI-LAYER OUTSIDE-IN
             </aside>
@@ -156,10 +156,10 @@
         <section>
             <img src="images/units/11-api-acceptance.jpg" width="600" height="600">
             <aside class="notes" data-markdown>
-                - **MM** Here's an example of how a back end might look,
-                - we have a number of tests around individual models, controllers, service objects
+                - **MM** Here's an example of how a back end might look
+                - We have a number of tests around individual models, controllers, service objects
                 as well as integration tests around groups of these that work together
-                - at the outer layer of the backend, the complete API is treated as a unit, and is tested as such
+                - At the outer layer of the backend, the complete API is treated as a unit, and is tested as such
                 - But we'll leave it at that 'cause we don't want to bore you with backend crap
             </aside>
         </section>
@@ -180,29 +180,29 @@
             <aside class="notes" data-markdown>
                 - **SS** So anyway, each frontend component will be tested in isolation
                 - Anyone have thoughts on isolated component tests in React?
-                - What about snapshot testing?
+                - What about snapshot testing? Are there actually any benefits?
             </aside>
         </section>
 
         <section>
             <img src="images/units/SPA-mechanic.jpg" width="600" height="600">
             <aside class="notes" data-markdown>
-                - **MM** Now we move on to testing the users experience of the app.
+                - **MM** Next, we move on to testing the users experience of the app.
                 - The example we're going to show you today is basically a flow through 3 pages.
                 - We want to test each of those pages individually
                 - If you imagine a multi step form wizard, we want to be able to test any one of
                 those steps in isolation from each other
-                - we call this style of integration test a Mechanic test that exercises
-                the "Mechanics" of the step
+                - We call this style of integration test a Mechanic because it exercises
+                the "Mechanics" of the step we're testing
             </aside>
         </section>
 
         <section>
             <img src="images/units/SPA-flow.jpg" width="600" height="600">
             <aside class="notes" data-markdown>
-                - **SS** Lastly, the outer-most layer of tests that we like to implement are what we call "flows"
-                - flows are just integration tests
-                - They test the flow-on effects as the user interacts between different pages
+                - **SS** Lastly, the outer-most layer of tests that we like to implement are what we call "Flows"
+                - Flows are just integration tests
+                - They test the flow-on effects as the user interacts between different pages or components
                 - As you can see here, this style of test tests the whole application
                 - Flows encapsulate user behaviour across the whole system: Back end, API and Front end!
             </aside>
@@ -213,7 +213,7 @@
 
             <aside class="notes" data-markdown>
                 - **MM** Every piece of code we write starts with a series of flows
-                - let's start writing some code
+                - Awesome. Let's start writing some code
             </aside>
         </section>
 
@@ -235,7 +235,7 @@
                 end
             </code></pre>
             <aside class="notes" data-markdown>
-                - **MM** We're wanting to build a basic game to guess the search term used to find images from the internet
+                - **MM** We want to build a basic game to guess a search term which is used to find images from the internet
                 - To get started we've setup a flow using ruby's RSpec, capybara and selenium testing frameworks
                 - **➡** The first feature is a Game play lifecycle flow
                 - **➡** The context is: that we setup some initial state for our Game with names of cute animals
@@ -262,8 +262,8 @@
                 end
             </code></pre>
             <aside class="notes" data-markdown>
-                - **SS** In the scenario 'winning the game', the user has to start the game
-                - so, we visit the app and confirm we are there through the welcome message
+                - **SS** In the scenario 'winning the game', the first thing to assert is that we're on the right page!
+                - So, we visit the app and confirm we are there by checking the welcome message
                 - This is the first piece of code in the whole app!
                 - We have no controllers, models, views. No migrations. Nothing.
                 - The first piece of code is always a test.
@@ -278,7 +278,7 @@
             <aside class="notes" data-markdown>
                 - **MM** And when we run that test, what's going to happen?
                 - Well, it's going to fail! Of course
-                - as you can see we are on localhost:3000 and nothing is rendered
+                - As you can see we are on localhost:3000 and nothing is rendered
             </aside>
         </section>
 
@@ -315,14 +315,14 @@
                 end
 
                 Then 'the game commences' do
-                  pending 'start game button doesnt start a game!'
+                  pending "start game button doesn't start a game!"
                   wait_for { focus_on(:game).round }.to eq('1')
                 end
             </code></pre>
             <aside class="notes" data-markdown>
-                - **SS** in the next part of the test we want to start the game
+                - **SS** In the next part of the test we want to start the game
                 - "focus_on welcome to start_game" is a page fragment to click on the "start game" button
-                - the button? what button?
+                - The button? What button?
             </aside>
         </section>
 
@@ -332,8 +332,8 @@
                 <img src="images/iteration-1.2-welcome.png" />
             </div>
             <aside class="notes" data-markdown>
-                - **MM** there is no button!
-                - no shit
+                - **MM** There is no button!
+                - No shit
             </aside>
         </section>
 
@@ -354,11 +354,11 @@
                 )
             </code></pre>
             <aside class="notes" data-markdown>
-                - **MM** ok, lets create one
-                - using react router, we're going to Link to the first round
-                - should we write a test first?
+                - **MM** Ok, lets create one
+                - Using react router, we're going to Link to the first round
+                - Should we write a test first?
                 - I dunno, we've got a room full of experts - should we ask them?
-                - Sure. Would anyone here ever drive this kind of code with a test?
+                - Sure. Would anyone here ever drive this kind of code with an isolated unit test in React?
                 - ** see what happens **
             </aside>
         </section>
@@ -381,7 +381,7 @@
             </code></pre>
             <aside class="notes" data-markdown>
                 - **MM** Ok, back on track. How do we know the game has commenced?
-                - we're on "round 1", it says it in the title
+                - We're on "round 1", it says it in the title
             </aside>
         </section>
 
@@ -391,7 +391,7 @@
                 <img src="images/iteration-1.4-round-empty.png" />
             </div>
             <aside class="notes" data-markdown>
-                - **MM** and we get nothing
+                - **MM** And we get nothing
                 - How would we write the implementation to notify the user they're on round 1?
             </aside>
         </section>
@@ -414,7 +414,7 @@
                 )
             </code></pre>
             <aside class="notes" data-markdown>
-                - **MM** Like this! Here is a Rounds component in React, it gets the React Router round parameter from the path and displays it
+                - **MM** Like this! Here is a Rounds component, it gets the React Router round parameter from the path and displays it
                 - Is this the way we should write this? Should we be doing something different with state maybe? Does anyone here know?
                 - Come grab us later to tell us
             </aside>
@@ -439,7 +439,7 @@
             </code></pre>
             <aside class="notes" data-markdown>
                 - **SS** Back to our flow, the next thing we need is 9 images
-                - images? what of those cute furry animals?
+                - Images? what of those cute furry animals?
             </aside>
         </section>
 
@@ -450,7 +450,7 @@
             </div>
             <aside class="notes" data-markdown>
                 - **SS** Yeah! But there are none
-                - good! [pause] a failing test
+                - Good! [pause] A failing test
             </aside>
         </section>
 
@@ -471,9 +471,9 @@
             </code></pre>
             <aside class="notes" data-markdown>
                 - **SS** In the next step, there's a bunch more code that happens
-                - like API endpoints, controllers, models, serializers
-                - but you guys don't care, you are react developers so here is a snippet of some JSX instead
-                - it's the bit that shows some images fetched from our API
+                - Like API endpoints, controllers, models, serializers
+                - But you guys don't care, you're' react developers so here is a snippet of some JSX instead
+                - It's the bit that shows some images, fetched from our API
             </aside>
         </section>
 
@@ -507,9 +507,9 @@
                 end
             </code></pre>
             <aside class="notes" data-markdown>
-                - **MM** wrapping up iteration 1 we have just written
-                - we have a WHEN action on the system
-                - and THEN a measurable state showing the commencement of the game
+                - **MM** Wrapping up iteration 1 we have just written
+                - We have a WHEN action on the system
+                - And THEN a measurable state showing the commencement of the game
             </aside>
         </section>
 
@@ -535,18 +535,17 @@
             </div>
             <aside class="notes" data-markdown>
                 - **SS** Dealing with backend devs like us is a pain
-                - there is all this latency, network to and fro
-                - it's a great time for spinners
-                - or in our case a state of LOADING and game IN-PROGRESS
+                - There is all this latency, network to and fro
+                - It's a great time for spinners
+                - Or in our case a state of LOADING and game IN-PROGRESS
                 - This is where page mechanics come in
-                - not wanting to start the game each time, we just want to explore the mechanics
+                - Not wanting to start the game each time, we just want to explore the mechanics
                 of the status component on this page
             </aside>
         </section>
 
         <section>
-            <h3>failing mechanic</h3>
-            <h3>lIVE CODING</h3>
+            <h3>Live Coding</h3>
             <aside class="notes" data-markdown></aside>
         </section>
 
@@ -556,7 +555,9 @@
             <div>Just cause we built it, lets play a game!</div>
 
             <aside class="notes" data-markdown>
-                - **SS** Aaaaand, just cause we built let's play it.
+                - **SS** What we've shown you you was just the first iteration of a single scenario
+                - We actually have a working game now.
+                - Aaaaand just cause we built it, let's play the game.
                 - Who wants to play?!
             </aside>
         </section>
@@ -585,7 +586,7 @@
 
             <aside class="notes" data-markdown>
                 - **SS** We have a blog. Go check it out: FailureDriven.com
-                - you will find links to the game, the code and this presentation
+                - You will find links to the game, the code and this presentation
                 - Catch us on twitter
                 - Any react tips, tweet them at us
                 - Or come over and give us 5 minutes, we've got a million questions
