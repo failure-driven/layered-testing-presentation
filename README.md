@@ -78,23 +78,27 @@ Talk/workshop on the idea of outside in multi layered behaviour driven layered t
 - [Ruby meetup Melboure](https://www.meetup.com/Ruby-On-Rails-Oceania-Melbourne/)
   - plan for November 2018
   - https://github.com/rails-oceania/melbourne-ruby/issues/111
-  - DONE [Ruby.org.au video Oct 31](http://youtu.be/p72EPNXbjiU)
+  - DONE ✅ [Ruby.org.au video Oct 31](http://youtu.be/p72EPNXbjiU)
+
+- [ReactJS meetup](https://www.meetup.com/React-Melbourne/events/255823040/)
+  - Tue Nov 27
+  - DONE ✅
 
 **Waiting:**
 
 - [Ruby Conf AU](https://www.rubyconf.org.au/2019)
   - CFP ends 15 October https://www.papercall.io/rubyconf-au-2019
-  - SUBMITTED waiting ⏱
+  - Regected ❌
 
 - [Craft Conf - Budapest](https://www.papercall.io/craft-conf-2019)
   - May 9 - 10 2019
   - SUBMITTED waiting ⏱
 
-- [ReactJS meetup](https://www.meetup.com/React-Melbourne/events/255823040/)
-  - Tue Nov 27
-  - SUBMITTED waiting ⏱
-
 **Next submissions:**
+
+- [Hack in Paris](https://www.papercall.io/hack-in-paris)
+  - June 16th to 20th 2019
+  - CFP closes December 10, 2018
 
 - [React Amsterdam](https://goo.gl/forms/WZsgwz8WGvrlPyvH2)
   - April 11 - workshops
@@ -105,9 +109,14 @@ Talk/workshop on the idea of outside in multi layered behaviour driven layered t
   - June 21-22 Rotterdam
   - CFP open till Feb 28th 2019 - [CFP](https://www.papercall.io/euruko2019)
 
-- [Hack in Paris](https://www.papercall.io/hack-in-paris)
-  - June 16th to 20th 2019
-  - CFP closes December 10, 2018
+- [CAST 2019 - Florida](https://www.papercall.io/cast-2019)
+  - Aug 12 - 15
+  - CFP open till Feb 10th 2019
+  - more [details on CFP](https://www.associationforsoftwaretesting.org/conference/cast2019/cast2019-call-for-proposals/)
+    - Speaker defined
+    - Track session 40-45 min + 20-30 min moderated Q&A
+    - Workshop 2 hour
+  - entry + $250 + $500 split for paired presenters
 
 **Possible submissions but no travel budget:**
 
