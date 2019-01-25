@@ -99,6 +99,7 @@ Talk/workshop on the idea of outside in multi layered behaviour driven layered t
 - [Hack in Paris](https://www.papercall.io/hack-in-paris)
   - June 16th to 20th 2019
   - CFP closes December 10, 2018
+  - NOT RELEVANT ❌
 
 - [React Amsterdam](https://goo.gl/forms/WZsgwz8WGvrlPyvH2)
   - April 11 - workshops
