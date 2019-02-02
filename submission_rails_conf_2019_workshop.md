@@ -36,6 +36,7 @@ using layered testing.
 1. setup testing frameworks with tweaks to work with multi layer testing:
    RSpec, Capybara, Jest, Selenium webdriver, rubocop, ESLint
 1. Run through 1 cycle of the full gamut of tests
+
     1. **“Lifecycle Flow”** is the outer most layer of this BDD approach and
        follows along a flow of activity between 1 or more actors, usually
        driving a browser along many screens of a web style applications leading
@@ -63,8 +64,9 @@ using layered testing.
        interaction.
     1. **“Domain Unit Tests”** are mostly done against the grain of RSpec and
        are unit tests and not integrated with the DB.
- 1. Run through 2 more iterations to watch the tests evolve
- 1. Retrospect with an example of the code base that has been taken through a
+
+1. Run through 2 more iterations to watch the tests evolve
+1. Retrospect with an example of the code base that has been taken through a
     few more iterations
 
 ### Pitch
