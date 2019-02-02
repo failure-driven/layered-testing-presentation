@@ -36,35 +36,36 @@ using layered testing.
 1. setup testing frameworks with tweaks to work with multi layer testing:
    RSpec, Capybara, Jest, Selenium webdriver, rubocop, ESLint
 1. Run through 1 cycle of the full gamut of tests
-  1. **“Lifecycle Flow”** is the outer most layer of this BDD approach and
-     follows along a flow of activity between 1 or more actors, usually driving
-     a browser along many screens of a web style applications leading to one of
-     a number of possible flow on effects. These flows usually represent a
-     business process.
-  1. **“Page/Component Mechanics”** are tests still run from a browser but
-     focusing on a particular page or component on a number of places within
-     the app and exercise specific behaviours that may come about from various
-     states the application may find itself in.
-  1. **“Frontend Component Tests”** are used to test the usually javascript
-     frontend framework implementation of the web page implementation. They
-     allow for faster unit level testing of the various states the frontend can
-     be in.
-  1. **“External Integration Tests”** are a boundary that is fulfilled with a
-     mock at most other layers of testing. This layer is performed separately
-     to better control the effect of third party services.
-  1. **“API Acceptance Tests”** define a boundary of the backend system and are
-     an integration test of the backend unit as a whole.
-  1. **“Controller Unit Tests”** are written as unit tests as opposed to more
-     standard RSpec integration tests. This is due to the API acceptance being
-     a better place to drive out the integration and means tests at this layer
-     would only change with API changes.
-  1. **“Domain Concept Tests”** often a number of model classes in rails
-     represent a join domain concept and it is worth testing their interaction.
-  1. **“Domain Unit Tests”** are mostly done against the grain of RSpec and are
-     unit tests and not integrated with the DB.
-1. Run through 2 more iterations to watch the tests evolve
-1. Retrospect with an example of the code base that has been taken through a
-   few more iterations
+    1. **“Lifecycle Flow”** is the outer most layer of this BDD approach and
+       follows along a flow of activity between 1 or more actors, usually
+       driving a browser along many screens of a web style applications leading
+       to one of a number of possible flow on effects. These flows usually
+       represent a business process.
+    1. **“Page/Component Mechanics”** are tests still run from a browser but
+       focusing on a particular page or component on a number of places within
+       the app and exercise specific behaviours that may come about from
+       various states the application may find itself in.
+    1. **“Frontend Component Tests”** are used to test the usually javascript
+       frontend framework implementation of the web page implementation. They
+       allow for faster unit level testing of the various states the frontend
+       can be in.
+    1. **“External Integration Tests”** are a boundary that is fulfilled with a
+       mock at most other layers of testing. This layer is performed separately
+       to better control the effect of third party services.
+    1. **“API Acceptance Tests”** define a boundary of the backend system and
+       are an integration test of the backend unit as a whole.
+    1. **“Controller Unit Tests”** are written as unit tests as opposed to more
+       standard RSpec integration tests. This is due to the API acceptance
+       being a better place to drive out the integration and means tests at
+       this layer would only change with API changes.
+    1. **“Domain Concept Tests”** often a number of model classes in rails
+       represent a join domain concept and it is worth testing their
+       interaction.
+    1. **“Domain Unit Tests”** are mostly done against the grain of RSpec and
+       are unit tests and not integrated with the DB.
+ 1. Run through 2 more iterations to watch the tests evolve
+ 1. Retrospect with an example of the code base that has been taken through a
+    few more iterations
 
 ### Pitch
 
